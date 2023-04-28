@@ -1,41 +1,39 @@
-@{
-    Layout = null;
-}
+@model CadastrarUsuarioViewModel;
+
 
 <div class="cadastrar-container">
   <form id="cadastroUsuario">
       <h1>Crie sua conta</h1>
       <hr>
 
-      <label for="nome"><b>Nome</b></label>
-      <input type="text" placeholder="Seu nome" name="nome" id="Nome" required>
+      <label asp-for="Nome"><b>Nome</b></label>
+      <input type="text" placeholder="Seu nome" name="nome" required>
 
-      <label for="sobrenome"><b>Sobrenome</b></label>
-      <input type="text" placeholder="Seu sobrenome" name="sobrenome" id="Sobrenome" required>
+      <label asp-for="Email"><b>Email</b></label>
+      <input type="text" placeholder="Seu Email" name="email" required>
 
-      <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Seu Email" name="email" id="Email" required>
+      <label asp-for="Senha"><b>Senha</b></label>
+      <input type="password" placeholder="Escolha uma senha" name="senha" required>
 
-      <label for="senha"><b>Senha</b></label>
-      <input type="password" placeholder="Escolha uma senha" name="senha" id="Senha" required>
-
-      <label for="senha-repeat"><b>Repitir Senha</b></label>
-      <input type="password" placeholder="Repita sua senha" name="senha-repeat" id="Senha-repeat" required>
+      <label asp-for="RepetirSenha"><b>Repitir Senha</b></label>
+      <input type="password" placeholder="Repita sua senha" name="senha-repeat" required>
 
       <hr>
 
-      <button type="submit" class="registerbtn" onclick="cadastrar.cadastrarUsuario()">Registrar</button>
+      <button type="submit" class="registerbtn" onclick="usuario.cadastrar()">Registrar</button>
   </form>
     </div>
   <div class="container-entrar">
     <p>Já tem uma conta? <a href="#">Sign in</a>.</p>
 </div>
 
+<script src="~/js/site.js" asp-append-version="true"></script>
+
  <script src="~/js/Pages/usuario.js" asp-append-version="true"></script>
  <script>
      usuario.init({
       urls: { 
-             cadastrarUsuario: '@Url.Action("cadastrar", "usuario")'
+             cadastrar: '@Url.Action("cadastrar", "usuario")'
      }
   });
  </script> 

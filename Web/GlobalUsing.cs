@@ -9,6 +9,8 @@ global using Core.Settings;
 global using Data;  
 global using Data.Repositories;
 
+global using Web.ViewModels.Usuario;
+
 // global using Microsoft.AspNetCore.Authentication.Cookies;
 // global using Microsoft.AspNetCore.Authentication.JwtBearer;
 global using Microsoft.AspNetCore.Mvc;

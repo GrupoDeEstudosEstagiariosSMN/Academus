@@ -12,13 +12,21 @@ namespace Web.Controllers
         
         public IActionResult Index() => View();
 
-        [HttpGet("cadastro")]
+        [HttpGet("cadastrar")]
         public IActionResult CadastrarUsuario() => View("_Cadastrar");
 
-        [HttpPost("cadastro")]
-        public async Task<IActionResult> EnviarCadastro(Usuario usuario)
+        [HttpPost("cadastrar")]
+        public async Task<IActionResult> EnviarCadastro(CadastrarUsuarioViewModel usuario)
         {
-            await _usuarioRepository.Cadastrar(usuario);
+            if (usuario.Senha == usuario.RepetirSenha)
+                { 
+                await _usuarioRepository.Cadastrar(new Usuario
+                    {
+                        Nome = usuario.Nome,
+                        Email = usuario.Email,
+                        Senha = usuario.Senha
+                    });
+                }
 
             return RedirectToAction("Index", "Usuario");
         }
