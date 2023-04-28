@@ -1,9 +1,9 @@
-var cadastrar = (() => {
+var usuario = (() => {
 
     var configs = {
         urls: {
             index: '',
-            cadastrarUsuario: ''
+            cadastrar: ''
         }
     };
 
@@ -11,15 +11,14 @@ var cadastrar = (() => {
         configs = $configs;
     };
 
-    var cadastrarUsuario = () => {
+    var cadastrar = () => {
             var model = $('#cadastroUsuario').serializeObject();
-             $.post(configs.urls.cadastrarUsuario, model).done(() => {
-                console.log('sucesso')
+             $.post(configs.urls.cadastrar, model).done(() => {
             });
         }
 
     return {
         init: init, 
-        cadastrarUsuario: cadastrarUsuario
+        cadastrar: cadastrar
     };
 })();

@@ -31,11 +31,11 @@
     <p>Já tem uma conta? <a href="#">Sign in</a>.</p>
 </div>
 
- <script src="~/js/Pages/_cadastrar.js" asp-append-version="true"></script>
+ <script src="~/js/Pages/usuario.js" asp-append-version="true"></script>
  <script>
-     sign.init({
+     usuario.init({
       urls: { 
-             cadastrarUsuario: '@Url.Action("cadastro", "cadastro")'
+             cadastrarUsuario: '@Url.Action("cadastrar", "usuario")'
      }
   });
  </script> 

@@ -9,6 +9,7 @@ namespace Web.Controllers
         {
             _usuarioRepository = usuarioRepository;
         }   
+        
         public IActionResult Index() => View();
 
         [HttpGet("cadastro")]
