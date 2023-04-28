@@ -1,4 +1,4 @@
-namespace data.Repositories
+namespace Data.Repositories
 {
     public class UsuarioRepository : IUsuarioRepository 
     {
