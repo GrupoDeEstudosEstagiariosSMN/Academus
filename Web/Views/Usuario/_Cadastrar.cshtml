@@ -1,0 +1,39 @@
+@model CadastrarUsuarioViewModel;
+
+
+<div class="cadastrar-container">
+  <form id="cadastroUsuario">
+      <h1>Crie sua conta</h1>
+      <hr>
+
+      <label asp-for="Nome"><b>Nome</b></label>
+      <input type="text" placeholder="Seu nome" name="nome" required>
+
+      <label asp-for="Email"><b>Email</b></label>
+      <input type="text" placeholder="Seu Email" name="email" required>
+
+      <label asp-for="Senha"><b>Senha</b></label>
+      <input type="password" placeholder="Escolha uma senha" name="senha" required>
+
+      <label asp-for="RepetirSenha"><b>Repitir Senha</b></label>
+      <input type="password" placeholder="Repita sua senha" name="senha-repeat" required>
+
+      <hr>
+
+      <button type="submit" class="registerbtn" onclick="usuario.cadastrar()">Registrar</button>
+  </form>
+    </div>
+  <div class="container-entrar">
+    <p>Já tem uma conta? <a href="#">Sign in</a>.</p>
+</div>
+
+<script src="~/js/site.js" asp-append-version="true"></script>
+
+ <script src="~/js/Pages/usuario.js" asp-append-version="true"></script>
+ <script>
+     usuario.init({
+      urls: { 
+             cadastrar: '@Url.Action("cadastrar", "usuario")'
+     }
+  });
+ </script> 
