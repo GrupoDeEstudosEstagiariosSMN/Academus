@@ -1,18 +1,18 @@
 namespace data.Repositories
 {
-    public class UsuarioRepository //: IUsuarioRepository TODO: implementar interface
+    public class UsuarioRepository : IUsuarioRepository 
     {
-        private readonly ApplicationDbContext _Dbcontext;
+        private readonly ApplicationDbContext _dbContext;
 
-        public UsuarioRepository(ApplicationDbContext dbcontext)
+        public UsuarioRepository(ApplicationDbContext dbContext)
         {
-            _Dbcontext = dbcontext;
+            _dbContext = dbContext;
         }
 
         public async Task Cadastrar(Usuario usuario)
         {
-            await _Dbcontext.Usuarios.AddAsync(usuario);
-            await _Dbcontext.SaveChangesAsync();
+            await _dbContext.Usuarios.AddAsync(usuario);
+            await _dbContext.SaveChangesAsync();
         }
 
 
