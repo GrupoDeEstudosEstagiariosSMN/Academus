@@ -3,7 +3,8 @@ var usuario = (() => {
     var configs = {
         urls: {
             index: '',
-            cadastrar: ''
+            cadastrar: '',
+            buscar: ''
         }
     };
 
@@ -12,13 +13,22 @@ var usuario = (() => {
     };
 
     var cadastrar = () => {
-            var model = $('#cadastroUsuario').serializeObject();
-             $.post(configs.urls.cadastrar, model).done(() => {
-            });
-        }
+        var model = $('#cadastroUsuario').serializeObject();
+        $.post(configs.urls.cadastrar, model).done(() => {
+        });
+    }
+
+    var buscarUsuario = () => {
+        var model = $('#buscarUsuario').serializeObject();
+        console.log(model);
+        $.post(configs.urls.buscar, model).done((html) => {
+            $('#mostrarUsuarios').html(html);
+        });
+    }
 
     return {
-        init: init, 
+        init: init,
+        buscarUsuario: buscarUsuario,
         cadastrar: cadastrar
     };
 })();

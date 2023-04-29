@@ -1,6 +1,6 @@
 namespace Data.Configurations.Application
 {
-    public class UsuarioConfiguration
+    public class UsuarioConfiguration : IEntityTypeConfiguration<Usuario>
     {
         public void Configure(EntityTypeBuilder<Usuario> builder)
         {

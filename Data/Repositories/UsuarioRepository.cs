@@ -15,8 +15,12 @@ namespace Data.Repositories
             await _dbContext.SaveChangesAsync();
         }
 
-
-
-        
+        public async Task<IEnumerable<Usuario>> BuscarUsuariosAsync(string nomeUsuario)
+        {
+            if (string.IsNullOrEmpty(nomeUsuario))
+                return await _dbContext.Usuarios.ToListAsync();
+            else
+                return await _dbContext.Usuarios.Where(x => x.Nome.ToLower() == nomeUsuario.ToLower()).ToListAsync();        
+        }
     }
 }

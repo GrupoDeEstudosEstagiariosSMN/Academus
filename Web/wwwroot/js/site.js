@@ -52,5 +52,3 @@
         init: init
     };
 })();
-
-var els = document.getElementsByTagName('a');
