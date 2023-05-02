@@ -13,10 +13,11 @@ var usuario = (() => {
     };
 
     var cadastrar = () => {
-        var model = $('#cadastroUsuario').serializeObject();
-        $.post(configs.urls.cadastrar, model).done(() => {
-        });
-    }
+            var model = $('#cadastroUsuario').serializeObject();
+             $.post(configs.urls.cadastrar, model).done(() => {
+                location.href = '/usuario';
+            });
+        }
 
     var buscarUsuario = () => {
         var model = $('#buscarUsuario').serializeObject();
