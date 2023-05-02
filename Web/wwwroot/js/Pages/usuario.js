@@ -14,6 +14,7 @@ var usuario = (() => {
     var cadastrar = () => {
             var model = $('#cadastroUsuario').serializeObject();
              $.post(configs.urls.cadastrar, model).done(() => {
+                location.href = '/usuario';
             });
         }
 
