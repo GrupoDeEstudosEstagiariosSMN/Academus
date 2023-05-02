@@ -36,5 +36,12 @@ namespace Web.Controllers
         {
             return View("_Buscar", await _usuarioRepository.BuscarUsuariosAsync(nomeUsuario.Nome));
         }
+
+        [HttpPost("deletar")]
+        public async Task<IActionResult> DeletarUsuario(BuscarUsuarioViewModel idUsuario)
+        {
+            await _usuarioRepository.Deletar(idUsuario.Id);
+            return RedirectToAction("Index", "usuario");
+        }
     }
 }

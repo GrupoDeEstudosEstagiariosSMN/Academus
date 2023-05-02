@@ -4,5 +4,6 @@ namespace Core.Interfaces.Repositories
     {
         Task Cadastrar(Usuario usuario);
         Task<IEnumerable<Usuario>> BuscarUsuariosAsync(string nomeUsuario);
+        Task Deletar(int id);
     }
 }

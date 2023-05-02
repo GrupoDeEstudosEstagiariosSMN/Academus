@@ -4,7 +4,8 @@ var usuario = (() => {
         urls: {
             index: '',
             cadastrar: '',
-            buscar: ''
+            buscar: '',
+            deletar: ''
         }
     };
 
@@ -27,9 +28,16 @@ var usuario = (() => {
         });
     }
 
+    var deletarUsuario = (id) => {
+        $.post(configs.urls.deletar, { id: id }).done(() => {
+            location.reload();
+        });
+    }
+
     return {
         init: init,
         buscarUsuario: buscarUsuario,
-        cadastrar: cadastrar
+        cadastrar: cadastrar,
+        deletarUsuario: deletarUsuario
     };
 })();
