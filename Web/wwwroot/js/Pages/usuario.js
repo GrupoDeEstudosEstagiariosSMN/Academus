@@ -5,7 +5,8 @@ var usuario = (() => {
             index: '',
             cadastrar: '',
             buscar: '',
-            deletar: ''
+            deletar: '',
+            editar: ''
         }
     };
 
@@ -22,7 +23,6 @@ var usuario = (() => {
 
     var buscarUsuario = () => {
         var model = $('#buscarUsuario').serializeObject();
-        console.log(model);
         $.post(configs.urls.buscar, model).done((html) => {
             $('#mostrarUsuarios').html(html);
         });
@@ -34,10 +34,25 @@ var usuario = (() => {
         });
     }
 
+    $(document).ready(() => {
+        $('.inputEditar').hide();
+        $('#editar-button').click(() => {
+        $('.inputEditar').toggle();
+        });
+    });
+
+    var editarUsuario = () => {
+        var model = $('#formEditar').serializeObject();
+        $.post(configs.urls.editar, model).done(() => {
+            location.reload();
+        });
+    }
+
     return {
         init: init,
         buscarUsuario: buscarUsuario,
         cadastrar: cadastrar,
-        deletarUsuario: deletarUsuario
+        deletarUsuario: deletarUsuario,
+        editarUsuario: editarUsuario
     };
 })();
