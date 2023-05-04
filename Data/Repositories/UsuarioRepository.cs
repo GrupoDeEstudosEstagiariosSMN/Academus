@@ -9,7 +9,7 @@ namespace Data.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task Cadastrar(Usuario usuario)
+        public async Task CadastrarAsync(Usuario usuario)
         {
             await _dbContext.Usuarios.AddAsync(usuario);
             await _dbContext.SaveChangesAsync();

@@ -20,7 +20,7 @@ namespace Web.Controllers
         {
             if (usuario.Senha == usuario.RepetirSenha)
             {
-                await _usuarioRepository.Cadastrar(new Usuario
+                await _usuarioRepository.CadastrarAsync(new Usuario
                 {
                     Nome = usuario.Nome,
                     Email = usuario.Email,
