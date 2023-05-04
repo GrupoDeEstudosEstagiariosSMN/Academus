@@ -33,9 +33,7 @@ namespace Data.Repositories
 
         public async Task EditarAsync(int id, string nomeUsuario, string emailUsuario)
         {
-            var entity = await _dbContext.Set<Usuario>().FindAsync(id);
-            _dbContext.Attach(entity);
-            _dbContext.Entry(entity).CurrentValues.SetValues(new {
+            await _dbContext.UpdateEntryAsync<Usuario>(id, new {
                 Nome = nomeUsuario,
                 Email = emailUsuario
             });
