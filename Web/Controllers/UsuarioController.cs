@@ -45,10 +45,9 @@ namespace Web.Controllers
         }
 
         [HttpPost("editar")]
-        public async Task<IActionResult> EditarUsuario(string nome, string email)
+        public async Task<IActionResult> EditarUsuario(int id, string nome, string email)
         {
-            Console.WriteLine(email);
-            await _usuarioRepository.EditarAsync(7, nome, email);
+            await _usuarioRepository.EditarAsync(id, nome, email);
             return RedirectToAction("Index", "usuario");
         }
     }
