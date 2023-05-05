@@ -20,7 +20,7 @@ namespace Web.Controllers
         {
             if (usuario.Senha == usuario.RepetirSenha)
             {
-                await _usuarioRepository.Cadastrar(new Usuario
+                await _usuarioRepository.CadastrarAsync(new Usuario
                 {
                     Nome = usuario.Nome,
                     Email = usuario.Email,
@@ -40,7 +40,7 @@ namespace Web.Controllers
         [HttpPost("deletar")]
         public async Task<IActionResult> DeletarUsuario(int id)
         {
-            await _usuarioRepository.Deletar(id);
+            await _usuarioRepository.DeletarAsync(id);
             return RedirectToAction("Index", "usuario");
         }
 
