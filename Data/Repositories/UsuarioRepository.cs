@@ -9,7 +9,7 @@ namespace Data.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task Cadastrar(Usuario usuario)
+        public async Task CadastrarAsync(Usuario usuario)
         {
             await _dbContext.Usuarios.AddAsync(usuario);
             await _dbContext.SaveChangesAsync();
@@ -23,7 +23,7 @@ namespace Data.Repositories
                 return await _dbContext.Usuarios.Where(x => x.Nome.ToLower() == nomeUsuario.ToLower()).ToListAsync();
         }
 
-        public async Task Deletar(int id)
+        public async Task DeletarAsync(int id)
         {
             _dbContext.Usuarios.Remove(new Usuario {
                 Id = id
