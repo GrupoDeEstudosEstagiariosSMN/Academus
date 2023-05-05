@@ -30,5 +30,14 @@ namespace Data.Repositories
             });
             await _dbContext.SaveChangesAsync();
         }
+
+        public async Task EditarAsync(int id, string nomeUsuario, string emailUsuario)
+        {
+            await _dbContext.UpdateEntryAsync<Usuario>(id, new {
+                Nome = nomeUsuario,
+                Email = emailUsuario
+            });
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }
