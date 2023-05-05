@@ -5,16 +5,16 @@
       <h1>Crie sua conta</h1>
 
       <label asp-for="Nome"><b>Nome</b></label>
-      <input type="text" placeholder="Seu nome" name="nome" required>
+      <input type="text" placeholder="Seu nome" asp-for="Nome" required>
 
       <label asp-for="Email"><b>Email</b></label>
-      <input type="text" placeholder="Seu Email" name="email" required>
+      <input type="text" placeholder="Seu Email" asp-for="Email" required>
 
       <label asp-for="Senha"><b>Senha</b></label>
-      <input type="password" placeholder="Escolha uma senha" name="senha" required>
+      <input type="password" placeholder="Escolha uma senha" asp-for="Senha" required>
 
-      <label asp-for="RepetirSenha"><b>Repitir Senha</b></label>
-      <input type="password" placeholder="Repita sua senha" name="senha-repeat" required>
+      <label asp-for="RepetirSenha"><b>Repetir Senha</b></label>
+      <input type="password" placeholder="Repita sua senha" asp-for="RepetirSenha" required>
 
       <button type="submit" class="registerbtn" onclick="usuario.cadastrar()">Registrar</button>
   </form>

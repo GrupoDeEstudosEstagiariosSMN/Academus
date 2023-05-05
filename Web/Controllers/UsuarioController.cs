@@ -36,5 +36,19 @@ namespace Web.Controllers
         {
             return View("_Buscar", await _usuarioRepository.BuscarUsuariosAsync(nomeUsuario.Nome));
         }
+
+        [HttpPost("deletar")]
+        public async Task<IActionResult> DeletarUsuario(int id)
+        {
+            await _usuarioRepository.DeletarAsync(id);
+            return RedirectToAction("Index", "usuario");
+        }
+
+        [HttpPost("editar")]
+        public async Task<IActionResult> EditarUsuario(int id, string nome, string email)
+        {
+            await _usuarioRepository.EditarAsync(id, nome, email);
+            return RedirectToAction("Index", "usuario");
+        }
     }
 }

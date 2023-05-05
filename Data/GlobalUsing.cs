@@ -1,6 +1,8 @@
 
 global using Core.Interfaces.Repositories;
 
+global using Data;
+global using Data.Extensions;
 
 global using Core.Models;
 global using Core.Settings;
