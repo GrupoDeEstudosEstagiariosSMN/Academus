@@ -1,0 +1,12 @@
+<button onclick="evento.buscar()">Buscar</button>
+
+<div class="container-busca"></div>
+
+<script src="~/js/Pages/evento.js" asp-append-version="true"></script>
+<script>
+    animal.init({
+        urls: {
+            buscar: '@Url.Action("Buscar", "Evento")',
+        }
+    });
+</script>

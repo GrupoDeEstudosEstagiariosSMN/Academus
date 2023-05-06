@@ -1,6 +1,7 @@
 namespace Web.Controllers
 {
-    public class EventoController
+    [Route("evento")]
+    public class EventoController : Controller
     {
         private readonly IEventoRepository _eventoRepository;
         public EventoController(IEventoRepository eventoRepository)
@@ -8,7 +9,8 @@ namespace Web.Controllers
             _eventoRepository = eventoRepository;
         }
 
-       
+        [HttpGet("buscar")]
+        public async Task<IActionResult> Buscar() => View("_buscar", await _eventoRepository.BuscarEventos());
 
 
 

@@ -19,3 +19,5 @@ CREATE TABLE evento (
 	custo DECIMAL(7,2) NOT NULL,
 	CONSTRAINT pk_evento PRIMARY KEY (id),
 );
+
+
