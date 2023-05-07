@@ -1,12 +1,16 @@
-<button onclick="evento.buscar()">Buscar</button>
+<button class="buttons" onclick="evento.buscar()">Listar</button>
+<button class="buttons" onclick="evento.viewCadastrar()">Cadastrar</button>
 
 <div class="container-busca"></div>
+<div class="container-cadastra"></div>
 
 <script src="~/js/Pages/evento.js" asp-append-version="true"></script>
 <script>
-    animal.init({
+    evento.init({
         urls: {
-            buscar: '@Url.Action("Buscar", "Evento")',
+            buscar: '@Url.Action("buscar", "evento")',
+            cadastrar: '@Url.Action("cadastrar", "evento")',
+            viewCadastrar: '@Url.Action("cadastrar", "evento")',
         }
     });
 </script>

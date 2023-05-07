@@ -1,0 +1,33 @@
+@model Core.Models.Evento
+
+@{
+    Layout = null;
+}
+<form id="eventoForm">
+    <div class="cadastra-form">
+        <div class="mb-3">
+            <input asp-for="Nome" placeholder="Nome" type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input asp-for="Descricao" placeholder="Descrição" type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input asp-for="Localizacao" placeholder="Localização" type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input asp-for="Palestrante" placeholder="Palestrante" type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input asp-for="PublicoAlvo" placeholder="Público alvo" type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input asp-for="ValorIngresso" placeholder="Valor ingresso" type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input asp-for="Custo" placeholder="Custo" type="text" class="form-control">
+        </div>
+        <button type="button" class="btn btn-primary" onclick="evento.cadastrar()">Enviar</button>
+    </div>
+
+</form>
+
