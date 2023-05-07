@@ -46,9 +46,10 @@ var evento = (() => {
     }
 
     var editar = function () {
-        var model = $('#editarForm').serializeObject();
+        var model = $("#editarForm").serializeObject();
+        console.log(model);
         $.post(configs.urls.editar, model).done(() => {
-            location.href = configs.urls.index
+            buscar();
         }).fail(function () {
             console.log("deu ruim");
         })
@@ -56,7 +57,7 @@ var evento = (() => {
 
     var viewEditar = function (id) {
         $.get(configs.urls.viewEditar, { id: id }).done(function (html) {
-            $(".container-lista").hide();
+            $(".container-busca").hide();
             $(".buttons").hide();
             $(".container-editar").html(html);
             $(".container-editar").show();
