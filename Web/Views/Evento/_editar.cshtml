@@ -1,0 +1,32 @@
+@model Evento;
+
+@{
+    Layout = null;
+}
+<form id="editarForm">
+    <div>
+        <div class="mb-3">
+            <input asp-for="Nome" placeholder="Nome" type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input asp-for="Descricao" placeholder="Responsável" type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input asp-for="Localizacao" placeholder="Sexo" type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input asp-for="Palestrante" placeholder="Peso" type="number" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input asp-for="PublicoAlvo" placeholder="Altura" type="number" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input asp-for="ValorIngresso" placeholder="Cor" type="number" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input asp-for="Custo" placeholder="Custo" type="number" class="form-control">
+        </div>
+        <button type="button" class="btn btn-primary" onclick="evento.editar()">Enviar</button>
+    </div>
+
+</form>

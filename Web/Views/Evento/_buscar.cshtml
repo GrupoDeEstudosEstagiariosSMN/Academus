@@ -1,7 +1,7 @@
+@model IEnumerable<Evento>
 @{
     Layout = null;
 }
-@model IEnumerable<Evento>
 <table class="table">
     <thead>
         <tr>
@@ -28,7 +28,7 @@
                 <td>@item.ValorIngresso</td>
                 <td>@item.Custo</td>
                 <td>
-                    <button type="button" class="btn btn-sm btn-primary">
+                    <button type="button" class="btn btn-sm btn-primary" onclick="evento.viewEditar()">
                         Editar
                     </button>
                     <button type="button" class="btn btn-sm btn-danger">

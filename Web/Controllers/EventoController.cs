@@ -13,13 +13,6 @@ namespace Web.Controllers
     [HttpGet("buscar")]
     public async Task<IActionResult> BuscarEvento() => View("_buscar", await _eventoRepository.BuscarEventos());
 
-    [HttpPost("cadastrar")]
-    public async Task<IActionResult> CadastrarEvento(Evento evento)
-    {
-      await _eventoRepository.CadastrarEvento(evento);
-      return RedirectToAction(nameof(Index));
-    }
-
     [HttpGet("cadastrar")]
     public async Task<IActionResult> Cadastrar()
     {
@@ -27,5 +20,25 @@ namespace Web.Controllers
       return View("_cadastrar");
     }
 
+    [HttpPost("cadastrar")]
+    public async Task<IActionResult> CadastrarEvento(Evento evento)
+    {
+      await _eventoRepository.CadastrarEvento(evento);
+      return RedirectToAction(nameof(Index));
+    }
+
+    [HttpPost("editar")]
+    public async Task<IActionResult> EditarEvento(Evento evento)
+    {
+      await _eventoRepository.EditarEvento(evento);
+      return Ok();
+    }
+
+    [HttpGet("editar")]
+    public async Task<IActionResult> Editar(int id)
+    {
+      var eventoSelecionado = await _eventoRepository.BuscarEvento(id);
+      return View("_editar", eventoSelecionado);
+    }
   }
 }

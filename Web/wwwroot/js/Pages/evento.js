@@ -3,7 +3,9 @@ var evento = (() => {
         urls: {
             buscar: "",
             cadastrar: "",
-            viewCadastrar: ""
+            viewCadastrar: "",
+            editar: "",
+            viewEditar: ""
         },
     };
 
@@ -43,10 +45,32 @@ var evento = (() => {
         })
     }
 
+    var editar = function () {
+        var model = $('#editarForm').serializeObject();
+        $.post(configs.urls.editar, model).done(() => {
+            location.href = configs.urls.index
+        }).fail(function () {
+            console.log("deu ruim");
+        })
+    }
+
+    var viewEditar = function (id) {
+        $.get(configs.urls.viewEditar, { id: id }).done(function (html) {
+            $(".container-lista").hide();
+            $(".buttons").hide();
+            $(".container-editar").html(html);
+            $(".container-editar").show();
+        }).fail(function () {
+            console.log("deu ruim");
+        })
+    }
+
     return {
         init: init,
         buscar: buscar,
         cadastrar: cadastrar,
-        viewCadastrar: viewCadastrar
+        viewCadastrar: viewCadastrar,
+        editar: editar,
+        viewEditar: viewEditar
     };
 })();

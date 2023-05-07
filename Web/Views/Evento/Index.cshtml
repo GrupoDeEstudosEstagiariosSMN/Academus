@@ -3,6 +3,7 @@
 
 <div class="container-busca"></div>
 <div class="container-cadastra"></div>
+<div class="container-editar"></div>
 
 <script src="~/js/Pages/evento.js" asp-append-version="true"></script>
 <script>
@@ -11,6 +12,8 @@
             buscar: '@Url.Action("buscar", "evento")',
             cadastrar: '@Url.Action("cadastrar", "evento")',
             viewCadastrar: '@Url.Action("cadastrar", "evento")',
+            editar: '@Url.Action("editar", "evento")',
+            viewEditar: '@Url.Action("editar", "evento")',
         }
     });
 </script>
