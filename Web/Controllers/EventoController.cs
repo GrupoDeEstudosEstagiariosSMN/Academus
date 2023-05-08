@@ -1,12 +1,16 @@
+using Core.Helpers;
+
 namespace Web.Controllers
 {
   [Route("evento")]
   public class EventoController : Controller
   {
     private readonly IEventoRepository _eventoRepository;
-    public EventoController(IEventoRepository eventoRepository)
+    private readonly Notification _notification;
+    public EventoController(IEventoRepository eventoRepository, Notification notification)
     {
       _eventoRepository = eventoRepository;
+      _notification = notification;
     }
     public ActionResult Index() => View();
 
@@ -14,11 +18,7 @@ namespace Web.Controllers
     public async Task<IActionResult> BuscarEvento() => View("_Buscar", await _eventoRepository.BuscarEventos());
 
     [HttpGet("cadastrar")]
-    public async Task<IActionResult> Cadastrar()
-    {
-      var especies = await _eventoRepository.BuscarEventos();
-      return View("_Cadastrar");
-    }
+    public IActionResult Cadastrar() => View("_Cadastrar");
 
     [HttpPost("cadastrar")]
     public async Task<IActionResult> CadastrarEvento(Evento evento)

@@ -55,8 +55,8 @@ var evento = (() => {
             $(".container-busca").show();
             $(".container-busca").html();
             buscar()
-        }).fail(function () {
-            console.log("deu ruim");
+        }).fail(function (msg) {
+            site.toast.error(msg)
         })
     }
 
