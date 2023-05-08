@@ -4,7 +4,8 @@ var turma = (() => {
         urls: {
             index: '',
             cadastrar: '',
-            buscar: ''
+            buscar: '',
+            deletar: ''
         }
     };
 
@@ -27,9 +28,16 @@ var turma = (() => {
         });
     }
 
+    var deletarTurma = (id) => {
+        $.post(configs.urls.deletar, { id: id }).done(() => {
+            location.reload();
+        });
+    }
+
     return {
         init: init,
         cadastrar: cadastrar,
-        buscarTurma: buscarTurma
+        buscarTurma: buscarTurma,
+        deletarTurma: deletarTurma
     };
 })();

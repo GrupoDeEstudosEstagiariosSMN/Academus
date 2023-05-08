@@ -22,5 +22,13 @@ namespace Data.Repositories
             else
                 return await _dbContext.Turmas.Where(x => x.Nome.ToLower() == nomeTurma.ToLower()).ToListAsync();        
         }
+
+        public async Task DeletarAsync(int id)
+        {
+            _dbContext.Turmas.Remove(new Turma {
+                Id = id
+            });
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }

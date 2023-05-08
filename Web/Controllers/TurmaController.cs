@@ -27,6 +27,12 @@ namespace Web.Controllers
         [HttpPost("buscar")]
         public async Task<IActionResult> BuscarTurma(BuscarTurmaViewModel nomeTurma) => View("_Buscar", await _turmaRepository.BuscarTurmasAsync(nomeTurma.Nome));
         
+        [HttpPost("deletar")]
+        public async Task<IActionResult> DeletarTurma(int id)
+        {
+            await _turmaRepository.DeletarAsync(id);
+            return RedirectToAction("Index", "turma");
+        }
         
     }
 }

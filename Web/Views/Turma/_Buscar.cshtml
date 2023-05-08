@@ -16,6 +16,16 @@
       <span class="badge bg-primary rounded-pill">Alunos: @turma.QuantidadeAlunos</span>
       <span class="badge bg-primary rounded-pill">Sala: @turma.Sala</span>
       <span class="badge bg-primary rounded-pill">Turno: @turma.Turno</span>
+
+      <button type="button" class="btn btn-danger" onclick="turma.deletarTurma(@turma.Id)">Deletar</button>
     </li>
   }
 </ul>
+<script src="~/js/Pages/turma.js" asp-append-version="true"></script>
+<script>
+  turma.init({
+    urls: {
+      deletar: '@Url.Action("deletar", "turma")'
+    }
+  });
+</script>

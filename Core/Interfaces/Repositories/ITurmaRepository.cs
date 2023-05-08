@@ -4,5 +4,6 @@ namespace Core.Interfaces.Repositories
     {
         Task Cadastrar(Turma turma);
         Task<IEnumerable<Turma>> BuscarTurmasAsync(string nomeTurma);
+        Task DeletarAsync(int id);
     }
 }
