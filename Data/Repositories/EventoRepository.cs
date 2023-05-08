@@ -26,5 +26,15 @@ namespace Data.Repositories
       _dbContext.Eventos.Update(evento);
       await _dbContext.SaveChangesAsync();
     }
+
+    public async Task ExcluirEvento(int id)
+    {
+      var evento = await _dbContext.Eventos.FirstOrDefaultAsync(x => x.Id == id);
+      if (evento != null)
+      {
+        _dbContext.Eventos.Remove(evento);
+        await _dbContext.SaveChangesAsync();
+      }
+    }
   }
 }

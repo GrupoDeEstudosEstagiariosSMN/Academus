@@ -40,5 +40,13 @@ namespace Web.Controllers
       var eventoSelecionado = await _eventoRepository.BuscarEvento(id);
       return View("_Editar", eventoSelecionado);
     }
+
+    [HttpPost("excluir")]
+    public async Task<IActionResult> Excluir(int id)
+    {
+      await _eventoRepository.ExcluirEvento(id);
+      return RedirectToAction(nameof(Index));
+    }
+
   }
 }

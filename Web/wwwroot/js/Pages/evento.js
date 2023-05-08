@@ -3,9 +3,8 @@ var evento = (() => {
         urls: {
             buscar: "",
             cadastrar: "",
-            viewCadastrar: "",
             editar: "",
-            viewEditar: ""
+            excluir: "",
         },
     };
 
@@ -27,7 +26,7 @@ var evento = (() => {
 
         if (!model.isEmpty) {
             $.post(configs.urls.cadastrar, model).done(function () {
-                location.href = configs.urls.buscar
+                buscar();
             }).fail(function () {
                 console.log("deu ruim");
             })
@@ -35,7 +34,7 @@ var evento = (() => {
     };
 
     var viewCadastrar = function () {
-        $.get(configs.urls.viewCadastrar).done(function (html) {
+        $.get(configs.urls.cadastrar).done(function (html) {
             $(".container-busca").hide();
             $(".container-cadastra").html(html);
             $(".container-cadastra").show();
@@ -45,9 +44,9 @@ var evento = (() => {
         })
     }
 
-    var mostrarTela = function () {
-        location.href = configs.urls.editar
-    }
+    // var mostrarTela = function () {
+    //     location.href = configs.urls.editar
+    // }
 
     var editar = function () {
         var model = $("#editarForm").serializeObject();
@@ -62,13 +61,22 @@ var evento = (() => {
     }
 
     var viewEditar = function (id) {
-        $.get(configs.urls.viewEditar, { id: id }).done(function (html) {
+        $.get(configs.urls.editar, { id: id }).done(function (html) {
             $(".container-busca").hide();
             $(".buttons").hide();
             $(".container-editar").html(html);
             $(".container-editar").show();
         }).fail(function () {
             console.log("deu ruim");
+        })
+    }
+
+    var excluir = function (id) {
+        var model = { id: id };
+        $.post(configs.urls.excluir, model).done(() => {
+            buscar();
+        }).fail(function () {
+            console.log("deu merda kkk");
         })
     }
 
@@ -79,6 +87,6 @@ var evento = (() => {
         viewCadastrar: viewCadastrar,
         editar: editar,
         viewEditar: viewEditar,
-        mostrarTela: mostrarTela
+        excluir: excluir
     };
 })();
