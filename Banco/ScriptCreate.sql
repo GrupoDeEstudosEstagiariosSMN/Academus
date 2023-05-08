@@ -17,7 +17,7 @@ CREATE TABLE evento (
 	publico_alvo varchar(60) NOT NULL,
 	valor_ingresso DECIMAL(5,2) NOT NULL,
 	custo DECIMAL(7,2) NOT NULL,
-	CONSTRAINT pk_evento PRIMARY KEY (id),
+	CONSTRAINT pk_evento PRIMARY KEY (id)
 );
 
 

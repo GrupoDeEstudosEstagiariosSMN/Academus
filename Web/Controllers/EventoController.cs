@@ -11,13 +11,13 @@ namespace Web.Controllers
     public ActionResult Index() => View();
 
     [HttpGet("buscar")]
-    public async Task<IActionResult> BuscarEvento() => View("_buscar", await _eventoRepository.BuscarEventos());
+    public async Task<IActionResult> BuscarEvento() => View("_Buscar", await _eventoRepository.BuscarEventos());
 
     [HttpGet("cadastrar")]
     public async Task<IActionResult> Cadastrar()
     {
       var especies = await _eventoRepository.BuscarEventos();
-      return View("_cadastrar");
+      return View("_Cadastrar");
     }
 
     [HttpPost("cadastrar")]
@@ -38,7 +38,7 @@ namespace Web.Controllers
     public async Task<IActionResult> Editar(int id)
     {
       var eventoSelecionado = await _eventoRepository.BuscarEvento(id);
-      return View("_editar", eventoSelecionado);
+      return View("_Editar", eventoSelecionado);
     }
   }
 }

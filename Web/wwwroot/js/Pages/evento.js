@@ -45,11 +45,17 @@ var evento = (() => {
         })
     }
 
+    var mostrarTela = function () {
+        location.href = configs.urls.editar
+    }
+
     var editar = function () {
         var model = $("#editarForm").serializeObject();
-        console.log(model);
         $.post(configs.urls.editar, model).done(() => {
-            buscar();
+            $(".container-editar").hide();
+            $(".container-busca").show();
+            $(".container-busca").html();
+            buscar()
         }).fail(function () {
             console.log("deu ruim");
         })
@@ -72,6 +78,7 @@ var evento = (() => {
         cadastrar: cadastrar,
         viewCadastrar: viewCadastrar,
         editar: editar,
-        viewEditar: viewEditar
+        viewEditar: viewEditar,
+        mostrarTela: mostrarTela
     };
 })();
