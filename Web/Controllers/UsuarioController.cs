@@ -35,9 +35,21 @@ namespace Web.Controllers
         }
 
         [HttpPost("buscar")]
-        public async Task<IActionResult> BuscarUsuario(BuscarUsuarioViewModel nomeUsuario)
+        public async Task<IActionResult> BuscarUsuario(BuscarUsuarioViewModel nomeUsuario) => View("_Buscar", await _usuarioRepository.BuscarUsuariosAsync(nomeUsuario.Nome));
+        
+
+        [HttpPost("deletar")]
+        public async Task<IActionResult> DeletarUsuario(int id)
         {
-            return View("_Buscar", await _usuarioRepository.BuscarUsuariosAsync(nomeUsuario.Nome));
+            await _usuarioRepository.DeletarAsync(id);
+            return RedirectToAction("Index", "usuario");
+        }
+
+        [HttpPost("editar")]
+        public async Task<IActionResult> EditarUsuario(int id, string nome, string email)
+        {
+            await _usuarioRepository.EditarAsync(id, nome, email);
+            return RedirectToAction("Index", "usuario");
         }
     }
 }

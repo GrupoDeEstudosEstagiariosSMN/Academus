@@ -4,12 +4,46 @@
   Layout = null;
 }
 
+<head>
+  <script href="~/css/Pages/_buscar.css"></script>
+</head>
+
 <ul class="list-group mt-4">
   @foreach (var usuario in Model)
   {
     <li class="list-group-item d-flex justify-content-between align-items-center" style="max-width: 50%;">
       <div>@usuario.Nome</div>
       <span class="badge bg-primary rounded-pill">@usuario.Email</span>
+      <p>
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Editar
+        </button>
+      </p>
+      <button type="button" class="btn btn-danger" onclick="usuario.deletarUsuario(@usuario.Id)">Deletar</button>
     </li>
   }
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+            <form id="formEditar">
+              <div class="input-group input-group-default mb-6">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Nome</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="Nome">
+              </div>
+              <div class="input-group input-group-default mb-6">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Email</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="Email">
+                <button class="btn btn-outline-secondary btn-green" type="button" id="button-addon2" onclick="usuario.editarUsuario()">Salvar</button>
+              </div>
+            </form>
+        </div>
+      </div>
 </ul>
+ <script src="~/js/Pages/usuario.js" asp-append-version="true"></script>
+ <script>
+     usuario.init({
+      urls: { 
+             deletar: '@Url.Action("deletar", "usuario")',  
+             editar: '@Url.Action("editar", "usuario")'
+     }
+  });
+ </script> 
