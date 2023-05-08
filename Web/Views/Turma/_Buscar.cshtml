@@ -1,14 +1,21 @@
 @model IEnumerable<Turma>
+
 @{
   Layout = null;
 }
+
+<head>
+  <script href="~/css/Pages/_buscar.css"></script>
+</head>
 
 <ul class="list-group mt-4">
   @foreach (var turma in Model)
   {
     <li class="list-group-item d-flex justify-content-between align-items-center" style="max-width: 50%;">
       <div>@turma.Nome</div>
-      <span class="badge bg-primary rounded-pill">@turma.Sala</span>
+      <span class="badge bg-primary rounded-pill">Alunos: @turma.QuantidadeAlunos</span>
+      <span class="badge bg-primary rounded-pill">Sala: @turma.Sala</span>
+      <span class="badge bg-primary rounded-pill">Turno: @turma.Turno</span>
     </li>
   }
 </ul>

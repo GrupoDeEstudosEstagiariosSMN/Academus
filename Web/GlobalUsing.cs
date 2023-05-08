@@ -3,11 +3,12 @@ global using Core.Interfaces.Repositories;
 global using Core.Models;
 global using Core.Settings;
 
-global using Data;  
+global using Data;
 global using Data.Repositories;
 
 global using Web.ViewModels;
 global using Web.ViewModels.Usuario;
+global using Web.ViewModels.Turma;
 
 global using Microsoft.AspNetCore.Mvc;
 

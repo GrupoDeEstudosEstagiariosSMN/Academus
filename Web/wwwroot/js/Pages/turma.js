@@ -4,7 +4,7 @@ var turma = (() => {
         urls: {
             index: '',
             cadastrar: '',
-            buscarTturma: ''
+            buscar: ''
         }
     };
 
@@ -15,20 +15,21 @@ var turma = (() => {
     var cadastrar = () => {
         var model = $('#cadastroTurma').serializeObject();
         $.post(configs.urls.cadastrar, model).done((html) => {
-            $('#mostrarTurma').html(html);
+            location.href = '/turma';
         });
     }
 
-    var buscarTturma = () => {
+    var buscarTurma = () => {
         var model = $('#buscarTurma').serializeObject();
         console.log(model);
         $.post(configs.urls.buscar, model).done((html) => {
-            $('#mostrarUsuarios').html(html);
+            $('#mostrarTurma').html(html);
         });
     }
 
     return {
         init: init,
-        cadastrar: cadastrar
+        cadastrar: cadastrar,
+        buscarTurma: buscarTurma
     };
 })();
