@@ -11,6 +11,9 @@ namespace Web.Configurations
             services.AddScoped<ApplicationDbContext>();
 
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+
+            services.AddScoped<ITurmaRepository, TurmaRepository>();
+            
         }
     }
 }

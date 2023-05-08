@@ -1,10 +1,10 @@
-var usuario = (() => {
+var turma = (() => {
 
     var configs = {
         urls: {
             index: '',
             cadastrar: '',
-            buscar: ''
+            buscarTturma: ''
         }
     };
 
@@ -13,14 +13,14 @@ var usuario = (() => {
     };
 
     var cadastrar = () => {
-        var model = $('#cadastroUsuario').serializeObject();
-        $.post(configs.urls.cadastrar, model).done(() => {
-            console.log('cadastrado');
+        var model = $('#cadastroTurma').serializeObject();
+        $.post(configs.urls.cadastrar, model).done((html) => {
+            $('#mostrarTurma').html(html);
         });
     }
 
-    var buscarUsuario = () => {
-        var model = $('#buscarUsuario').serializeObject();
+    var buscarTturma = () => {
+        var model = $('#buscarTurma').serializeObject();
         console.log(model);
         $.post(configs.urls.buscar, model).done((html) => {
             $('#mostrarUsuarios').html(html);
@@ -29,7 +29,6 @@ var usuario = (() => {
 
     return {
         init: init,
-        buscarUsuario: buscarUsuario,
         cadastrar: cadastrar
     };
 })();
