@@ -1,0 +1,33 @@
+@model Curso
+
+<div class="cadastrar-container">
+    <form id="cadastroCurso">
+        <h1>Cadastre um curso</h1>
+        <hr>
+        <label asp-for="Nome"><b>Nome</b></label>
+        <input type="text" placeholder="Nome do curso" asp-for="Nome" required>
+
+        <label asp-for="CargaHoraria"><b>Carga Horaria</b></label>
+        <input type="number" placeholder="Carga Horaria" asp-for="CargaHoraria" required>
+
+        <label asp-for="Professor"><b>Professor</b></label>
+        <input type="text" placeholder="Professor" asp-for="Professor" required>
+
+        <label asp-for="Trilha"><b>Trilha</b></label>
+        <input type="text" placeholder="Trilha" asp-for="Trilha" required>
+        <hr>
+
+        <button type="submit" class="registerbtn" onclick="curso.cadastrar()">Cadastrar</button>
+    </form>
+</div>
+
+<script src="~/js/site.js" asp-append-version="true"></script>
+
+<script src="~/js/Pages/curso.js" asp-append-version="true"></script>
+@* <script>
+curso.init({
+urls: {
+cadastrar: '@Url.Action("cadastrar", "curso")'
+}
+});
+</script> *@

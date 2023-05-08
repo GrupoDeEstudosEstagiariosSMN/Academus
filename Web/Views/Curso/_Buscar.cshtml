@@ -1,0 +1,15 @@
+@model IEnumerable<Curso>
+
+<ul class="list-group mt-4">
+    @foreach (var curso in Model)
+    {
+        <li class="list-group-item d-flex justify-content-between align-items-center" style="max-width: 50%;">
+            <div>@curso.Nome</div>
+            <span class="badge bg-primary rounded-pill">Alunos: @curso.CargaHoraria</span>
+            <span class="badge bg-primary rounded-pill">Sala: @curso.Professor</span>
+            <span class="badge bg-primary rounded-pill">Turno: @curso.Trilha</span>
+
+
+        </li>
+    }
+</ul>
