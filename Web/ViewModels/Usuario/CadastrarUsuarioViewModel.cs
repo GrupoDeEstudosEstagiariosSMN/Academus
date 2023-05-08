@@ -1,6 +1,6 @@
 namespace Web.ViewModels.Usuario
 {
-    public class CadastrarUsuarioViewModel
+    public class CadastrarUsuarioViewModel 
     {
         public string Nome { get; set; }
         public string Email { get; set; }
