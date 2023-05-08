@@ -1,24 +1,29 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-
 namespace Web.Controllers
 {
     [Route("turma")]
     public class TurmaController : Controller
     {
-        private readonly ILogger<TurmaController> _logger;
 
-        public TurmaController(ILogger<TurmaController> logger)
+        private readonly ITurmaRepository _turmaRepository;
+
+        public TurmaController(ITurmaRepository turmaRepository)
         {
-            _logger = logger;
+            _turmaRepository = turmaRepository;
         }
+
 
         public IActionResult Index() => View();
 
+        [HttpGet("cadastrar")]
+        public IActionResult CadastrarTurma() => View("_Cadastrar");
+
+        [HttpPost("cadastrar")]
+        public async Task<IActionResult> Cadastrar(Turma turma)
+        {
+            await _turmaRepository.Cadastrar(turma);
+            return RedirectToAction("Index", "turma");
+        }
+
+        
     }
 }
