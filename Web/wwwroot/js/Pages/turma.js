@@ -42,11 +42,11 @@ var turma = (() => {
         });
     });
 
-    var editarTurma = () => {
-        var model = $('#formEditar').serializeObject();
+    var editarTurma = (id) => {
+        var model = $(`#formEditar-${id}` ).serializeObject();
         console.log(model)
         $.post(configs.urls.editar, model).done(() => {
-            // location.reload();
+            location.reload();   
         });
     }
 

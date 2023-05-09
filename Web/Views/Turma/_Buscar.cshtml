@@ -24,7 +24,7 @@
     </li>
   <div class="collapse" id="editar-@turma.Id">
     <div class="card card-body">
-      <form id="formEditar">
+      <form id="formEditar-@turma.Id">
         <input type="hidden" asp-for="@turma.Id" />
         <div class="input-group input-group-default mb-6">
           <span class="input-group-text" id="inputGroup-sizing-sm">Turma</span>
@@ -42,7 +42,7 @@
           <input type="text" class="form-control" aria-label="Sizing example input"
             aria-describedby="inputGroup-sizing-default" asp-for="@turma.Turno">
           <button class="btn btn-outline-secondary btn-green" type="button" id="button-addon2"
-            onclick="turma.editarTurma()">Salvar</button>
+            onclick="turma.editarTurma(@turma.Id)">Salvar</button>
         </div>
       </form>
     </div>
