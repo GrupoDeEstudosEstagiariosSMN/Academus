@@ -4,7 +4,8 @@ var curso = (() => {
         urls: {
             index: '',
             cadastrar: '',
-            buscar: ''
+            buscar: '',
+            deletar: ''
         }
     };
 
@@ -20,16 +21,21 @@ var curso = (() => {
     }
 
     var buscarCurso = () => {
-
-
         $.get(configs.urls.buscar).done((html) => {
             $('#mostrarCursos').html(html);
+        });
+    }
+
+    var deletarCurso = (id) => {
+        $.post(configs.urls.deletar, { id: id }).done(() => {
+            location.reload();
         });
     }
 
     return {
         init: init,
         buscarCurso: buscarCurso,
-        cadastrar: cadastrar
+        cadastrar: cadastrar,
+        deletarCurso: deletarCurso
     };
 })();

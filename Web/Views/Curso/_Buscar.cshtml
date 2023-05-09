@@ -1,15 +1,61 @@
 @model IEnumerable<Curso>
 
-<ul class="list-group mt-4">
-    @foreach (var curso in Model)
-    {
-        <li class="list-group-item d-flex justify-content-between align-items-center" style="max-width: 50%;">
-            <div>@curso.Nome</div>
-            <span class="badge bg-primary rounded-pill">Alunos: @curso.CargaHoraria</span>
-            <span class="badge bg-primary rounded-pill">Sala: @curso.Professor</span>
-            <span class="badge bg-primary rounded-pill">Turno: @curso.Trilha</span>
+@{
+    Layout = null;
+}
 
+<table class="table table-striped table-hover">
+    <thead>
+        <tr class="success">
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CargaHoraria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Professor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Trilha)
+            </th>
+        </tr>
+    </thead>
 
-        </li>
-    }
-</ul>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.CargaHoraria)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Professor)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Trilha)
+                </td>
+
+                <td>
+                    <button type="button" class="btn btn-danger" onclick="curso.deletarCurso(@item.Id)">Deletar</button>
+                    <button><a asp-action="Editar" asp-route-id="@item.Id">Editar</a></button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script src="~/js/Pages/curso.js" asp-append-version="true"></script>
+<script>
+    curso.init({
+        urls: {
+            deletar: '@Url.Action("deletar", "curso")'
+        }
+    });
+</script>

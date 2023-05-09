@@ -45,6 +45,13 @@ namespace Web.Controllers
             return View("_Buscar", await _cursoRepository.BuscarCursosAsync());
         }
 
+        [HttpPost("deletar")]
+        public async Task<IActionResult> DeletarCurso(int id)
+        {
+            await _cursoRepository.DeletarAsync(id);
+            return RedirectToAction("Index", "curso");
+        }
+
 
     }
 

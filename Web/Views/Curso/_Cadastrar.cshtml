@@ -8,7 +8,7 @@
         <input type="text" placeholder="Nome do curso" asp-for="Nome" required>
 
         <label asp-for="CargaHoraria"><b>Carga Horaria</b></label>
-        <input type="number" placeholder="Carga Horaria" asp-for="CargaHoraria" required>
+        <input type="text" placeholder="Carga Horaria" asp-for="CargaHoraria" required>
 
         <label asp-for="Professor"><b>Professor</b></label>
         <input type="text" placeholder="Professor" asp-for="Professor" required>
@@ -24,10 +24,3 @@
 <script src="~/js/site.js" asp-append-version="true"></script>
 
 <script src="~/js/Pages/curso.js" asp-append-version="true"></script>
-@* <script>
-curso.init({
-urls: {
-cadastrar: '@Url.Action("cadastrar", "curso")'
-}
-});
-</script> *@
