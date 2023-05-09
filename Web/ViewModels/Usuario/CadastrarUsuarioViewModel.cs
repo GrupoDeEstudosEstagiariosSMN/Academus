@@ -15,5 +15,12 @@ namespace Web.ViewModels.Usuario
             return !notification.Any();
         }
 
+        public bool EmailUnique(Notification notification)
+        {
+            if (Email == usuario.Email)
+                notification.Add("Email já cadastrado");
+            
+            return !notification.Any();
+        }
     }
 }

@@ -22,6 +22,10 @@ namespace Web.Controllers
         {
             if (!usuario.IsValid(_notification))
                 return BadRequest(_notification.Get());
+            
+            if (!usuario.EmailUnique(_notification))
+                return BadRequest(_notification.Get());
+
             {
                 await _usuarioRepository.CadastrarAsync(new Usuario
                 {
