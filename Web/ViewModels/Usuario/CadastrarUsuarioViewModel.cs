@@ -14,6 +14,5 @@ namespace Web.ViewModels.Usuario
 
             return !notification.Any();
         }
-
     }
 }

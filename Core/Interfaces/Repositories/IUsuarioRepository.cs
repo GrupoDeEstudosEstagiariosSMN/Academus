@@ -6,6 +6,7 @@ namespace Core.Interfaces.Repositories
         Task<IEnumerable<Usuario>> BuscarUsuariosAsync(string nomeUsuario);
         Task DeletarAsync(int id);
         Task EditarAsync(int id, string nomeUsuario, string emailUsuario);
+        Task<bool> EmailUnique(string email);
 
     }
 }

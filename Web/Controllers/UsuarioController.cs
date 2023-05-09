@@ -20,16 +20,18 @@ namespace Web.Controllers
         [HttpPost("cadastrar")]
         public async Task<IActionResult> EnviarCadastro(CadastrarUsuarioViewModel usuario)
         {
+            if (await _usuarioRepository.EmailUnique(usuario.Email))
+                _notification.Add("Email já cadastrado");
+
             if (!usuario.IsValid(_notification))
                 return BadRequest(_notification.Get());
+
+            await _usuarioRepository.CadastrarAsync(new Usuario
             {
-                await _usuarioRepository.CadastrarAsync(new Usuario
-                {
-                    Nome = usuario.Nome,
-                    Email = usuario.Email,
-                    Senha = usuario.Senha
-                });
-            }
+                Nome = usuario.Nome,
+                Email = usuario.Email,
+                Senha = usuario.Senha
+            });
 
             return RedirectToAction("Index", "usuario");
         }
