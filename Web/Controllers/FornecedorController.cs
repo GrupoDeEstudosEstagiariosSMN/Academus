@@ -10,12 +10,9 @@ namespace Web.Controllers
             _fornecedorRepository = fornecedorRepository;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> IndexAsync()
         {
-            var buscarFornecedores = _fornecedorRepository.BuscarFornecedores();
-            // var fornecedor = new FornecedorViewModel {
-            //     Fornecedores = BuscarFornecedores
-            // };
+            var buscarFornecedores = await _fornecedorRepository.BuscarFornecedores();
             return View(buscarFornecedores);
         }
     }
