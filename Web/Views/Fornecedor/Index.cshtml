@@ -1,58 +1,24 @@
 @model IEnumerable<Fornecedor>
-
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <div class="container p-3">
     <div class="row pt-4">
         <div class="col-6">
-            <h2 class="text-primary">Fornecedores</h2>
+            <h2 class="text-dark">Fornecedores</h2>
         </div>
         <div class="col-6 text-end">
-            <a asp-controller="" asp-action="" class="btn btn-primary">
-                <i class="bi bi-plus-circle"></i> &nbsp; Novo Fornecedor
-            </a>
+            <a class="btn btn-dark" onclick="fornecedor.buscar()">Buscar Fornecedor</a>
+            <a asp-controller="" asp-action="" class="btn btn-success"> Novo Fornecedor</a>
+        </div>
     </div>
 </div>
-<br /><br />
 
-<table class="table table-striped table-hover">
-    <thead>
-        <tr class="table-success">
-            <th>
-                Nome
-            </th>
-            <th>
-                Email
-            </th>
-            <th>
-                Representante
-            </th>
-            <th>
-                Produto
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-        <tr>
-            <td>
-                @item.Nome
-            </td>
-            <td>
-                @item.Email
-            </td>
-            <td>
-                @item.Representante
-            </td>
-            <td>
-                @item.Produto
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a>
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr> 
+<div id="mostrarTabela"></div>
+
+<script src="~/js/Pages/fornecedor.js" asp-append-version="true"></script>
+<script>
+    fornecedor.init({
+        urls: {
+            buscar: '@Url.Action("buscar", "fornecedor")'
         }
-    </tbody>
-</table>
+    });
+</script>

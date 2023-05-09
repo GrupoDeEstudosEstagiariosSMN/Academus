@@ -1,6 +1,6 @@
 namespace Web.Controllers
 {
-    //[Route("fornecedor")]
+    [Route("fornecedor")]
     public class FornecedorController : Controller
     {
         private readonly IFornecedorRepository _fornecedorRepository;
@@ -10,10 +10,9 @@ namespace Web.Controllers
             _fornecedorRepository = fornecedorRepository;
         }
 
-        public async Task<IActionResult> IndexAsync()
-        {
-            var buscarFornecedores = await _fornecedorRepository.BuscarFornecedores();
-            return View(buscarFornecedores);
-        }
+        public IActionResult Index() => View();
+
+        [HttpGet("buscar")]
+        public async Task<IActionResult> BuscarAsync() => View("_Buscar", await _fornecedorRepository.BuscarFornecedores());        
     }
 }
