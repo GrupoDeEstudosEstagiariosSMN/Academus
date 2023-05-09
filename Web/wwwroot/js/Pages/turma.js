@@ -5,7 +5,8 @@ var turma = (() => {
             index: '',
             cadastrar: '',
             buscar: '',
-            deletar: ''
+            deletar: '',
+            editar: ''
         }
     };
 
@@ -34,10 +35,26 @@ var turma = (() => {
         });
     }
 
+    $(document).ready(() => {
+        $('.inputEditar').hide();
+        $('#editar-button').click(() => {
+            $('.inputEditar').toggle();
+        });
+    });
+
+    var editarTurma = () => {
+        var model = $('#formEditar').serializeObject();
+        console.log(model)
+        $.post(configs.urls.editar, model).done(() => {
+            // location.reload();
+        });
+    }
+
     return {
         init: init,
         cadastrar: cadastrar,
         buscarTurma: buscarTurma,
-        deletarTurma: deletarTurma
+        deletarTurma: deletarTurma,
+        editarTurma: editarTurma
     };
 })();

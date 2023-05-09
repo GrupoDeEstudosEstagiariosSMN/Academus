@@ -34,5 +34,11 @@ namespace Web.Controllers
             return RedirectToAction("Index", "turma");
         }
         
+        [HttpPost("editar")]
+        public async Task<IActionResult> EditarTurma(Turma turma)
+        {
+            await _turmaRepository.EditarAsync(turma);
+            return RedirectToAction("Index", "Turma");
+        }
     }
 }

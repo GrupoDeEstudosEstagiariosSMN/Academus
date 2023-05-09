@@ -30,5 +30,16 @@ namespace Data.Repositories
             });
             await _dbContext.SaveChangesAsync();
         }
+
+        public async Task EditarAsync(Turma turma)
+        {
+            await _dbContext.UpdateEntryAsync<Turma>(turma.Id, new {
+                Nome = turma.Nome,
+                QuantidadeAlunos = turma.QuantidadeAlunos,
+                Sala = turma.Sala,
+                Turno = turma.Turno
+            });
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }
