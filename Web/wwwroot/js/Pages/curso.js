@@ -5,7 +5,8 @@ var curso = (() => {
             index: '',
             cadastrar: '',
             buscar: '',
-            deletar: ''
+            deletar: '',
+            editar: ''
         }
     };
 
@@ -32,10 +33,20 @@ var curso = (() => {
         });
     }
 
+    var editarCurso = () => {
+        var model = $('#editaCurso').serializeObject();
+        console.log(model);
+        $.post(configs.urls.editar, model).done(() => {
+            location.reload();
+        });
+    }
+
+
     return {
         init: init,
         buscarCurso: buscarCurso,
         cadastrar: cadastrar,
-        deletarCurso: deletarCurso
+        deletarCurso: deletarCurso,
+        editarCurso: editarCurso
     };
 })();

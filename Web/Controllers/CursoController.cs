@@ -52,6 +52,21 @@ namespace Web.Controllers
             return RedirectToAction("Index", "curso");
         }
 
+        [HttpGet("editar")]
+        public IActionResult EditarCurso(int id)
+        {
+            //return View("Editar", "curso");
+            //return RedirectToAction("Editar", "curso");
+            return View("Editar");
+        }
+
+        [HttpPost("editar")]
+        public async Task<IActionResult> EditarCurso(Curso curso)
+        {
+            await _cursoRepository.EditarAsync(curso);
+            return RedirectToAction("Index", "curso");
+        }
+
 
     }
 

@@ -44,18 +44,11 @@
 
                 <td>
                     <button type="button" class="btn btn-danger" onclick="curso.deletarCurso(@item.Id)">Deletar</button>
-                    <button><a asp-action="Editar" asp-route-id="@item.Id">Editar</a></button>
+                    @* <button type="submit" class="registerbtn" onclick="curso.editarCurso(@item.Id)">Salvar</button> *@
+                    <a class="btn btn-primary" asp-controller="curso" asp-action="editar" asp-route-id="@item.Id">Editar</a>
+
                 </td>
             </tr>
         }
     </tbody>
 </table>
-
-<script src="~/js/Pages/curso.js" asp-append-version="true"></script>
-<script>
-    curso.init({
-        urls: {
-            deletar: '@Url.Action("deletar", "curso")'
-        }
-    });
-</script>

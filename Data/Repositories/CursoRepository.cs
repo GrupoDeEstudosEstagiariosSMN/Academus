@@ -31,6 +31,13 @@ namespace Data.Repositories
             await _dbContext.SaveChangesAsync();
 
         }
+        public async Task EditarAsync(Curso curso)
+        {
+            //curso = await _dbContext.Cursos.FindAsync(id);
+            _dbContext.Cursos.Update(curso);
+            await _dbContext.SaveChangesAsync();
+
+        }
 
     }
 }

@@ -9,11 +9,14 @@
 
 <div id="mostrarCursos"></div>
 
+<script src="~/js/site.js" asp-append-version="true"></script>
 <script src="~/js/Pages/curso.js" asp-append-version="true"></script>
 <script>
     curso.init({
         urls: {
-            buscar: '@Url.Action("buscar", "curso")'
+            buscar: '@Url.Action("buscar", "curso")',
+            editar: '@Url.Action("editar", "curso")',
+            deletar: '@Url.Action("deletar", "curso")'
         }
     });
 </script>

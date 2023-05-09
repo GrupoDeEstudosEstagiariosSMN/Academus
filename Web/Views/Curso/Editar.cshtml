@@ -1,9 +1,9 @@
 @model Curso
 
-<div class="editar-container">
-    <form id="cadastroCurso">
-        <h1>Cadastre um curso</h1>
-        <hr>
+<div class="cadastrar-container">
+    <form id="editaCurso">
+        <h1>Edite o curso</h1>
+        <input type="hidden" asp-for="Id">
         <label asp-for="Nome"><b>Nome</b></label>
         <input type="text" placeholder="Nome do curso" asp-for="Nome" required>
 
@@ -15,12 +15,21 @@
 
         <label asp-for="Trilha"><b>Trilha</b></label>
         <input type="text" placeholder="Trilha" asp-for="Trilha" required>
-        <hr>
 
-        <button type="submit" class="registerbtn" onclick="curso.cadastrar()">Cadastrar</button>
+        <button type="submit" class="registerbtn" onclick="curso.editarCurso(Id)">Salvar</button>
+
     </form>
 </div>
 
 <script src="~/js/site.js" asp-append-version="true"></script>
-
 <script src="~/js/Pages/curso.js" asp-append-version="true"></script>
+<script>
+    curso.init({
+        urls: {
+
+            editar: '@Url.Action("editar", "curso")'
+
+        }
+    });
+</script>
+
