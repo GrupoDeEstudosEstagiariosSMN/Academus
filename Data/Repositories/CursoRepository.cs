@@ -24,6 +24,13 @@ namespace Data.Repositories
             return await _dbContext.Cursos.ToListAsync();
 
         }
+        public async Task DeletarAsync(int id)
+        {
+            var curso = await _dbContext.Cursos.FindAsync(id);
+            _dbContext.Cursos.Remove(curso);
+            await _dbContext.SaveChangesAsync();
+
+        }
 
     }
 }
