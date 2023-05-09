@@ -14,6 +14,7 @@ var evento = (() => {
 
     var buscar = function () {
         $.get(configs.urls.buscar).done(function (html) {
+            $(".container-cadastra").hide();
             $(".container-busca").html(html);
             $(".container-busca").show();
         }).fail(function () {

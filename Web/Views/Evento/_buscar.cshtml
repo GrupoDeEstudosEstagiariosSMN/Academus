@@ -18,24 +18,24 @@
     <tbody>
         @foreach (var item in Model)
         {
-                <tr>
-                    <th scope="row">@item.Id</th>
-                    <td>@item.Nome</td>
-                    <td>@item.Descricao</td>
-                    <td>@item.Localizacao</td>
-                    <td>@item.Palestrante</td>
-                    <td>@item.PublicoAlvo</td>
-                    <td>@item.ValorIngresso</td>
-                    <td>@item.Custo</td>
-                    <td>
-                        <button type="button" class="btn btn-sm btn-primary" onclick="evento.viewEditar(@item.Id)">
-                            Editar
-                        </button>
+            <tr>
+                <th scope="row">@item.Id</th>
+                <td>@item.Nome</td>
+                <td>@item.Descricao</td>
+                <td>@item.Localizacao</td>
+                <td>@item.Palestrante</td>
+                <td>@item.PublicoAlvo</td>
+                <td>@item.ValorIngresso</td>
+                <td>@item.Custo</td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-primary" onclick="evento.viewEditar(@item.Id)">
+                        Editar
+                    </button>
 
-                        <button type="button" class="btn btn-sm btn-danger" onclick="evento.excluir(@item.Id)"   >
-                            Excluir
-                        </button>
-                </tr>
+                    <button type="button" class="btn btn-sm btn-danger" onclick="evento.excluir(@item.Id)">
+                        Excluir
+                    </button>
+            </tr>
         }
     </tbody>
 </table>
