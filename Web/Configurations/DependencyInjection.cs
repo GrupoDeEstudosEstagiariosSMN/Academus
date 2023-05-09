@@ -8,6 +8,8 @@ namespace Web.Configurations
 
             services.AddControllersWithViews();
 
+            services.AddScoped<Notification>();
+
             services.AddScoped<ApplicationDbContext>();
 
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();

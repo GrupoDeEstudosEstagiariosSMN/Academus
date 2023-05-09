@@ -4,10 +4,12 @@ namespace Web.Controllers
     public class UsuarioController : Controller
     {
         private readonly IUsuarioRepository _usuarioRepository;
+        private readonly Notification _notification;
 
-        public UsuarioController(IUsuarioRepository usuarioRepository)
+        public UsuarioController(IUsuarioRepository usuarioRepository, Notification notification)
         {
             _usuarioRepository = usuarioRepository;
+            _notification = notification;
         }
 
         public IActionResult Index() => View();
@@ -18,7 +20,8 @@ namespace Web.Controllers
         [HttpPost("cadastrar")]
         public async Task<IActionResult> EnviarCadastro(CadastrarUsuarioViewModel usuario)
         {
-            if (usuario.Senha == usuario.RepetirSenha)
+            if (!usuario.IsValid(_notification))
+                return BadRequest(_notification.Get());
             {
                 await _usuarioRepository.CadastrarAsync(new Usuario
                 {
