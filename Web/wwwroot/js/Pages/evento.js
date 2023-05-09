@@ -10,11 +10,22 @@ var evento = (() => {
 
     var init = ($configs) => {
         configs = $configs;
-        buscar();
     };
 
-    var buscar = function () {
-        $.get(configs.urls.buscar).done(function (html) {
+    // var buscar = function () {
+    //     model = $("#buscar").serializeObject();
+    //     $.post(configs.urls.buscar, model).done(function (html) {
+    //         $(".container-cadastra").hide();
+    //         $(".container-busca").html(html);
+    //         $(".container-busca").show();
+    //     }).fail(function () {
+    //         console.log("deu ruim");
+    //     })
+    // };
+    
+    var buscarEvento = function () {
+        model = $("#buscarEventoPorNome").serializeObject();
+        $.post(configs.urls.buscar, model).done(function (html) {
             $(".container-cadastra").hide();
             $(".container-busca").html(html);
             $(".container-busca").show();
@@ -84,11 +95,12 @@ var evento = (() => {
 
     return {
         init: init,
-        buscar: buscar,
+        // buscar: buscar,
         cadastrar: cadastrar,
         viewCadastrar: viewCadastrar,
         editar: editar,
         viewEditar: viewEditar,
-        excluir: excluir
+        excluir: excluir,
+        buscarEvento: buscarEvento
     };
 })();

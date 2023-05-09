@@ -1,8 +1,11 @@
-<input type="text" placeholder="Evento">
+@model Evento
 
-<button type="submit" class="btn btn-primary" onclick="usuario.buscarEvento()">Buscar</button>
-<button class="buttons btn btn-primary" onclick="evento.buscar()">Listar</button>
-<button class="buttons btn btn-primary" onclick="evento.viewCadastrar()">Cadastrar</button>
+<form id="buscarEventoPorNome">
+    <input type="text" placeholder="Evento" asp-for="Nome">
+
+    <button type="submit" class="btn btn-primary" onclick="evento.buscarEvento()">Buscar</button>
+    <button class="buttons btn btn-primary" onclick="evento.viewCadastrar()">Cadastrar</button>
+</form>
 
 <div class="container-busca"></div>
 <div class="container-cadastra"></div>

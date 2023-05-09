@@ -13,12 +13,9 @@ namespace Web.Controllers
       _notification = notification;
     }
     public ActionResult Index() => View();
-
-    [HttpGet("buscar")]
-    public async Task<IActionResult> BuscarEvento() => View("_Buscar", await _eventoRepository.BuscarEventos());
-
-    [HttpGet("buscar")]
-    public async Task<IActionResult> BuscarEventoo(Evento nome) => View("_Buscar", await _eventoRepository.BuscarEventos());
+    
+    [HttpPost("buscar")]
+    public async Task<IActionResult> BuscarEvento(Evento evento) => View("_Buscar", await _eventoRepository.BuscarEventos(evento.Id, evento.Nome));
 
     [HttpGet("cadastrar")]
     public IActionResult Cadastrar() => View("_Cadastrar");
@@ -40,7 +37,8 @@ namespace Web.Controllers
     [HttpGet("editar")]
     public async Task<IActionResult> Editar(int id)
     {
-      var eventoSelecionado = await _eventoRepository.BuscarEvento(id);
+      var eventos = await _eventoRepository.BuscarEventos(id, null);
+      var eventoSelecionado = eventos.FirstOrDefault();
       return View("_Editar", eventoSelecionado);
     }
 
