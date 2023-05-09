@@ -1,0 +1,50 @@
+
+<h3>Financeiro</h3>
+
+<br>
+<table id="tabela" class="table table bordered table-striped" style="width: 100%">
+    <thead>
+        <tr>
+            <th>
+                <h4>Serviços</h4> 
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>
+                Fornecedores
+            </th>
+            <th></th>
+            <th>
+                <td>
+                    <a class="btn btn-primary" asp-area="" asp-controller="fornecedor" asp-action="Index" asp-route-id="">Detalhes</a>
+                </td>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                Contas a pagar
+            </th>
+            <th></th>
+            <th>
+                <td>
+                    <a asp-action="Details" class="btn btn-primary" asp-route-id="">Detalhes</a>
+                </td>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                Contas a receber
+            </th>
+            <th></th>
+            <th>
+                <td>
+                    <div class="btn-group" role="group">
+                        <a asp-action="Details" class="btn btn-primary" asp-route-id="">Detalhes</a>
+                    </div>               
+                </td>
+            </th>
+        </tr>
+    </tbody>
+

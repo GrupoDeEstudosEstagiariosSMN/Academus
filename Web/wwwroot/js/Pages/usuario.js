@@ -48,6 +48,8 @@ var usuario = (() => {
         });
     }
 
+    
+
     return {
         init: init,
         buscarUsuario: buscarUsuario,
