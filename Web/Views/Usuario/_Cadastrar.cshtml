@@ -1,6 +1,5 @@
 @model CadastrarUsuarioViewModel;
 
-
 <div class="cadastrar-container">
   <form id="cadastroUsuario">
       <h1>Crie sua conta</h1>
@@ -16,7 +15,6 @@
 
       <label asp-for="RepetirSenha"><b>Repetir Senha</b></label>
       <input type="password" placeholder="Repita sua senha" asp-for="RepetirSenha" required>
-
 
       <button type="submit" class="registerbtn" onclick="usuario.cadastrar()">Registrar</button>
   </form>
