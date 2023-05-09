@@ -17,6 +17,9 @@ namespace Web.Controllers
     [HttpGet("buscar")]
     public async Task<IActionResult> BuscarEvento() => View("_Buscar", await _eventoRepository.BuscarEventos());
 
+    [HttpGet("buscar")]
+    public async Task<IActionResult> BuscarEventoo(Evento nome) => View("_Buscar", await _eventoRepository.BuscarEventos());
+
     [HttpGet("cadastrar")]
     public IActionResult Cadastrar() => View("_Cadastrar");
 

@@ -10,6 +10,7 @@ var evento = (() => {
 
     var init = ($configs) => {
         configs = $configs;
+        buscar();
     };
 
     var buscar = function () {
