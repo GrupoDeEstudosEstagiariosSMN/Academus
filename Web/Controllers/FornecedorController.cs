@@ -16,7 +16,13 @@ namespace Web.Controllers
         public async Task<IActionResult> BuscarAsync() => View("_Buscar", await _fornecedorRepository.BuscarFornecedores());        
 
         [HttpGet("cadastrar")]
-        public IActionResult CadastrarFornecedor() => View("_Create");
+        public IActionResult ViewCadastrarFornecedor() => View("_Create");
+
+        [HttpPost("cadastrar")]
+        public async Task<IActionResult> CadastrarFornecedor(Fornecedor fornecedor) {
+            await _fornecedorRepository.CadastrarFornecedor(fornecedor);
+            return RedirectToAction(nameof(Index));
+        }
 
 
     }

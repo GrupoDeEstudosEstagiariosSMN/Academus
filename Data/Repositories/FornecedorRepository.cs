@@ -11,6 +11,12 @@ namespace Data.Repositories
         public async Task <IEnumerable<Fornecedor>> BuscarFornecedores()
         {
             return await _dbContext.Fornecedores.ToListAsync();
-        }    
+        }
+
+        public async Task CadastrarFornecedor(Fornecedor fornecedor)
+        {
+            await _dbContext.Fornecedores.AddAsync(fornecedor);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }
