@@ -1,0 +1,25 @@
+@model Curso
+@{
+    Layout = null;
+}
+
+<div class="cadastrar-container">
+    <form id="editaCurso">
+        <h1>Edite o curso</h1>
+        <input type="hidden" asp-for="@Model.Id" asp>
+        <label asp-for="@Model.Nome"><b>Nome</b></label>
+        <input type="text" placeholder="@Model.Nome" asp-for="@Model.Nome" required>
+
+        <label asp-for="@Model.CargaHoraria"><b>Carga Horaria</b></label>
+        <input type="text" placeholder="@Model.CargaHoraria" asp-for="@Model.CargaHoraria" required>
+
+        <label asp-for="@Model.Professor"><b>Professor</b></label>
+        <input type="text" asp-for="@Model.Professor" required>
+
+        <label asp-for="@Model.Trilha"><b>Trilha</b></label>
+        <input type="text" asp-for="@Model.Trilha" required>
+
+        <button type="submit" class="registerbtn" onclick="curso.editarCurso(Id)">Salvar</button>
+
+    </form>
+</div>

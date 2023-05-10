@@ -12,30 +12,21 @@ namespace Web.Controllers
             _cursoRepository = cursoRepository;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+        public IActionResult Index() => View();
 
         [HttpGet("cadastrar")]
-        public IActionResult CadastrarCurso()
-        {
-            return View("_Cadastrar");
-        }
+        public IActionResult CadastrarCurso() => View("_Cadastrar");
 
         [HttpPost("cadastrar")]
         public async Task<IActionResult> EnviarCadastro(Curso curso)
         {
-            //if (!curso.Nome == _dbcontext.curso.Nome)
+            await _cursoRepository.Cadastrar(new Curso {
+                Nome = curso.Nome,
+                CargaHoraria = curso.CargaHoraria,
+                Professor = curso.Professor,
+                Trilha = curso.Trilha
+            });
 
-            await _cursoRepository.Cadastrar(curso);
-            // {
-            //     Nome = curso.Nome,
-            //     CargaHoraria = curso.CargaHoraria,
-            //     Professor = curso.Professor,
-            //     Trilha = curso.Trilha
-
-            // });
             return RedirectToAction("Index", "curso");
         }
 
@@ -53,19 +44,27 @@ namespace Web.Controllers
         }
 
         [HttpGet("editar")]
-        public IActionResult EditarCurso(int id)
+        public async Task<IActionResult> EditarCursoPartialView(int id)
         {
-            //return View("Editar", "curso");
-            //return RedirectToAction("Editar", "curso");
-            return View("Editar");
+            var curso = await _cursoRepository.BuscarCursosPorIdAsync(id);
+            
+            var cursoEditado = new Curso {
+                Id = curso.Id,
+                Nome = curso.Nome,
+                CargaHoraria = curso.CargaHoraria,
+                Professor = curso.Professor,
+                Trilha = curso.Trilha
+            };
+
+            return View("_Editar", cursoEditado);
         }
 
-        [HttpPost("editar")]
-        public async Task<IActionResult> EditarCurso(Curso curso)
-        {
-            await _cursoRepository.EditarAsync(curso);
-            return RedirectToAction("Index", "curso");
-        }
+        // [HttpPost("editar")]
+        // public async Task<IActionResult> EditarCurso(Curso curso)
+        // {
+        //     await _cursoRepository.EditarAsync(curso);
+        //     return RedirectToAction("Index", "curso");
+        // }
 
 
     }

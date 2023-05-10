@@ -44,9 +44,14 @@
 
                 <td>
                     <button type="button" class="btn btn-danger" onclick="curso.deletarCurso(@item.Id)">Deletar</button>
-                    @* <button type="submit" class="registerbtn" onclick="curso.editarCurso(@item.Id)">Salvar</button> *@
-                    <a class="btn btn-primary" asp-controller="curso" asp-action="editar" asp-route-id="@item.Id">Editar</a>
-
+                    
+                    <form id="lucas_@item.Id">
+                        <input type="hidden" asp-for="@item.Id">
+                        <input type="hidden" asp-for="@item.Nome">
+                        <input type="hidden" asp-for="@item.CargaHoraria">
+                        <input type="hidden" asp-for="@item.Professor">
+                    </form>
+                    <button type="button" class="btn btn-primary" onclick="curso.editarCurso(@item.Id)">Editar</button>
                 </td>
             </tr>
         }

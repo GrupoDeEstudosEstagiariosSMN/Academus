@@ -33,11 +33,14 @@ var curso = (() => {
         });
     }
 
-    var editarCurso = () => {
-        var model = $('#editaCurso').serializeObject();
+    var editarCurso = (id) => {
+        var model = $(`#lucas_${id}`).serializeObject();
         console.log(model);
-        $.post(configs.urls.editar, model).done(() => {
-            location.reload();
+        $.get(configs.urls.editar, { id: id }).done((html) => {
+            console.log(model);
+            $('#editarCurso').html(
+                
+            );
         });
     }
 
