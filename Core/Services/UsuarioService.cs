@@ -17,6 +17,5 @@ namespace Core.Services
 
             return !notification.Any();
         }
-
     }
 }

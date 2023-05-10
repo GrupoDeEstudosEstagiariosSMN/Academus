@@ -14,5 +14,13 @@ namespace Web.ViewModels.Usuario
 
             return !notification.Any();
         }
+
+        public bool IsValidEmail(Notification notification)
+        {
+            if (!Email.Contains("@'^[\w-\.]+@(smn\.com\.br)$'")) 
+                notification.Add("Email inválido");
+
+            return !notification.Any();
+        }
     }
 }
