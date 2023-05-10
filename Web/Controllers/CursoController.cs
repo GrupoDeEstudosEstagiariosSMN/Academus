@@ -43,20 +43,10 @@ namespace Web.Controllers
             return RedirectToAction("Index", "curso");
         }
 
-        [HttpGet("editar")]
-        public async Task<IActionResult> EditarCursoPartialView(int id)
+        [HttpPost("editar")]
+        public IActionResult EditarCursoPartialView(Curso curso)
         {
-            var curso = await _cursoRepository.BuscarCursosPorIdAsync(id);
-            
-            var cursoEditado = new Curso {
-                Id = curso.Id,
-                Nome = curso.Nome,
-                CargaHoraria = curso.CargaHoraria,
-                Professor = curso.Professor,
-                Trilha = curso.Trilha
-            };
-
-            return View("_Editar", cursoEditado);
+            return View("_Editar", curso);
         }
 
         // [HttpPost("editar")]

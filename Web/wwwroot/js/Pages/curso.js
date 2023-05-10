@@ -16,6 +16,7 @@ var curso = (() => {
 
     var cadastrar = () => {
         var model = $('#cadastroCurso').serializeObject();
+        console.log(model);
         $.post(configs.urls.cadastrar, model).done(() => {
             location.href = '/curso';
         });
@@ -36,11 +37,10 @@ var curso = (() => {
     var editarCurso = (id) => {
         var model = $(`#lucas_${id}`).serializeObject();
         console.log(model);
-        $.get(configs.urls.editar, { id: id }).done((html) => {
+        $.post(configs.urls.editar, model).done((html) => {
             console.log(model);
-            $('#editarCurso').html(
+            $('#editarCurso').html(html);
                 
-            );
         });
     }
 

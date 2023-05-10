@@ -46,10 +46,11 @@
                     <button type="button" class="btn btn-danger" onclick="curso.deletarCurso(@item.Id)">Deletar</button>
                     
                     <form id="lucas_@item.Id">
-                        <input type="hidden" asp-for="@item.Id">
-                        <input type="hidden" asp-for="@item.Nome">
-                        <input type="hidden" asp-for="@item.CargaHoraria">
-                        <input type="hidden" asp-for="@item.Professor">
+                        <input type="hidden" name="Id" value="@item.Id">
+                        <input type="hidden" name="Nome" value="@item.Nome">
+                        <input type="hidden" name="CargaHoraria" value="@item.CargaHoraria">
+                        <input type="hidden" name="Professor" value="@item.Professor">
+                        <input type="hidden" name="Trilha" value="@item.Trilha">
                     </form>
                     <button type="button" class="btn btn-primary" onclick="curso.editarCurso(@item.Id)">Editar</button>
                 </td>
@@ -57,3 +58,45 @@
         }
     </tbody>
 </table>
+
+@* <ul class="list-group mt-4">
+  @foreach (var curso in Model)
+  {
+    <li class="list-group-item d-flex justify-content-between align-items-center" style="max-width: 50%;">
+      <div>@curso.Nome</div>
+      <span class="badge bg-primary rounded-pill">Alunos: @curso.CargaHoraria</span>
+      <span class="badge bg-primary rounded-pill">Sala: @curso.Professor</span>
+      <span class="badge bg-primary rounded-pill">Turno: @curso.Trilha</span>
+      <p> 
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#editar-@curso.Id"
+        aria-expanded="false" aria-controls="editar-@curso.Id"> Editar </button>
+      </p>
+      <button type="button" class="btn btn-danger" onclick="curso.deletarCurso(@curso.Id)">Deletar</button>
+    </li>
+  <div class="collapse" id="editar-@curso.Id">
+    <div class="card card-body">
+      <form id="formEditar-@curso.Id">
+        <input type="hidden" asp-for="@curso.Id" />
+        <div class="input-group input-group-default mb-6">
+          <span class="input-group-text" id="inputGroup-sizing-sm">Curso</span>
+          <input type="text" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default" asp-for="@curso.Nome">
+        </div>
+        <div class="input-group int-group-default mb-6">
+          <span class="input-group-text" id="inputGroup-sizing-sm">CargaHoraria</span>
+          <input type="text" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default" asp-for="@curso.CargaHoraria">
+          <span class="input-group-text" id="inputGroup-sizing-sm">Professor</span>
+          <input type="text" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default" asp-for="@curso.Professor">
+          <span class="input-group-text" id="inputGroup-sizing-sm">Trilha</span>
+          <input type="text" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default" asp-for="@curso.Trilha">
+          <button class="btn btn-outline-secondary btn-green" type="button" id="button-addon2"
+            onclick="curso.editarCurso(@curso.Id)">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  }
+</ul> *@
