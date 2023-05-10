@@ -3,6 +3,7 @@ var fornecedor = (() => {
     urls: {
       index: "",
       buscar: "",
+      cadastrar: ""
     },
   };
 
@@ -16,8 +17,17 @@ var fornecedor = (() => {
     });
   };
 
+  var mostrarViewCadastrar = () => {
+    $.get(configs.urls.cadastrar).done((html) => {
+      $("#mostrarTabela").hide();
+      $("#createTable").show();
+      $("#createTable").html(html);
+    })}
+
   return {
     init: init,
     buscar: buscar,
+    mostrarViewCadastrar: mostrarViewCadastrar
   };
+  
 })();

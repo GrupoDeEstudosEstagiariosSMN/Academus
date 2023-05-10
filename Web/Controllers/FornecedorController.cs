@@ -14,5 +14,10 @@ namespace Web.Controllers
 
         [HttpGet("buscar")]
         public async Task<IActionResult> BuscarAsync() => View("_Buscar", await _fornecedorRepository.BuscarFornecedores());        
+
+        [HttpGet("cadastrar")]
+        public IActionResult CadastrarFornecedor() => View("_Create");
+
+
     }
 }

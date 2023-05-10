@@ -1,0 +1,22 @@
+@model Fornecedor
+@{
+    Layout = null;
+}
+
+<form id="createTable2">
+    <div class="create-table">
+        <div class="mb-3">
+            <input asp-for="Nome" placeholder="Nome" type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input asp-for="Email" placeholder="Email" type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input asp-for="Representante" placeholder="Representante" type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input asp-for="Produto" placeholder="Produto" type="text" class="form-control">
+        </div>
+        <button type="button" class="btn btn-primary" onclick="fornecedor.cadastrar()">Enviar</button>
+    </div>
+</form>

@@ -7,18 +7,20 @@
         </div>
         <div class="col-6 text-end">
             <a class="btn btn-dark" onclick="fornecedor.buscar()">Buscar Fornecedor</a>
-            <a asp-controller="" asp-action="" class="btn btn-success"> Novo Fornecedor</a>
+            <a class="btn btn-success" onclick="fornecedor.mostrarViewCadastrar()">Novo Fornecedor</a>
         </div>
     </div>
 </div>
 
 <div id="mostrarTabela"></div>
+<div id="createTable"></div>
 
 <script src="~/js/Pages/fornecedor.js" asp-append-version="true"></script>
 <script>
     fornecedor.init({
         urls: {
-            buscar: '@Url.Action("buscar", "fornecedor")'
+            buscar: '@Url.Action("buscar", "fornecedor")',
+            cadastrar: '@Url.Action("cadastrar", "fornecedor")'
         }
     });
 </script>
