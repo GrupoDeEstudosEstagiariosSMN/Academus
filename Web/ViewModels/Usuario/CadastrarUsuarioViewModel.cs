@@ -12,15 +12,16 @@ namespace Web.ViewModels.Usuario
             if (RepetirSenha != Senha)
                 notification.Add("Senhas não batem");
 
-            return !notification.Any();
-        }
-
-        public bool IsValidEmail(Notification notification)
-        {
-            if (!Email.Contains("@'^[\w-\.]+@(smn\.com\.br)$'")) 
+            if (!Email.Contains(@"^[\w-\.]+@(smn\.com\.br)$")) 
                 notification.Add("Email inválido");
 
             return !notification.Any();
         }
+
+        // public bool IsValidEmail(Notification notification)
+        // {
+
+        //     return !notification.Any();
+        // }
     }
 }

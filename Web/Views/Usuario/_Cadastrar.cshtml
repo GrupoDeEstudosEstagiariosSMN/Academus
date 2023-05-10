@@ -22,3 +22,15 @@
   <div class="container-entrar">
     <p>Já tem uma conta? <a href="#">Sign in</a>.</p>
 </div>
+
+<script src="~/js/Pages/usuario.js" asp-append-version="true"></script>
+<script>
+    usuario.init({
+        urls: {
+            buscar: '@Url.Action("buscar", "usuario")',
+            cadastrar: '@Url.Action("cadastrar", "usuario")',
+            deletar: '@Url.Action("deletar", "usuario")',  
+            editar: '@Url.Action("editar", "usuario")'
+        }
+    });
+</script>
