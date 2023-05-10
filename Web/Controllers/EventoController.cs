@@ -13,9 +13,17 @@ namespace Web.Controllers
       _notification = notification;
     }
     public ActionResult Index() => View();
-    
+
     [HttpPost("buscar")]
-    public async Task<IActionResult> BuscarEvento(Evento evento) => View("_Buscar", await _eventoRepository.BuscarEventos(evento.Id, evento.Nome));
+    public async Task<IActionResult> BuscarEvento(Evento evento)
+    {
+      var eventos = await _eventoRepository.BuscarEventos(evento.Id, evento.Nome);
+
+      if (eventos.Count() == 0)
+        return BadRequest("Evento nao encontrado.");
+
+      return View("_Buscar", eventos);
+    }
 
     [HttpGet("cadastrar")]
     public IActionResult Cadastrar() => View("_Cadastrar");
