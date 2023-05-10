@@ -1,5 +1,3 @@
-using System.Collections.ObjectModel;
-
 namespace Core.Helpers
 {
   public class Notification

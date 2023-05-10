@@ -12,17 +12,6 @@ var evento = (() => {
         configs = $configs;
     };
 
-    // var buscar = function () {
-    //     model = $("#buscar").serializeObject();
-    //     $.post(configs.urls.buscar, model).done(function (html) {
-    //         $(".container-cadastra").hide();
-    //         $(".container-busca").html(html);
-    //         $(".container-busca").show();
-    //     }).fail(function (msg) {
-    //         site.toast.error(msg);
-    //     })
-    // };
-
     var buscarEvento = function () {
         model = $("#buscarEventoPorNome").serializeObject();
         $.post(configs.urls.buscar, model).done(function (html) {
