@@ -36,7 +36,7 @@ namespace Web.Controllers
 
         [HttpPost("buscar")]
         public async Task<IActionResult> BuscarUsuario(BuscarUsuarioViewModel nomeUsuario) => View("_Buscar", await _usuarioRepository.BuscarUsuariosAsync(nomeUsuario.Nome));
-        
+
 
         [HttpPost("deletar")]
         public async Task<IActionResult> DeletarUsuario(int id)

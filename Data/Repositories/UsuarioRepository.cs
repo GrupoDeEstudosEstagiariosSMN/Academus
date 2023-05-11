@@ -25,7 +25,8 @@ namespace Data.Repositories
 
         public async Task DeletarAsync(int id)
         {
-            _dbContext.Usuarios.Remove(new Usuario {
+            _dbContext.Usuarios.Remove(new Usuario
+            {
                 Id = id
             });
             await _dbContext.SaveChangesAsync();
@@ -33,7 +34,8 @@ namespace Data.Repositories
 
         public async Task EditarAsync(int id, string nomeUsuario, string emailUsuario)
         {
-            await _dbContext.UpdateEntryAsync<Usuario>(id, new {
+            await _dbContext.UpdateEntryAsync<Usuario>(id, new
+            {
                 Nome = nomeUsuario,
                 Email = emailUsuario
             });
