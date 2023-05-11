@@ -7,6 +7,7 @@ namespace Data
 
         }
         public DbSet<Usuario> Usuarios { get; set; }
+
         public DbSet<Evento> Eventos { get; set; }
     }
 }

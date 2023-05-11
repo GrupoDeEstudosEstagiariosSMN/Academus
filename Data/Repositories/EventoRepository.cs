@@ -43,6 +43,5 @@ namespace Data.Repositories
                 await _dbContext.SaveChangesAsync();
             }
         }
-
     }
 }
