@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace Core.Models
 {
     public class Curso
@@ -12,6 +7,5 @@ namespace Core.Models
         public string CargaHoraria { get; set; }
         public string Professor { get; set; }
         public string Trilha { get; set; }
-
     }
 }

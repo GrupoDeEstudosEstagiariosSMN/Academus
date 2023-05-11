@@ -1,11 +1,9 @@
-
 namespace Web.Controllers
 {
     [Route("curso")]
     public class CursoController : Controller
     {
         private readonly ICursoRepository _cursoRepository;
-
 
         public CursoController(ICursoRepository cursoRepository)
         {
@@ -32,9 +30,9 @@ namespace Web.Controllers
         }
 
         [HttpGet("buscar")]
-        public async Task<IActionResult> BuscarCurso()
+        public async Task<IActionResult> BuscarCurso(string nomeCurso)
         {
-            return View("_Buscar", await _cursoRepository.BuscarCursosAsync());
+            return View("_Buscar", await _cursoRepository.BuscarCursosAsync(nomeCurso));
         }
 
         [HttpPost("deletar")]
@@ -44,25 +42,14 @@ namespace Web.Controllers
             return RedirectToAction("Index", "curso");
         }
 
-        // [HttpPost("editar")]
-        // public IActionResult EditarCursoPartialView(Curso curso)
-        // {
-        //     return View("_Editar", curso);
-        // }
-
-        [HttpPost("editar")]
+        [HttpGet("editar")]
         public IActionResult EditarCurso(Curso curso) => View("_Editar", curso);
 
-
-        // [HttpPost("editar")]
-        // public async Task<IActionResult> SalvarCurso(Curso curso)
-        // {
-        //     RedirectToAction("_Editar", curso);
-        //     await _cursoRepository.EditarAsync(curso);
-        //     return RedirectToAction("Index", "curso");
-        // }
-
-
+        [HttpPost("salvar")]
+        public async Task<IActionResult> SalvarCurso(Curso curso)
+        {
+            await _cursoRepository.EditarAsync(curso);
+            return RedirectToAction("Index", "curso");
+        }
     }
-
 }

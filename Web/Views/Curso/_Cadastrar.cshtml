@@ -4,23 +4,22 @@
     <form id="cadastroCurso">
         <h1>Cadastre um curso</h1>
         <hr>
-        <label asp-for="Nome"><b>Nome</b></label>
+        <label asp-for="Nome"><b>Nome: </b></label>
         <input type="text" placeholder="Nome do curso" asp-for="Nome" required>
-
-        <label asp-for="CargaHoraria"><b>Carga Horaria</b></label>
+        <br></br>
+        <label asp-for="CargaHoraria"><b>Carga Horaria: </b></label>
         <input type="text" placeholder="Carga Horaria" asp-for="CargaHoraria" required>
-
-        <label asp-for="Professor"><b>Professor</b></label>
+        <br></br>
+        <label asp-for="Professor"><b>Professor: </b></label>
         <input type="text" placeholder="Professor" asp-for="Professor" required>
-
-        <label asp-for="Trilha"><b>Trilha</b></label>
+        <br></br>
+        <label asp-for="Trilha"><b>Trilha: </b></label>
         <input type="text" placeholder="Trilha" asp-for="Trilha" required>
         <hr>
 
-        <button type="submit" class="registerbtn" onclick="curso.cadastrar()">Cadastrar</button>
+        <button type="submit" class="btn btn-primary" onclick="curso.cadastrar()">Cadastrar</button>
     </form>
 </div>
 
 <script src="~/js/site.js" asp-append-version="true"></script>
-
 <script src="~/js/Pages/curso.js" asp-append-version="true"></script>

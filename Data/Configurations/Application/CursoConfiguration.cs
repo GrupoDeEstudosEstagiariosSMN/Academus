@@ -13,7 +13,6 @@ namespace Data.Configurations.Application
             builder.Property(x => x.CargaHoraria).HasColumnName("carga_horaria");
             builder.Property(x => x.Professor).HasColumnName("professor");
             builder.Property(x => x.Trilha).HasColumnName("trilha");
-
         }
     }
 }

@@ -7,7 +7,7 @@ CREATE TABLE usuario (
 	CONSTRAINT pk_usuario PRIMARY KEY (id),
 	CONSTRAINT uq_usuario_email UNIQUE (email)
 );
-
+-- tabela curso
 CREATE TABLE curso (
 	id int generated always as identity,
 	nome varchar(100) NOT NULL,

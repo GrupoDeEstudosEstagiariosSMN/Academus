@@ -6,7 +6,8 @@ var curso = (() => {
             cadastrar: '',
             buscar: '',
             deletar: '',
-            editar: ''
+            editar: '',
+            salvar: ''
         }
     };
 
@@ -18,13 +19,15 @@ var curso = (() => {
         var model = $('#cadastroCurso').serializeObject();
         console.log(model);
         $.post(configs.urls.cadastrar, model).done(() => {
-            location.href = '/curso';
+            location.href = '/curso'
         });
     }
 
     var buscarCurso = () => {
         $.get(configs.urls.buscar).done((html) => {
             $('#mostrarCursos').html(html);
+            $('#editarCurso').hide();
+            $('#mostrarCursos').show('slow');
         });
     }
 
@@ -37,16 +40,30 @@ var curso = (() => {
     var editarCurso = (id) => {
         var model = $(`#lucas_${id}`).serializeObject();
         console.log(model)
-        $.post(configs.urls.editar, model).done((html) => {
+        $.get(configs.urls.editar, model).done((html) => {
+            $('#mostrarCursos').hide();
             $('#editarCurso').html(html);
+            $('#editarCurso').show('slow');
+
         });
     }
+
+    var salvarCurso = () => {
+        var model = $('#editaCurso').serializeObject();
+        console.log(model)
+        $.post(configs.urls.salvar, model).done(() => {
+            $('#editarCurso').hide();
+            buscarCurso();
+        });
+    }
+
 
     return {
         init: init,
         buscarCurso: buscarCurso,
         cadastrar: cadastrar,
         deletarCurso: deletarCurso,
-        editarCurso: editarCurso
+        editarCurso: editarCurso,
+        salvarCurso: salvarCurso
     };
 })();

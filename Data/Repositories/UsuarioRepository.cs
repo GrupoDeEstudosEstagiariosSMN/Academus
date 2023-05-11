@@ -1,6 +1,6 @@
 namespace Data.Repositories
 {
-    public class UsuarioRepository : IUsuarioRepository 
+    public class UsuarioRepository : IUsuarioRepository
     {
         private readonly ApplicationDbContext _dbContext;
 
@@ -20,7 +20,7 @@ namespace Data.Repositories
             if (string.IsNullOrEmpty(nomeUsuario))
                 return await _dbContext.Usuarios.ToListAsync();
             else
-                return await _dbContext.Usuarios.Where(x => x.Nome.ToLower() == nomeUsuario.ToLower()).ToListAsync();        
+                return await _dbContext.Usuarios.Where(x => x.Nome.ToLower() == nomeUsuario.ToLower()).ToListAsync();
         }
     }
 }

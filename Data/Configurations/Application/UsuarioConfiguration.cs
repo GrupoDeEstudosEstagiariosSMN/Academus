@@ -12,7 +12,6 @@ namespace Data.Configurations.Application
             builder.Property(x => x.Nome).HasColumnName("nome");
             builder.Property(x => x.Email).HasColumnName("email");
             builder.Property(x => x.Senha).HasColumnName("senha");
-
         }
     }
 }
