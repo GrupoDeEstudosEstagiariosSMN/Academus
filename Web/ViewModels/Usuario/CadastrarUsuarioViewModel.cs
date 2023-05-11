@@ -17,11 +17,5 @@ namespace Web.ViewModels.Usuario
 
             return !notification.Any();
         }
-
-        // public bool IsValidEmail(Notification notification)
-        // {
-
-        //     return !notification.Any();
-        // }
     }
 }
