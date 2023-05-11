@@ -12,7 +12,7 @@ var evento = (() => {
         configs = $configs;
     };
 
-    var buscarEvento = function () {
+    var buscarEvento = () => {
         model = $("#buscarEventoPorNome").serializeObject();
         $.post(configs.urls.buscar, model).done(function (html) {
             $(".container-cadastra").hide();
@@ -23,7 +23,7 @@ var evento = (() => {
         })
     };
 
-    var cadastrar = function () {
+    var cadastrar = () => {
         var model = $('#eventoForm').serializeObject();
 
         if (!model.isEmpty) {
@@ -35,7 +35,7 @@ var evento = (() => {
         }
     };
 
-    var viewCadastrar = function () {
+    var viewCadastrar = () => {
         $.get(configs.urls.cadastrar).done(function (html) {
             $(".container-busca").hide();
             $("#buscarEventoPorNome").hide();
@@ -47,7 +47,7 @@ var evento = (() => {
         })
     }
 
-    var editar = function () {
+    var editar = () => {
         var model = $("#editarForm").serializeObject();
         $.post(configs.urls.editar, model).done(() => {
             $(".container-editar").hide();
@@ -59,7 +59,7 @@ var evento = (() => {
         })
     }
 
-    var viewEditar = function (id) {
+    var viewEditar = (id) => {
         $.get(configs.urls.editar, { id: id }).done(function (html) {
             $("#buscarEventoPorNome").hide();
             $(".container-busca").hide();
@@ -71,7 +71,7 @@ var evento = (() => {
         })
     }
 
-    var excluir = function (id) {
+    var excluir = (id) => {
         var model = { id: id };
         $.post(configs.urls.excluir, model).done(() => {
             buscarEvento();

@@ -1,5 +1,3 @@
-using Core.Helpers;
-
 namespace Web.Controllers
 {
   [Route("evento")]
@@ -56,6 +54,5 @@ namespace Web.Controllers
       await _eventoRepository.ExcluirEvento(id);
       return RedirectToAction(nameof(Index));
     }
-
   }
 }
