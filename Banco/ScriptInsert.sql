@@ -1,11 +1,16 @@
+
+--palestrante
+INSERT INTO palestrante (nome, especialidade)
+                VALUES ('Thomaz Falbo', 'Inteligência Artificial'),
+                       ('Lucas Alves', 'Marketing Digital'),
+                       ('Andreza Abrantes', 'Desenvolvimento Web'),
+                       ('Andressa Abrantes', 'Gestão de Projetos'),
+                       ('Gustavo Barbosa', 'Data Science')
+
 -- evento
-INSERT INTO evento (nome, descricao, localizacao, palestrante, publico_alvo, valor_ingresso, custo)
-VALUES ('Palestra de Tecnologia', 'Palestra sobre as novas tendências em tecnologia', 'São Paulo - SP', 'João da Silva', 'Profissionais de TI', 50.00, 1000.00),
- 	   ('Workshop de Marketing Digital', 'Workshop sobre estratégias de marketing digital', 'Rio de Janeiro - RJ', 'Ana Santos', 'Profissionais de marketing', 100.00, 2000.00),
-       ('Fórum de Empreendedorismo', 'Fórum sobre empreendedorismo e inovação', 'Belo Horizonte - MG', 'Pedro Pereira', 'Empreendedores', 150.00, 3000.00),
-       ('Conferência de Finanças', 'Conferência sobre finanças pessoais e investimentos', 'São Paulo - SP', 'Luiz Oliveira', 'Pessoas interessadas em finanças', 80.00, 1500.00),
-       ('Curso de Fotografia', 'Curso de fotografia para iniciantes', 'Curitiba - PR', 'Juliana Ferreira', 'Amantes da fotografia', 200.00, 4000.00),
-       ('Seminário de Recursos Humanos', 'Seminário sobre gestão de pessoas', 'Porto Alegre - RS', 'Márcia Santos', 'Profissionais de RH', 120.00, 2500.00),
-       ('Encontro de Desenvolvedores', 'Encontro para troca de experiências entre desenvolvedores', 'Campinas - SP', 'Rafael Oliveira', 'Desenvolvedores', 40.00, 800.00),
-       ('Congresso de Educação', 'Congresso sobre educação e tecnologia', 'Recife - PE', 'Pedro Henrique', 'Professores', 200.00, 4500.00),
-       ('Mesa Redonda de Direito', 'Mesa redonda sobre direito civil', 'Florianópolis - SC', 'Carlos Eduardo', 'Advogados', 80.00, 1500.00)
+INSERT INTO evento (id_palestrante, nome, descricao, localizacao, publico_alvo, valor_ingresso, custo)
+                VALUES (1, 'Conferência de Tecnologia', 'A maior conferência de tecnologia do ano, com palestras e workshops sobre inteligência artificial, blockchain e realidade virtual.', 'Centro de Convenções XYZ', 'Profissionais de TI e entusiastas de tecnologia', 50.00, 5000.00),
+                       (2, 'Workshop de Marketing Digital', 'Aprenda as melhores estratégias de marketing digital para impulsionar seu negócio. Palestras práticas e estudos de caso.', 'Espaço de Eventos ABC', 'Empreendedores, profissionais de marketing', 30.00, 1500.00),
+                       (3, 'Seminário de Liderança', 'Descubra as habilidades essenciais para se tornar um líder eficaz. Palestras inspiradoras e atividades de desenvolvimento pessoal.', 'Hotel DEF', 'Gestores,  líderes de equipe', 20.00, 800.00),
+                       (4, 'Encontro de Empreendedores', 'Um evento dedicado ao networking e compartilhamento de experiências entre empreendedores de diversos setores.', 'Espaço de Coworking GHI', 'Empreendedores, startups', 10.00, 400.00),
+                       (5, 'Fórum de Inovação', 'Uma oportunidade para discutir as últimas tendências e práticas inovadoras no mundo dos negócios. Palestrantes renomados e painéis de debate.', 'Centro de Convenções JKL', 'Profissionais de inovação, pesquisadores', 25.00, 2500.00)

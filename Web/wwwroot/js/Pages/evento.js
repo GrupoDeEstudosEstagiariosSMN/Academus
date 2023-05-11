@@ -15,8 +15,8 @@ var evento = (() => {
     var buscarEvento = () => {
         model = $("#buscarEventoPorNome").serializeObject();
         $.post(configs.urls.buscar, model).done(function (html) {
-            $(".container-cadastra").hide();
             $(".container-busca").html(html);
+            $("#buscarEventoPorNome").show();
             $(".container-busca").show();
         }).fail(function (msg) {
             site.toast.error(msg);
@@ -28,7 +28,8 @@ var evento = (() => {
 
         if (!model.isEmpty) {
             $.post(configs.urls.cadastrar, model).done(function () {
-                buscar();
+                $(".container-cadastra").hide();
+                buscarEvento();
             }).fail(function () {
                 console.log("deu ruim");
             })
@@ -51,8 +52,6 @@ var evento = (() => {
         var model = $("#editarForm").serializeObject();
         $.post(configs.urls.editar, model).done(() => {
             $(".container-editar").hide();
-            $(".container-busca").show();
-            $(".container-busca").html();
             buscarEvento();
         }).fail(function (msg) {
             site.toast.error(msg)
@@ -63,7 +62,6 @@ var evento = (() => {
         $.get(configs.urls.editar, { id: id }).done(function (html) {
             $("#buscarEventoPorNome").hide();
             $(".container-busca").hide();
-            $(".buttons").hide();
             $(".container-editar").html(html);
             $(".container-editar").show();
         }).fail(function () {
