@@ -24,6 +24,11 @@ namespace Web.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-
+        [HttpPost("deletar")]
+        public async Task<IActionResult> DeletarFornecedorAsync(int id) 
+        {
+            await _fornecedorRepository.DeletarFornecedorAsync(id);
+            return RedirectToAction("Index", "fornecedor");
+        }
     }
 }

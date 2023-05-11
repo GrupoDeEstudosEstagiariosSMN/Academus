@@ -1,5 +1,7 @@
 @model IEnumerable<Fornecedor>
+
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
 <div class="container p-3">
     <div class="row pt-4">
         <div class="col-6">
@@ -20,7 +22,8 @@
     fornecedor.init({
         urls: {
             buscar: '@Url.Action("buscar", "fornecedor")',
-            cadastrar: '@Url.Action("cadastrar", "fornecedor")'
+            cadastrar: '@Url.Action("cadastrar", "fornecedor")',
+            deletar: '@Url.Action("deletar", "fornecedor")'
         }
     });
 </script>

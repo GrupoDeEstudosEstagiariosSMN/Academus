@@ -18,5 +18,13 @@ namespace Data.Repositories
             await _dbContext.Fornecedores.AddAsync(fornecedor);
             await _dbContext.SaveChangesAsync();
         }
+
+        public async Task DeletarFornecedorAsync(int id)
+        {
+            _dbContext.Fornecedores.Remove(new Fornecedor {
+                Id = id
+            });
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }

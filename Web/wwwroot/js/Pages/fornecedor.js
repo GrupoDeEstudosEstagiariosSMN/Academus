@@ -3,7 +3,8 @@ var fornecedor = (() => {
     urls: {
       index: "",
       buscar: "",
-      cadastrar: ""
+      cadastrar: "",
+      deletar: ""
     },
   };
 
@@ -38,10 +39,17 @@ var fornecedor = (() => {
       }
     }
 
+    var deletarFornecedor = (id) => {
+      $.post(configs.urls.deletar, { id: id }).done(() => {
+        buscar();
+      });
+    }
+
   return {
     init: init,
     buscar: buscar,
     mostrarViewCadastrar: mostrarViewCadastrar,
-    cadastrarFornecedor: cadastrarFornecedor
+    cadastrarFornecedor: cadastrarFornecedor,
+    deletarFornecedor: deletarFornecedor
   };
 })();
