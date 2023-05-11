@@ -38,6 +38,7 @@ var evento = (() => {
     var viewCadastrar = function () {
         $.get(configs.urls.cadastrar).done(function (html) {
             $(".container-busca").hide();
+            $("#buscarEventoPorNome").hide();
             $(".container-cadastra").html(html);
             $(".container-cadastra").show();
         }).fail(function () {
@@ -52,7 +53,7 @@ var evento = (() => {
             $(".container-editar").hide();
             $(".container-busca").show();
             $(".container-busca").html();
-            buscar()
+            buscarEvento();
         }).fail(function (msg) {
             site.toast.error(msg)
         })
@@ -60,6 +61,7 @@ var evento = (() => {
 
     var viewEditar = function (id) {
         $.get(configs.urls.editar, { id: id }).done(function (html) {
+            $("#buscarEventoPorNome").hide();
             $(".container-busca").hide();
             $(".buttons").hide();
             $(".container-editar").html(html);
@@ -72,7 +74,7 @@ var evento = (() => {
     var excluir = function (id) {
         var model = { id: id };
         $.post(configs.urls.excluir, model).done(() => {
-            buscar();
+            buscarEvento();
         }).fail(function () {
             console.log("deu merda kkk");
         })
