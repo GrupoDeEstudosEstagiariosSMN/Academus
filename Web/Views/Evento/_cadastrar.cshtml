@@ -14,9 +14,6 @@
             <input asp-for="Localizacao" placeholder="Localização" type="text" class="form-control">
         </div>
         <div class="mb-3">
-            <input asp-for="Palestrante" placeholder="Palestrante" type="text" class="form-control">
-        </div>
-        <div class="mb-3">
             <input asp-for="PublicoAlvo" placeholder="Público alvo" type="text" class="form-control">
         </div>
         <div class="mb-3">
@@ -25,6 +22,11 @@
         <div class="mb-3">
             <input asp-for="Custo" placeholder="Custo" type="number" class="form-control">
         </div>
-        <button type="button" class="btn btn-primary" onclick="evento.cadastrar()">Enviar</button>
+        <div class="mb-3">
+            @* <select asp-for="Animal.IdEspecie" asp-items="@(new SelectList(Model.Palestrantes,Id","Nome"))")
+            class="form-select">
+            </select> *@
+        </div>
+        <button type=" button" class="btn btn-primary" onclick="evento.cadastrar()">Enviar</button>
     </div>
 </form>

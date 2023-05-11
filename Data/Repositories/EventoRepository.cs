@@ -10,7 +10,7 @@ namespace Data.Repositories
 
         public async Task<IEnumerable<Evento>> BuscarEventos(int id, string nome)
         {
-            var query = _dbContext.Eventos.AsQueryable();
+            var query = _dbContext.Eventos.Include(x => x.Palestrantes).AsQueryable();
             if (string.IsNullOrWhiteSpace(nome) && id == default)
                 return await query.ToListAsync();
             else if (string.IsNullOrWhiteSpace(nome) && id != default)
