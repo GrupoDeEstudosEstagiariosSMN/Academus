@@ -36,14 +36,11 @@ var curso = (() => {
 
     var editarCurso = (id) => {
         var model = $(`#lucas_${id}`).serializeObject();
-        console.log(model);
+        console.log(model)
         $.post(configs.urls.editar, model).done((html) => {
-            console.log(model);
             $('#editarCurso').html(html);
-                
         });
     }
-
 
     return {
         init: init,

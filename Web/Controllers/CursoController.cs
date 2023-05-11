@@ -20,7 +20,8 @@ namespace Web.Controllers
         [HttpPost("cadastrar")]
         public async Task<IActionResult> EnviarCadastro(Curso curso)
         {
-            await _cursoRepository.Cadastrar(new Curso {
+            await _cursoRepository.Cadastrar(new Curso
+            {
                 Nome = curso.Nome,
                 CargaHoraria = curso.CargaHoraria,
                 Professor = curso.Professor,
@@ -43,15 +44,20 @@ namespace Web.Controllers
             return RedirectToAction("Index", "curso");
         }
 
+        // [HttpPost("editar")]
+        // public IActionResult EditarCursoPartialView(Curso curso)
+        // {
+        //     return View("_Editar", curso);
+        // }
+
         [HttpPost("editar")]
-        public IActionResult EditarCursoPartialView(Curso curso)
-        {
-            return View("_Editar", curso);
-        }
+        public IActionResult EditarCurso(Curso curso) => View("_Editar", curso);
+
 
         // [HttpPost("editar")]
-        // public async Task<IActionResult> EditarCurso(Curso curso)
+        // public async Task<IActionResult> SalvarCurso(Curso curso)
         // {
+        //     RedirectToAction("_Editar", curso);
         //     await _cursoRepository.EditarAsync(curso);
         //     return RedirectToAction("Index", "curso");
         // }
