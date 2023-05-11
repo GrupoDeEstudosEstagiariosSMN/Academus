@@ -30,5 +30,9 @@ namespace Web.Controllers
             await _fornecedorRepository.DeletarFornecedorAsync(id);
             return RedirectToAction("Index", "fornecedor");
         }
+
+        [HttpGet("detalhes")]
+        public async Task<IActionResult> DetalhesFornecedor(int id)
+        => View("_Detalhes", await _fornecedorRepository.DetalhesFornecedorPorIdAsync(id));
     }
 }

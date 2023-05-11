@@ -8,6 +8,7 @@ global using Data.Repositories;
 
 global using Web.ViewModels;
 global using Web.ViewModels.Usuario;
+global using Web.ViewModels.Fornecedor;
 
 global using Microsoft.AspNetCore.Mvc;
 

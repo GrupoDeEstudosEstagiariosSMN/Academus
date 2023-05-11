@@ -1,0 +1,22 @@
+@model Fornecedor
+@{
+        Layout = null;
+ }
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt><th>Nome</th></dt>
+        <dd>@Model.Nome</dd>
+        <dt><th>Email</th></dt>
+        <dd>@Model.Email</dd>
+        <dt><th>Representante</th></dt>
+        <dd>@Model.Representante</dd>
+        <dt><th>Produto</th></dt>
+        <dd>@Model.Produto</dd>
+</div>
+
+</div>
+    <button type="button" class="btn btn-primary" onclick="">Editar</button>
+    <a asp-action="Index" class="btn btn-dark" onclick="fornecedor.buscar()">Clique para voltar</a>
+</div>

@@ -26,5 +26,10 @@ namespace Data.Repositories
             });
             await _dbContext.SaveChangesAsync();
         }
+
+        public async Task <Fornecedor> DetalhesFornecedorPorIdAsync(int id) 
+        {
+            return await _dbContext.Fornecedores.Where(x => x.Id == id).FirstOrDefaultAsync();
+        }
     }
 }

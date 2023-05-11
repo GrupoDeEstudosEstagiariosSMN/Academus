@@ -5,5 +5,6 @@ namespace Core.Interfaces.Repositories
         Task <IEnumerable<Fornecedor>> BuscarFornecedores();
         Task CadastrarFornecedor(Fornecedor fornecedor);
         Task DeletarFornecedorAsync(int id);
+        Task<Fornecedor> DetalhesFornecedorPorIdAsync(int id);
     }
 }

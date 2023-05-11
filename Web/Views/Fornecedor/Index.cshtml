@@ -16,6 +16,7 @@
 
 <div id="mostrarTabela"></div>
 <div id="createTable"></div>
+<div id="detalhesFornecedor"></div>
 
 <script src="~/js/Pages/fornecedor.js" asp-append-version="true"></script>
 <script>
@@ -23,7 +24,8 @@
         urls: {
             buscar: '@Url.Action("buscar", "fornecedor")',
             cadastrar: '@Url.Action("cadastrar", "fornecedor")',
-            deletar: '@Url.Action("deletar", "fornecedor")'
+            deletar: '@Url.Action("deletar", "fornecedor")',
+            detalhes: '@Url.Action("DetalhesFornecedor", "fornecedor")'
         }
     });
 </script>
