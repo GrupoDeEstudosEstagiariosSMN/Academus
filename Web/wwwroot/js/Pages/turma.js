@@ -35,18 +35,11 @@ var turma = (() => {
         });
     }
 
-    $(document).ready(() => {
-        $('.inputEditar').hide();
-        $('#editar-button').click(() => {
-            $('.inputEditar').toggle();
-        });
-    });
-
     var editarTurma = (id) => {
         var model = $(`#formEditar-${id}` ).serializeObject();
         console.log(model)
         $.post(configs.urls.editar, model).done(() => {
-            location.reload();   
+            location.reload();
         });
     }
 

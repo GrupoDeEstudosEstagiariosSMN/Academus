@@ -1,56 +1,56 @@
 @model IEnumerable<Turma>
 
 @{
-  Layout = null;
+    Layout = null;
 }
 
 <ul class="list-group mt-4">
-  @foreach (var turma in Model)
-  {
-    <li class="list-group-item d-flex justify-content-between align-items-center" style="max-width: 50%;">
-      <div>@turma.Nome</div>
-      <span class="badge bg-primary rounded-pill">Alunos: @turma.QuantidadeAlunos</span>
-      <span class="badge bg-primary rounded-pill">Sala: @turma.Sala</span>
-      <span class="badge bg-primary rounded-pill">Turno: @turma.Turno</span>
-      <p> 
-        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#editar-@turma.Id"
-        aria-expanded="false" aria-controls="editar-@turma.Id"> Editar </button>
-      </p>
-      <button type="button" class="btn btn-danger" onclick="turma.deletarTurma(@turma.Id)">Deletar</button>
-    </li>
-  <div class="collapse" id="editar-@turma.Id">
-    <div class="card card-body">
-      <form id="formEditar-@turma.Id">
-        <input type="hidden" asp-for="@turma.Id" />
-        <div class="input-group input-group-default mb-6">
-          <span class="input-group-text" id="inputGroup-sizing-sm">Turma</span>
-          <input type="text" class="form-control" aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default" asp-for="@turma.Nome">
+    @foreach (var turma in Model)
+    {
+        <li class="list-group-item d-flex justify-content-between align-items-center" style="max-width: 50%;">
+            <div>@turma.Nome</div>
+            <span class="badge bg-primary rounded-pill">Alunos: @turma.QuantidadeAlunos</span>
+            <span class="badge bg-primary rounded-pill">Sala: @turma.Sala</span>
+            <span class="badge bg-primary rounded-pill">Turno: @turma.Turno</span>
+            <p>
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#editar-@turma.Id"
+                        aria-expanded="false" aria-controls="editar-@turma.Id"> Editar </button>
+            </p>
+            <button type="button" class="btn btn-danger" onclick="turma.deletarTurma(@turma.Id)">Deletar</button>
+        </li>
+        <div class="collapse" id="editar-@turma.Id">
+            <div class="card card-body">
+                <form id="formEditar-@turma.Id">
+                    <input type="hidden" asp-for="@turma.Id" />
+                    <div class="input-group input-group-default mb-6">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Turma</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                               aria-describedby="inputGroup-sizing-default" asp-for="@turma.Nome">
+                    </div>
+                    <div class="input-group int-group-default mb-6">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Alunos</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                               aria-describedby="inputGroup-sizing-default" asp-for="@turma.QuantidadeAlunos">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Sala</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                               aria-describedby="inputGroup-sizing-default" asp-for="@turma.Sala">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Turno</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                               aria-describedby="inputGroup-sizing-default" asp-for="@turma.Turno">
+                        <button class="btn btn-outline-secondary btn-green" type="button" id="button-addon2"
+                                onclick="turma.editarTurma(@turma.Id)">Salvar</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="input-group int-group-default mb-6">
-          <span class="input-group-text" id="inputGroup-sizing-sm">Alunos</span>
-          <input type="text" class="form-control" aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default" asp-for="@turma.QuantidadeAlunos">
-          <span class="input-group-text" id="inputGroup-sizing-sm">Sala</span>
-          <input type="text" class="form-control" aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default" asp-for="@turma.Sala">
-          <span class="input-group-text" id="inputGroup-sizing-sm">Turno</span>
-          <input type="text" class="form-control" aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default" asp-for="@turma.Turno">
-          <button class="btn btn-outline-secondary btn-green" type="button" id="button-addon2"
-            onclick="turma.editarTurma(@turma.Id)">Salvar</button>
-        </div>
-      </form>
-    </div>
-  </div>
-  }
+    }
 </ul>
 <script src="~/js/Pages/turma.js" asp-append-version="true"></script>
 <script>
-  turma.init({
-    urls: {
-      editar: '@Url.Action("editar", "turma")',
-      deletar: '@Url.Action("deletar", "turma")'
-    }
-  });
+    turma.init({
+        urls: {
+            editar: '@Url.Action("editar", "turma")',
+            deletar: '@Url.Action("deletar", "turma")'
+        }
+    });
 </script>

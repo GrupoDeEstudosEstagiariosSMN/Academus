@@ -34,13 +34,6 @@ var usuario = (() => {
         });
     }
 
-    $(document).ready(() => {
-        $('.inputEditar').hide();
-        $('#editar-button').click(() => {
-            $('.inputEditar').toggle();
-        });
-    });
-
     var editarUsuario = () => {
         var model = $('#formEditar').serializeObject();
         $.post(configs.urls.editar, model).done(() => {

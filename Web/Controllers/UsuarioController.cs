@@ -32,7 +32,7 @@ namespace Web.Controllers
         }
 
         [HttpPost("buscar")]
-        public async Task<IActionResult> BuscarUsuario(BuscarUsuarioViewModel nomeUsuario) => View("_Buscar", await _usuarioRepository.BuscarUsuariosAsync(nomeUsuario.Nome));
+        public async Task<IActionResult> BuscarUsuario(Usuario usuario) => View("_Buscar", await _usuarioRepository.BuscarUsuariosAsync(usuario.Nome));
         
 
         [HttpPost("deletar")]
@@ -43,9 +43,9 @@ namespace Web.Controllers
         }
 
         [HttpPost("editar")]
-        public async Task<IActionResult> EditarUsuario(int id, string nome, string email)
+        public async Task<IActionResult> EditarUsuario(Usuario usuario)
         {
-            await _usuarioRepository.EditarAsync(id, nome, email);
+            await _usuarioRepository.EditarAsync(usuario.Id, usuario.Nome, usuario.Email);
             return RedirectToAction("Index", "usuario");
         }
     }
