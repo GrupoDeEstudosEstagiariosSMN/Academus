@@ -30,9 +30,11 @@ namespace Web.Controllers
         }
 
         [HttpGet("buscar")]
-        public async Task<IActionResult> BuscarCurso(string nomeCurso)
+        // eu prefiriria utilizar apenas string como tipo do parametro pra fazer um objeto mais simples
+        public async Task<IActionResult> BuscarCurso(BuscarCursoViewModel nomeCurso)
         {
-            return View("_Buscar", await _cursoRepository.BuscarCursosAsync(nomeCurso));
+            // validação para notfound caso queria demonstrar melhor que n encontrou registros
+            return View("_Buscar", await _cursoRepository.BuscarCursosAsync(nomeCurso.BuscaNome));
         }
 
         [HttpPost("deletar")]

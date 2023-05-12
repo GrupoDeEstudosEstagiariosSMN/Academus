@@ -11,13 +11,13 @@
         Nome
       </th>
       <th>
-        @Html.DisplayNameFor(model => model.CargaHoraria)
+        Carga Horaria
       </th>
       <th>
-        @Html.DisplayNameFor(model => model.Professor)
+        Professor
       </th>
       <th>
-        @Html.DisplayNameFor(model => model.Trilha)
+        Trilha
       </th>
     </tr>
   </thead>
@@ -27,21 +27,17 @@
     {
       <tr>
         <td>
-          @Html.DisplayFor(modelItem => item.Nome)
+          @item.Nome
         </td>
-
         <td>
-          @Html.DisplayFor(modelItem => item.CargaHoraria)
+          @item.CargaHoraria
         </td>
-
         <td>
-          @Html.DisplayFor(modelItem => item.Professor)
+          @item.Professor
         </td>
-
         <td>
-          @Html.DisplayFor(modelItem => item.Trilha)
+          @item.Trilha
         </td>
-
         <td>
           <button type="button" class="btn btn-danger" onclick="curso.deletarCurso(@item.Id)">Deletar</button>
 

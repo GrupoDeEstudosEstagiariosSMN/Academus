@@ -24,7 +24,8 @@ var curso = (() => {
     }
 
     var buscarCurso = () => {
-        $.get(configs.urls.buscar).done((html) => {
+        var model = $('#buscarCurso').serializeObject();
+        $.get(configs.urls.buscar, model).done((html) => {
             $('#mostrarCursos').html(html);
             $('#editarCurso').hide();
             $('#mostrarCursos').show('slow');
