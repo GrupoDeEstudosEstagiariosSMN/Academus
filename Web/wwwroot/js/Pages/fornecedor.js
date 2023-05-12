@@ -6,7 +6,9 @@ var fornecedor = (() => {
       buscar: "",
       cadastrar: "",
       deletar: "",
-      detalhes: ""
+      detalhes: "",
+      editar: "",
+      editarFornecedor: ''
     },
   };
 
@@ -16,6 +18,7 @@ var init = ($configs) => {
 
 var buscar = () => {
 $.get(configs.urls.buscar).done((html) => {
+    $("#mostrarTabela").show();
     $("#mostrarTabela").html(html);
   });
 };
@@ -36,7 +39,6 @@ $.get(configs.urls.buscar).done((html) => {
          buscar();
          $("#mostrarTabela").show();
       }).fail(function() {
-         console.log("DEU RUIM, VIU!");
       })
     }
   }
@@ -54,12 +56,31 @@ $.get(configs.urls.buscar).done((html) => {
     });
   }
 
-/*   var voltarBuscarFornecedor = () => {
-    $.get(configs.urls.buscar).done((html) => {
-      $("#detalhesFornecedor").hide();
-      $("#mostrarTabela").html(html);
-    });
-  } */
+/*   var editarFornecedor = (id) => {
+      $.get(configs.urls.editar, { id: id }).done((html) => {
+        console.log(model);
+        $("#mostrarTabela").hide();
+        $("#editarFornecedores").html(html);
+      });
+    } */
+
+    var editarFornecedor = (id) => {
+      $.get(configs.urls.editar, { id: id }).done((html) => {
+        $("#mostrarTabela").hide();
+        $("#editarFornecedores").show();
+        $("#editarFornecedores").html(html);
+      });
+    }
+
+    var editarFornecedores = function (){
+      var model = $("#editarFornecedor").serializeObject();
+      model.Id = $("#identificadorId").data("itemid");
+      $.post(configs.urls.editarFornecedor, model).done(function(){
+        $("#editarFornecedores").hide();
+        buscar();
+      }).fail(function() {
+      })
+    }
 
   return {
     init: init,
@@ -67,7 +88,8 @@ $.get(configs.urls.buscar).done((html) => {
     mostrarViewCadastrar: mostrarViewCadastrar,
     cadastrarFornecedor: cadastrarFornecedor,
     deletarFornecedor: deletarFornecedor,
-    detalhesUsuario: detalhesUsuario
-    //voltarBuscarFornecedor: voltarBuscarFornecedor
+    detalhesUsuario: detalhesUsuario,
+    editarFornecedor: editarFornecedor,
+    editarFornecedores: editarFornecedores
   };
 })();

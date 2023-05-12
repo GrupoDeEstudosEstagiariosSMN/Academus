@@ -31,5 +31,27 @@ namespace Data.Repositories
         {
             return await _dbContext.Fornecedores.Where(x => x.Id == id).FirstOrDefaultAsync();
         }
+
+        public async Task EditarFornecedorPorIdAsync(Fornecedor fornecedor) 
+        {
+            await _dbContext.UpdateEntryAsync<Fornecedor>(fornecedor.Id, new {
+                Nome = fornecedor.Nome,
+                Email = fornecedor.Email,
+                Representante = fornecedor.Representante,
+                Produto = fornecedor.Produto
+            });
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task<Fornecedor> BuscarFornecedorPorIdAsync(int id)
+        {
+            return await _dbContext.Fornecedores.FirstOrDefaultAsync(x => x.Id == id);
+        }
+
+        public void UpdateFornecedor(Fornecedor fornecedor)
+        {
+            _dbContext.Fornecedores.Update(fornecedor);
+            _dbContext.SaveChanges();
+        }
     }
 }

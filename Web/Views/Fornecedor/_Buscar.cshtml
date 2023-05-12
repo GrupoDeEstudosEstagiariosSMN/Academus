@@ -15,17 +15,19 @@
     <tbody>
         @foreach (var item in Model)
         {
+        <form id="editar-@item.Id">
         <tr>
             <td>@item.Nome</td>
             <td>@item.Email</td>
             <td>@item.Representante</td>
             <td>@item.Produto</td>
             <td>
-                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                <a class="btn btn-primary" onclick="fornecedor.editarFornecedor(@item.Id)">Editar</a>
                 <a class="btn btn-primary" onclick="fornecedor.detalhesUsuario(@item.Id)">Details</a>
                 <a class="btn btn-danger" onclick="fornecedor.deletarFornecedor(@item.Id)">Delete</a>
             </td>
         </tr>
+        </form>
         }
     </tbody>
     </table>

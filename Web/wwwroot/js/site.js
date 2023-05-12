@@ -1,11 +1,4 @@
 ﻿var site = (function () {
-    var config = {
-    };
-
-    var init = function ($config) {
-        config = $config;
-    }
-
     $(function () {
         $(document).on('submit', 'form', function (e) {
             e.preventDefault();
@@ -49,6 +42,5 @@
     })();
 
     return {
-        init: init
     };
 })();

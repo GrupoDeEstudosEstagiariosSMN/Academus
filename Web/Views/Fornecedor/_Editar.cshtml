@@ -1,0 +1,23 @@
+@model Fornecedor
+@{
+    Layout = null;
+}
+
+<form id="editarFornecedor">
+    <div>
+        <div class="mb-3">
+            <input value="@Model.Nome" name="Nome" placeholder="Nome" type="text" class="form-control" id="identificadorId"  data-itemid="@Model.Id">
+        </div>
+        <div class="mb-3">
+            <input value="@Model.Email" name="Email" placeholder="Email" type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input value="@Model.Representante" name="Representante" placeholder="Representante" type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input value="@Model.Produto" name="Produto" placeholder="Produto" type="text" class="form-control">
+        </div>
+        <button type="button" class="btn btn-primary" onclick="fornecedor.editarFornecedores()">Enviar</button>
+        <a asp-action="Index" class="btn btn-dark">Clique para voltar</a>
+    </div>
+</form>
