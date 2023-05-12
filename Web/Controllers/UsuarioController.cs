@@ -48,9 +48,15 @@ namespace Web.Controllers
         }
 
         [HttpPost("editar")]
-        public async Task<IActionResult> EditarUsuario(int id, string nome, string email)
+        public async Task<IActionResult> EditarUsuario(Usuario usuario)
         {
-            await _usuarioRepository.EditarAsync(id, nome, email);
+            if (await _usuarioRepository.EmailUnique(usuario.Email))
+                _notification.Add("Email já cadastrado");
+
+            if (!usuario.IsValid(_notification))
+                return BadRequest(string.Join(", ", _notification.Get()));
+
+            await _usuarioRepository.EditarAsync(usuario);
             return RedirectToAction("Index", "usuario");
         }
     }
