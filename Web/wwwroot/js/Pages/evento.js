@@ -59,14 +59,15 @@ var evento = (() => {
     }
 
     var viewEditar = (id) => {
-        $.get(configs.urls.editar, { id: id }).done(function (html) {
-            $("#buscarEventoPorNome").hide();
-            $(".container-busca").hide();
-            $(".container-editar").html(html);
-            $(".container-editar").show();
-        }).fail(function () {
-            console.log("deu ruim");
-        })
+        $.get(configs.urls.editar, { id: id })
+            .done(function (html) {
+                $("#buscarEventoPorNome").hide();
+                $(".container-busca").hide();
+                $(".container-editar").html(html);
+                $(".container-editar").show();
+            }).fail(function () {
+                console.log("deu ruim");
+            })
     }
 
     var excluir = (id) => {

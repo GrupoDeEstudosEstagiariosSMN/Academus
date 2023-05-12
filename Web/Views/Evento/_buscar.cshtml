@@ -26,7 +26,10 @@
                 <td>@item.PublicoAlvo</td>
                 <td>@item.ValorIngresso</td>
                 <td>@item.Custo</td>
-                <td>@item.Palestrantes</td>
+                @foreach (var batata in Model)
+                {
+                    <td>@batata.Palestrantes?.FirstOrDefault()?.Nome</td>
+                }
                 <td>
                     <button type="button" class="btn btn-sm btn-primary" onclick="evento.viewEditar(@item.Id)">
                         Editar

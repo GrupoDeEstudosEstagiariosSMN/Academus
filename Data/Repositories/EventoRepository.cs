@@ -10,16 +10,17 @@ namespace Data.Repositories
 
         public async Task<IEnumerable<Evento>> BuscarEventos(int id, string nome)
         {
-            var query = _dbContext.Eventos.Include(x => x.Palestrantes).AsQueryable();
-            if (string.IsNullOrWhiteSpace(nome) && id == default)
-                return await query.ToListAsync();
-            else if (string.IsNullOrWhiteSpace(nome) && id != default)
-                return await query
-                     .Where(x => x.Id == id).ToListAsync();
-            else
-                return await query
-                    .Where(x => x.Nome == nome)
-                    .ToListAsync();
+            var query = _dbContext.Eventos
+                .Include(x => x.Palestrantes)
+                .AsQueryable();
+
+            if (id != default)
+                query.Where(x => x.Id == id);
+            if (!string.IsNullOrEmpty(nome))
+                query.Where(x => x.Nome == nome);
+
+            return await query
+                .ToListAsync();
         }
 
         public async Task CadastrarEvento(Evento evento)
