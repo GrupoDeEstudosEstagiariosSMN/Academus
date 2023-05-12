@@ -26,7 +26,7 @@ namespace Web.Controllers
         }
 
         [HttpGet("cadastrar")]
-        public IActionResult Cadastrar() => View("_Cadastrar");
+        public IActionResult Cadastrar() => View("_cadastrar");
 
         [HttpPost("cadastrar")]
         public async Task<IActionResult> CadastrarEvento(Evento evento)

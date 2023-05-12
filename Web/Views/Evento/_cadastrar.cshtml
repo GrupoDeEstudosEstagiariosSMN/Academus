@@ -23,14 +23,14 @@
         <div class="mb-3">
             <input asp-for="Custo" placeholder="Custo" type="number" class="form-control">
         </div>
-        @* <div class="mb-3">
-        <select class="form-select">
-        @foreach (var item in Model.Palestrantes)
-        {
-        <option value="@item.Id">@item.Nome</option>
-        }
-        </select>
-        </div> *@
+        <div class="mb-3">
+            <select class="form-select">
+                @foreach (var item in Model.Palestrantes)
+                {
+                    <option value="@item.Id">@item.Nome</option>
+                }
+            </select>
+        </div>
         <button type=" button" class="btn btn-primary" onclick="evento.cadastrar()">Enviar</button>
     </div>
 </form>

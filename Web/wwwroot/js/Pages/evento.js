@@ -37,15 +37,16 @@ var evento = (() => {
     };
 
     var viewCadastrar = () => {
-        $.get(configs.urls.cadastrar).done(function (html) {
-            $(".container-busca").hide();
-            $("#buscarEventoPorNome").hide();
-            $(".container-cadastra").html(html);
-            $(".container-cadastra").show();
-        }).fail(function () {
-            console.log("deu ruim");
+        $.get(configs.urls.cadastrar)
+            .done(function (html) {
+                $(".container-busca").hide();
+                $("#buscarEventoPorNome").hide();
+                $(".container-cadastra").html(html);
+                $(".container-cadastra").show();
+            }).fail(function () {
+                console.log("deu ruim");
 
-        })
+            })
     }
 
     var editar = () => {
