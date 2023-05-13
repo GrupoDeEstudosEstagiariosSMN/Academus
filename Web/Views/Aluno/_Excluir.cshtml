@@ -1,0 +1,14 @@
+@model Aluno
+@{
+    Layout = null;
+}
+
+<h2>Deseja Realmente excluir o aluno?</h2>
+
+    <ul>
+        <li>@Model.Nome</li>
+        <li>@Model.Email</li>
+        <li>@Model.Turma</li>
+    </ul>
+
+    <button type="button" class="btn btn-danger" onclick="aluno.excluir(@Model.Id)">Excluir Aluno</button>

@@ -1,0 +1,31 @@
+@model IEnumerable<Aluno>
+@{
+    Layout = null;
+}
+
+<table>
+    <thead>
+        <th>@Html.DisplayNameFor(Model => Model.Id)</th>
+        <th>@Html.DisplayNameFor(Model => Model.Nome)</th>
+        <th>@Html.DisplayNameFor(Model => Model.Turma)</th>
+        <th>@Html.DisplayNameFor(Model => Model.Email)</th>
+        <th>@Html.DisplayNameFor(Model => Model.Matricula)</th>
+        <th></th>
+    </thead>
+    <tbody>
+        @foreach (var aluno in Model)
+        {
+            <tr>
+                <td>@aluno.Id</td>
+                <td>@aluno.Nome</td>
+                <td>@aluno.Turma</td>
+                <td>@aluno.Email</td>
+                <td>@aluno.Matricula</td>
+                <td>
+                    <button type="button" class="btn btn-primary" onclick="aluno.mostrarViewEditar(@aluno.Id)">Editar Aluno</button>
+                    <button type="button" class="btn btn-danger" onclick="aluno.mostrarViewExcluir(@aluno.Id)">Excluir Aluno</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
