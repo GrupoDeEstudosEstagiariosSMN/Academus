@@ -1,0 +1,15 @@
+@model Projeto
+
+@{
+    Layout = null;
+}
+
+<h2>Deseja Realmente excluir o Projeto?</h2>
+
+    <ul>
+        <li>@Model.Titulo</li>
+        <li>@Model.Autor</li>
+        <li>@Model.PrazoFinal</li>
+    </ul>
+
+    <button type="button" class="btn btn-danger" onclick="projeto.excluir(@Model.Id)">Excluir</button>

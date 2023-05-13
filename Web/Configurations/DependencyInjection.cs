@@ -14,6 +14,7 @@ namespace Web.Configurations
 
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             services.AddScoped<IAlunoRepository, AlunoRepository>();
+            services.AddScoped<IProjetoRepository, ProjetoRepository>();
         }
     }
 }

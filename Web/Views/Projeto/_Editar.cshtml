@@ -1,0 +1,20 @@
+@model Projeto
+@{
+    Layout = null;
+}
+
+<h2>Editar Aluno</h2>
+
+<form id="formEditarProjeto" onsubmit="projeto.editar()">
+    <input type="hidden" asp-for="Id">
+    <label asp-for="Titulo"></label>
+    <input type="text" asp-for="Titulo">
+    <label asp-for="Descricao"></label>
+    <input type="text" asp-for="Descricao">
+    <label asp-for="Autor"></label>
+    <input type="text" asp-for="Autor">
+    <label asp-for="PrazoFinal"></label>
+    <input type="date" asp-for="PrazoFinal">
+
+    <button type="submit" class="btn btn-danger">Editar Projeto</button>
+</form>
