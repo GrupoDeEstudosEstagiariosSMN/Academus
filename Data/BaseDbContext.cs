@@ -12,7 +12,7 @@ namespace Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql(_appSettings.ConnectionString.Default, options =>
+            optionsBuilder.UseSqlServer(_appSettings.ConnectionString.Default, options =>
             {
                 options.MaxBatchSize(100);
                 options.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);

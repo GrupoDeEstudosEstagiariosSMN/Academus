@@ -4,7 +4,7 @@ namespace Data.Configurations.Application
     {
         public void Configure(EntityTypeBuilder<Projeto> builder)
         {
-            builder.ToTable("projeto", "dbo");
+            builder.ToTable("projeto");
 
             builder.HasKey(x => x.Id).HasName("pk_projeto");
 
