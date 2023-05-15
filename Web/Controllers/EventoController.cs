@@ -4,11 +4,13 @@ namespace Web.Controllers
     public class EventoController : Controller
     {
         private readonly IEventoRepository _eventoRepository;
+        private readonly IPalestranteRepository _palestranteRepository;
         private readonly Notification _notification;
 
-        public EventoController(IEventoRepository eventoRepository, Notification notification)
+        public EventoController(IEventoRepository eventoRepository, Notification notification, IPalestranteRepository palestranteRepository)
         {
             _eventoRepository = eventoRepository;
+            _palestranteRepository = palestranteRepository;
             _notification = notification;
         }
 
@@ -26,7 +28,15 @@ namespace Web.Controllers
         }
 
         [HttpGet("cadastrar")]
-        public IActionResult Cadastrar() => View("_cadastrar");
+        public async Task<IActionResult> Cadastrar()
+        {
+            var palestrantes = await _palestranteRepository.BuscarPalestrantes();
+            var evento = new Evento
+            {
+                Palestrantes = palestrantes
+            };
+            return View("_cadastrar", evento);
+        }
 
         [HttpPost("cadastrar")]
         public async Task<IActionResult> CadastrarEvento(Evento evento)

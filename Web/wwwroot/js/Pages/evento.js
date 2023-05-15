@@ -37,6 +37,7 @@ var evento = (() => {
     };
 
     var viewCadastrar = () => {
+        console.log(configs.urls.cadastrar);
         $.get(configs.urls.cadastrar)
             .done(function (html) {
                 $(".container-busca").hide();
@@ -44,8 +45,7 @@ var evento = (() => {
                 $(".container-cadastra").html(html);
                 $(".container-cadastra").show();
             }).fail(function () {
-                console.log("deu ruim");
-
+                console.log("burro dms");
             })
     }
 

@@ -8,6 +8,12 @@ namespace Data.Repositories
             _dbContext = dbContext;
         }
 
+        public async Task<Evento> BuscarEvento(int id)
+        {
+            return await _dbContext.Eventos
+                    .Where(x => x.Id == id).FirstOrDefaultAsync();
+        }
+
         public async Task<IEnumerable<Evento>> BuscarEventos(int id, string nome)
         {
             var query = _dbContext.Eventos
