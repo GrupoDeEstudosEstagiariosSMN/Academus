@@ -8,7 +8,6 @@ namespace Data
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
-        public DbSet<Aluno> Alunos { get; set; }
         public DbSet<Projeto> Projetos { get; set; }
     }
 }
