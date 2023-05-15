@@ -1,0 +1,20 @@
+@model Aluno
+@{
+    Layout = null;
+}
+
+<form id="formCadastrarAluno">
+    <label asp-for="Nome"></label>
+    <input type="text" asp-for="Nome" placeholder="Nome">
+
+    <label asp-for="Turma"></label>
+    <input type="text" asp-for="Turma" placeholder="Turma">
+
+    <label asp-for="Email"></label>
+    <input type="text" asp-for="Email" placeholder="Email">
+
+    <label asp-for="Matricula"></label>
+    <input type="text" asp-for="Matricula" placeholder="Matricula">
+
+    <button type="submit" class="btn btn-success">Cadastrar</button>
+</form>
