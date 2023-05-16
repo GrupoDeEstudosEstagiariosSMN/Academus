@@ -4,7 +4,7 @@ global using Core.Interfaces.Repositories;
 global using Core.Models;
 global using Core.Settings;
 
-global using Data;  
+global using Data;
 global using Data.Repositories;
 
 global using Web.ViewModels;
@@ -18,3 +18,5 @@ global using System.Globalization;
 global using Web.Configurations;
 
 global using Microsoft.Extensions.DependencyInjection;
+global using Web.ViewModels.Evento;
+

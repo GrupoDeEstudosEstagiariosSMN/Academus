@@ -6,11 +6,13 @@ namespace Data.Configurations.Application
         {
             builder.ToTable("palestrante", "dbo");
 
+            builder.HasKey(x => x.Id).HasName("pk_palestrante");
+
             builder.Property(x => x.Id).ValueGeneratedOnAdd().HasColumnName("id");
             builder.Property(x => x.Nome).ValueGeneratedOnAdd().HasColumnName("nome");
             builder.Property(x => x.Especialidade).ValueGeneratedOnAdd().HasColumnName("especialidade");
 
-            builder.HasOne(x => x.Evento).WithMany(x => x.Palestrantes).HasForeignKey(x => x.Id);
+            builder.HasMany(x => x.Eventos).WithOne(x => x.Palestrante).HasForeignKey(x => x.IdPalestrante);
         }
     }
 }

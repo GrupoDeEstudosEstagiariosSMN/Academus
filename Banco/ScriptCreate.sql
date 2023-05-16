@@ -25,6 +25,6 @@ CREATE TABLE evento (
 CREATE TABLE palestrante (
 	id int generated always as identity,
 	nome varchar(64) NOT NULL,
-	especialidade varchar(600) NOT NULL,
+	especialidade varchar(64) NOT NULL,
 	CONSTRAINT pk_palestrante PRIMARY KEY (id)
 )

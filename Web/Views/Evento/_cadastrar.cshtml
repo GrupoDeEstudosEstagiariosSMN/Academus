@@ -1,5 +1,4 @@
-@* @model IEnumerable<Palestrante> *@
-@model Evento;
+@model CadastrarEventoViewModel;
 @{
     Layout = null;
 }
@@ -24,7 +23,7 @@
             <input asp-for="Custo" placeholder="Custo" type="number" class="form-control">
         </div>
         <div class="mb-3">
-            <select class="form-select">
+            <select class="form-select" asp-for="IdPalestrante">
                 @foreach (var item in Model.Palestrantes)
                 {
                     <option value="@item.Id">@item.Nome</option>

@@ -14,10 +14,11 @@ var evento = (() => {
 
     var buscarEvento = () => {
         model = $("#buscarEventoPorNome").serializeObject();
-        $.post(configs.urls.buscar, model).done(function (html) {
-            $(".container-busca").html(html);
+        console.log(model);
+        $.get(configs.urls.buscar, model).done(function (html) {
             $("#buscarEventoPorNome").show();
             $(".container-busca").show();
+            $(".container-busca").html(html);
         }).fail(function (msg) {
             site.toast.error(msg);
         })
@@ -25,7 +26,7 @@ var evento = (() => {
 
     var cadastrar = () => {
         var model = $('#eventoForm').serializeObject();
-
+        console.log(model);
         if (!model.isEmpty) {
             $.post(configs.urls.cadastrar, model).done(function () {
                 $(".container-cadastra").hide();
@@ -64,8 +65,8 @@ var evento = (() => {
             .done(function (html) {
                 $("#buscarEventoPorNome").hide();
                 $(".container-busca").hide();
-                $(".container-editar").html(html);
                 $(".container-editar").show();
+                $(".container-editar").html(html);
             }).fail(function () {
                 console.log("deu ruim");
             })

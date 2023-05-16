@@ -1,3 +1,5 @@
+using Web.ViewModels.Evento;
+
 namespace Web.Controllers
 {
     [Route("evento")]
@@ -16,32 +18,44 @@ namespace Web.Controllers
 
         public ActionResult Index() => View();
 
-        [HttpPost("buscar")]
-        public async Task<IActionResult> BuscarEvento(Evento evento)
+        [HttpGet("buscar")]
+        public async Task<IActionResult> BuscarEvento(string nome)
         {
-            var eventos = await _eventoRepository.BuscarEventos(evento.Id, evento.Nome);
+            // var eventos = await _eventoRepository.BuscarEventos(nome);
+            var eventos = await _eventoRepository.BuscarEventosAsyncNovo();
 
-            if (eventos.Count() == 0)
-                return BadRequest("Evento nao encontrado.");
+            // if (!eventos.Any())
+            //     return BadRequest("Evento nao encontrado.");
 
-            return View("_Buscar", eventos);
+            return View("_buscar", eventos);
         }
 
         [HttpGet("cadastrar")]
         public async Task<IActionResult> Cadastrar()
         {
             var palestrantes = await _palestranteRepository.BuscarPalestrantes();
-            var evento = new Evento
+            var cadastrarEventoViewModel = new CadastrarEventoViewModel
             {
                 Palestrantes = palestrantes
             };
-            return View("_cadastrar", evento);
+            return View("_cadastrar", cadastrarEventoViewModel);
         }
 
         [HttpPost("cadastrar")]
-        public async Task<IActionResult> CadastrarEvento(Evento evento)
+        public async Task<IActionResult> CadastrarEvento(CadastrarEventoViewModel cadastrarEventoViewModel)
         {
-            await _eventoRepository.CadastrarEvento(evento);
+            //a tabela de evento espera um evento e não um viewmodel de evento
+
+            await _eventoRepository.CadastrarEvento(new Evento
+            {
+                IdPalestrante = cadastrarEventoViewModel.IdPalestrante,
+                Nome = cadastrarEventoViewModel.Nome,
+                Descricao = cadastrarEventoViewModel.Descricao,
+                Localizacao = cadastrarEventoViewModel.Localizacao,
+                PublicoAlvo = cadastrarEventoViewModel.PublicoAlvo,
+                ValorIngresso = cadastrarEventoViewModel.ValorIngresso,
+                Custo = cadastrarEventoViewModel.Custo,
+            });
             return RedirectToAction(nameof(Index));
         }
 
@@ -55,8 +69,7 @@ namespace Web.Controllers
         [HttpGet("editar")]
         public async Task<IActionResult> Editar(int id)
         {
-            var eventos = await _eventoRepository.BuscarEventos(id, null);
-            var eventoSelecionado = eventos.FirstOrDefault();
+            var eventoSelecionado = await _eventoRepository.BuscarEvento(id);
             return View("_Editar", eventoSelecionado);
         }
 

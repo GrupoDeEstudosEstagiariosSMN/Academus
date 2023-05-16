@@ -13,6 +13,7 @@
             <th scope="col">Valor Ingresso</th>
             <th scope="col">Custo</th>
             <th scope="col">Palestrante</th>
+            <th scope="col"> PORRA BETO</th>
         </tr>
     </thead>
     <tbody>
@@ -26,10 +27,7 @@
                 <td>@item.PublicoAlvo</td>
                 <td>@item.ValorIngresso</td>
                 <td>@item.Custo</td>
-                @foreach (var batata in Model)
-                {
-                    <td>@batata.Palestrantes?.FirstOrDefault()?.Nome</td>
-                }
+                <td>@item.Palestrante.Nome</td>
                 <td>
                     <button type="button" class="btn btn-sm btn-primary" onclick="evento.viewEditar(@item.Id)">
                         Editar
