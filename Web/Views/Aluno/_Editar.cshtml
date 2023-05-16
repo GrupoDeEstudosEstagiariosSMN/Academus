@@ -1,0 +1,23 @@
+@model Aluno
+@{
+    Layout = null;
+}
+
+<form id="formEditarAluno" onsubmit="aluno.fnEditar()">
+
+    <input type="hidden" asp-for="Id">
+
+    <label asp-for="Nome"></label>
+    <input type="text" asp-for="Nome" placeholder="@Model.Nome">
+
+    <label asp-for="Turma"></label>
+    <input type="text" asp-for="Turma" placeholder="@Model.Turma">
+
+    <label asp-for="Email"></label>
+    <input type="text" asp-for="Email" placeholder="@Model.Email">
+
+    <label asp-for="Matricula"></label>
+    <input type="text" asp-for="Matricula" placeholder="@Model.Matricula">
+
+    <button type="submit" class="btn btn-success">Editar</button>
+</form>

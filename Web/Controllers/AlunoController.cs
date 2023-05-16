@@ -40,5 +40,21 @@ namespace Web.Controllers
             await _alunoRepository.ExcluirAsync(id);
             return Ok();
         }
+
+        [HttpGet("editar")]
+        public async Task<IActionResult> MostrarViewEditar(int id) 
+        {
+            if (id == default)
+                return BadRequest("aluno não encontrado");
+
+            return View("_Editar", await _alunoRepository.BuscarAlunoPorIdAsync(id));
+        }
+
+        [HttpPost("editar")]
+        public async Task<IActionResult> Editar(Aluno aluno) 
+        {
+            await _alunoRepository.EditarAlunoAsync(aluno);
+            return Ok();
+        }
     }
 }

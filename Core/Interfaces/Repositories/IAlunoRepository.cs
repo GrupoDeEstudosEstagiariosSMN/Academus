@@ -6,5 +6,6 @@ namespace Core.Interfaces.Repositories
         Task<IEnumerable<Aluno>> BuscarAlunosAsync();
         Task<Aluno> BuscarAlunoPorIdAsync(int id);
         Task ExcluirAsync(int id);
+        Task EditarAlunoAsync(Aluno aluno);
     }
 }
