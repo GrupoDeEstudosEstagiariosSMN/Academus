@@ -1,0 +1,8 @@
+@model Aluno
+@{
+    Layout = null;
+}
+
+<p>Deseja realmente excluir o @Model.Nome ?</p>
+
+<button type="button" class="btn btn-danger" onclick="aluno.fnExcluir(@Model.Id)">Excluir</button>

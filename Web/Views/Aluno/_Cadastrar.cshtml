@@ -4,7 +4,7 @@
 }
 <h1>Pagina do Cadastrar</h1>
 
-<form id="formCadastrarAluno">
+<form id="formCadastrarAluno" onsubmit="aluno.fnCadastrar()">
     <label asp-for="Nome"></label>
     <input type="text" asp-for="Nome" placeholder="Seu nome">
 

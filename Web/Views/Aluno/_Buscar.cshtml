@@ -1,0 +1,20 @@
+@model IEnumerable<Aluno>
+@{
+    Layout = null;
+}
+
+<h1>Página do Buscar</h1>
+
+@foreach (var aluno in Model)
+{
+    <ul>
+        <li>@aluno.Id</li>
+        <li>@aluno.Nome</li>
+        <li>@aluno.Email</li>
+        <li>@aluno.Turma</li>
+        <li>@aluno.Matricula</li>
+        <li><button type="button" class="btn btn-danger" onclick="aluno.fnMostrarViewExcluir(@aluno.Id)">Excluir</button></li>
+        <li><button type="button" class="btn btn-danger">Editar</button></li>
+        <li><button type="button" class="btn btn-danger">Voltar</button></li>
+    </ul>
+}

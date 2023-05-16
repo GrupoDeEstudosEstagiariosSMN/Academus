@@ -1,4 +1,4 @@
--- tabela usuario
+/* -- tabela usuario
 CREATE TABLE usuario (
 	id int generated always as identity,
 	nome varchar(64) NOT NULL,
@@ -30,3 +30,5 @@ CREATE TABLE projeto (
 	CONSTRAINT pk_projeto PRIMARY KEY (id),
 	CONSTRAINT uq_projeto_titulo UNIQUE (titulo)
 );
+ */
+ 
