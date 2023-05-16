@@ -6,7 +6,9 @@ var aluno = (function () {
             cadastrar: '',
             mostrarViewBuscar: '',
             mostrarViewExcluir: '',
-            excluir: ''
+            excluir: '',
+            mostrarViewEditar: '',
+            editar: ''
         }
     }
 
@@ -18,6 +20,7 @@ var aluno = (function () {
         $('#mostrarViewCadastrar').hide();
         $('#mostrarViewBuscar').hide();
         $('#mostrarViewExcluir').hide();
+        $('#mostrarViewEditar').hide();
     };
 
     var fnMostrarViewCadastrar = function () {
@@ -50,7 +53,7 @@ var aluno = (function () {
         });
     };
 
-    var fnMostrarViewExcluir = function () {
+    var fnMostrarViewExcluir = function (id) {
         var model = {id: id};
         $.get(configs.urls.mostrarViewExcluir, model).done((html) => {
             fnEsconderViews();
@@ -71,12 +74,36 @@ var aluno = (function () {
         });
     };
 
+    var fnMostrarViewEditar = function(id) {
+        var model = {id: id};
+        $.get(configs.urls.mostrarViewEditar, model).done((html) => {
+            fnEsconderViews();
+            $('#mostrarViewEditar').show();
+            $('#mostrarViewEditar').html(html);
+        }).fail((msg) => {
+            site.toast.error(msg);
+        });
+    };
+
+    var fnEditar = function() {
+        var model = $('#formEditarAluno').serializeObject();
+        $.post(configs.urls.editar, model).done(() => {
+            site.toast.success('aluno editado com sucesso');
+            fnMostrarViewBuscar();
+        }).fail((msg) => {
+            site.toast.error(msg);
+        });
+    };
+
     return {
         init: init,
         fnMostrarViewCadastrar: fnMostrarViewCadastrar,
         fnCadastrar: fnCadastrar,
         fnMostrarViewBuscar: fnMostrarViewBuscar,
         fnMostrarViewExcluir: fnMostrarViewExcluir,
-        fnExcluir: fnExcluir
+        fnExcluir: fnExcluir,
+        fnMostrarViewEditar: fnMostrarViewEditar,
+        fnEsconderViews: fnEsconderViews,
+        fnEditar: fnEditar
     }
 })();

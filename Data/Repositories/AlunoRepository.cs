@@ -31,5 +31,18 @@ namespace Data.Repositories
             _dbContext.Alunos.Remove(aluno);
             await _dbContext.SaveChangesAsync();
         }
+
+        public async Task EditarAlunoAsync(Aluno aluno) 
+        {
+            var alunoModificado = new {
+                Nome = aluno.Nome,
+                Turma = aluno.Turma,
+                Email = aluno.Email,
+                Matricula = aluno.Matricula
+            };
+            
+            await _dbContext.UpdateEntryAsync<Aluno>(aluno.Id, alunoModificado);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }

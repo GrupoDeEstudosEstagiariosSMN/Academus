@@ -6,6 +6,7 @@
 <section id="mostrarViewCadastrar"></section>
 <section id="mostrarViewBuscar"></section>
 <section id="mostrarViewExcluir"></section>
+<section id="mostrarViewEditar"></section>
 
 <script src="~/js/Pages/aluno.js" asp-append-version="true"></script>
 <script>
@@ -15,8 +16,10 @@
             mostrarViewCadastrar: '@Url.Action("MostrarViewCadastrar", "Aluno")',
             cadastrar: '@Url.Action("Cadastrar", "Aluno")',
             mostrarViewBuscar: '@Url.Action("MostrarViewBuscar", "Aluno")',
-            mostrarViewExcluir: 'Url.Action("MostrarViewExcluir", "Aluno")',
-            excluir: '@Url.Action("Excluir", "Aluno")'
+            mostrarViewExcluir: '@Url.Action("MostrarViewExcluir", "Aluno")',
+            excluir: '@Url.Action("Excluir", "Aluno")',
+            mostrarViewEditar: '@Url.Action("MostrarViewEditar", "Aluno")',
+            editar: '@Url.Action("Editar", "Aluno")'
         }
     });
 </script>
