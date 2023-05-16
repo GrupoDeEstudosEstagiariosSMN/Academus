@@ -7,6 +7,5 @@ namespace Core.Interfaces.Repositories
         Task CadastrarEvento(Evento evento);
         Task EditarEvento(Evento evento);
         Task ExcluirEvento(int id);
-        // Task<IEnumerable<Evento>> BuscarEventosAsyncNovo();
     }
 }

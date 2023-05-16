@@ -19,4 +19,3 @@ INSERT INTO evento (id_palestrante, nome, descricao, localizacao, publico_alvo, 
                        (4, 'Encontro de Empreendedores', 'Um evento dedicado ao networking e compartilhamento de experiências entre empreendedores de diversos setores.', 'Espaço de Coworking GHI', 'Empreendedores, startups', 10.00, 400.00),
                        (2, 'Encontro de Empreendedores', 'Um evento dedicado ao networking e compartilhamento de experiências entre empreendedores de diversos setores.', 'Espaço de Coworking GHI', 'Empreendedores, startups', 10.00, 400.00),
                        (5, 'Fórum de Inovação', 'Uma oportunidade para discutir as últimas tendências e práticas inovadoras no mundo dos negócios. Palestrantes renomados e painéis de debate.', 'Centro de Convenções JKL', 'Profissionais de inovação, pesquisadores', 25.00, 2500.00)
-

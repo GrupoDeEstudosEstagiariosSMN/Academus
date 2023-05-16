@@ -15,8 +15,6 @@ namespace Web.Configurations
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             services.AddScoped<IEventoRepository, EventoRepository>();
             services.AddScoped<IPalestranteRepository, PalestranteRepository>();
-
-            services.AddScoped<Notification>();
         }
     }
 }
