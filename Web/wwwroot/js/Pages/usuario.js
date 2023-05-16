@@ -37,17 +37,13 @@ var usuario = (() => {
         });
     }
 
-    $(document).ready(() => {
-        $('.inputEditar').hide();
-        $('#editar-button').click(() => {
-        $('.inputEditar').toggle();
-        });
-    });
-
-    var editarUsuario = () => {
-        var model = $('#formEditar').serializeObject();
+    var editarUsuario = (id) => {
+        var model = $(`#formEditar-${id}` ).serializeObject();
         $.post(configs.urls.editar, model).done(() => {
-            location.reload();
+            site.toast.error(msg);
+            location.reload();  
+        }).fail((msg) => {
+            site.toast.error(msg);
         });
     }
 

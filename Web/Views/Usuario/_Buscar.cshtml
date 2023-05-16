@@ -11,26 +11,27 @@
       <div>@usuario.Nome</div>
       <span class="badge bg-primary rounded-pill">@usuario.Email</span>
       <p>
-        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_@usuario.Id" aria-expanded="false" aria-controls="collapse_@usuario.Id">
           Editar
         </button>
       </p>
       <button type="button" class="btn btn-danger" onclick="usuario.deletarUsuario(@usuario.Id)">Deletar</button>
     </li>
-  }
-      <div class="collapse" id="collapseExample">
+      <div class="collapse" id="collapse_@usuario.Id">
         <div class="card card-body">
-            <form id="formEditar">
+            <form id="formEditar-@usuario.Id">
+              <input type="hidden" asp-for="@usuario.Id">
               <div class="input-group input-group-default mb-6">
                 <span class="input-group-text" id="inputGroup-sizing-sm">Nome</span>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="Nome">
+                <input type="text" class="form-control" aria-label="Sizing input" aria-describedby="inputGroup-sizing-default" asp-for="@usuario.Nome">
               </div>
               <div class="input-group input-group-default mb-6">
                 <span class="input-group-text" id="inputGroup-sizing-sm">Email</span>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="Email">
-                <button class="btn btn-outline-secondary btn-green" type="button" id="button-addon2" onclick="usuario.editarUsuario()">Salvar</button>
+                <input type="text" class="form-control" aria-label="Sizing input" aria-describedby="inputGroup-sizing-default" asp-for="@usuario.Email">
+                <button class="btn btn-outline-secondary btn-green" type="button" id="button-addon2" onclick="usuario.editarUsuario(@usuario.Id)">Salvar</button>
               </div>
             </form>
         </div>
       </div>
+  }
 </ul>

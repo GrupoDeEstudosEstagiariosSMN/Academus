@@ -31,15 +31,14 @@ namespace Data.Repositories
             await _dbContext.SaveChangesAsync();
         }
 
-        public async Task EditarAsync(int id, string nomeUsuario, string emailUsuario)
+        public async Task EditarAsync (Usuario usuario)
         {
-            await _dbContext.UpdateEntryAsync<Usuario>(id, new {
-                Nome = nomeUsuario,
-                Email = emailUsuario
+            await _dbContext.UpdateEntryAsync<Usuario>(usuario.Id, new {
+                Nome = usuario.Nome,
+                Email = usuario.Email
             });
             await _dbContext.SaveChangesAsync();
         }
-
         public async Task<bool> EmailUnique(string email) => await _dbContext.Usuarios.AnyAsync(x => x.Email == email);
     }
 }
