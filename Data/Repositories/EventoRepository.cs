@@ -18,12 +18,29 @@ namespace Data.Repositories
         {
             var query = _dbContext.Eventos
                 .Include(x => x.Palestrante)
-                .Where(x => x.IdPalestrante == x.Palestrante.Id)
                 .AsQueryable();
 
             if (!string.IsNullOrEmpty(nome))
                 return await query.Where(x => x.Nome == nome).ToListAsync();
-            else return await query.ToListAsync();
+            else return await query
+                .Select(x => new Evento
+                {
+                    Id = x.Id,
+                    IdPalestrante = x.IdPalestrante,
+                    Nome = x.Nome,
+                    Descricao = x.Descricao,
+                    Localizacao = x.Localizacao,
+                    PublicoAlvo = x.PublicoAlvo,
+                    ValorIngresso = x.ValorIngresso,
+                    Custo = x.Custo,
+                    Palestrante = new Palestrante
+                    {
+                        Id = x.Palestrante.Id,
+                        Nome = x.Palestrante.Nome,
+                        Especialidade = x.Palestrante.Especialidade
+                    }
+                })
+                .ToListAsync();
         }
 
         public async Task CadastrarEvento(Evento evento)
@@ -46,31 +63,6 @@ namespace Data.Repositories
                 _dbContext.Eventos.Remove(evento);
                 await _dbContext.SaveChangesAsync();
             }
-        }
-
-        public async Task<IEnumerable<Evento>> BuscarEventosAsyncNovo()
-        {
-            var eventos = await _dbContext.Eventos
-                // .Include(x => x.Palestrante)
-                .Select(x => new Evento
-                {
-                    Id = x.Id,
-                    IdPalestrante = x.IdPalestrante,
-                    Nome = x.Nome,
-                    Descricao = x.Descricao,
-                    Localizacao = x.Localizacao,
-                    PublicoAlvo = x.PublicoAlvo,
-                    ValorIngresso = x.ValorIngresso,
-                    Custo = x.Custo,
-                    Palestrante = new Palestrante
-                    {
-                        Id = x.Palestrante.Id,
-                        Nome = x.Palestrante.Nome,
-                        Especialidade = x.Palestrante.Especialidade
-                    }
-                })
-                .ToListAsync();
-            return eventos;
         }
     }
 }

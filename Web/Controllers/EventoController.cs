@@ -21,11 +21,10 @@ namespace Web.Controllers
         [HttpGet("buscar")]
         public async Task<IActionResult> BuscarEvento(string nome)
         {
-            // var eventos = await _eventoRepository.BuscarEventos(nome);
-            var eventos = await _eventoRepository.BuscarEventosAsyncNovo();
+            var eventos = await _eventoRepository.BuscarEventos(nome);
 
-            // if (!eventos.Any())
-            //     return BadRequest("Evento nao encontrado.");
+            if (!eventos.Any())
+                return BadRequest("Evento nao encontrado.");
 
             return View("_buscar", eventos);
         }
@@ -45,7 +44,6 @@ namespace Web.Controllers
         public async Task<IActionResult> CadastrarEvento(CadastrarEventoViewModel cadastrarEventoViewModel)
         {
             //a tabela de evento espera um evento e não um viewmodel de evento
-
             await _eventoRepository.CadastrarEvento(new Evento
             {
                 IdPalestrante = cadastrarEventoViewModel.IdPalestrante,
