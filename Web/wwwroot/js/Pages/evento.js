@@ -52,6 +52,7 @@ var evento = (() => {
 
     var editar = () => {
         var model = $("#editarForm").serializeObject();
+        console.log(model);
         $.post(configs.urls.editar, model).done(() => {
             $(".container-editar").hide();
             buscarEvento();

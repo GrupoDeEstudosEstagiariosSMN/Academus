@@ -21,7 +21,11 @@ namespace Data.Repositories
                 .AsQueryable();
 
             if (!string.IsNullOrEmpty(nome))
-                return await query.Where(x => x.Nome == nome).ToListAsync();
+            {
+                nome = nome.TrimEnd();
+                return await query.Where(x => x.Nome.ToLower() == nome.ToLower()).ToListAsync();
+
+            }
             else return await query
                 .Select(x => new Evento
                 {
@@ -51,7 +55,15 @@ namespace Data.Repositories
 
         public async Task EditarEvento(Evento evento)
         {
-            _dbContext.Eventos.Update(evento);
+            await _dbContext.UpdateEntryAsync<Evento>(evento.Id, new
+            {
+                Nome = evento.Nome,
+                Descricao = evento.Descricao,
+                Localizacao = evento.Localizacao,
+                PublicoAlvo = evento.PublicoAlvo,
+                ValorIngresso = evento.ValorIngresso,
+                Custo = evento.Custo
+            });
             await _dbContext.SaveChangesAsync();
         }
 
