@@ -1,3 +1,4 @@
+using Core.Interfaces.Services;
 using Web.ViewModels.Evento;
 
 namespace Web.Controllers
@@ -6,14 +7,16 @@ namespace Web.Controllers
     public class EventoController : Controller
     {
         private readonly IEventoRepository _eventoRepository;
+        private readonly IEventoService _eventoService;
         private readonly IPalestranteRepository _palestranteRepository;
         private readonly Notification _notification;
 
-        public EventoController(IEventoRepository eventoRepository, Notification notification, IPalestranteRepository palestranteRepository)
+        public EventoController(IEventoRepository eventoRepository, Notification notification, IPalestranteRepository palestranteRepository, IEventoService eventoService)
         {
             _eventoRepository = eventoRepository;
             _palestranteRepository = palestranteRepository;
             _notification = notification;
+            _eventoService = eventoService;
         }
 
         public ActionResult Index() => View();
@@ -44,7 +47,7 @@ namespace Web.Controllers
         public async Task<IActionResult> CadastrarEvento(CadastrarEventoViewModel cadastrarEventoViewModel)
         {
             //a tabela de evento espera um evento e não um viewmodel de evento
-            await _eventoRepository.CadastrarEvento(new Evento
+            await _eventoService.CadastrarEventoAsync(new Evento
             {
                 IdPalestrante = cadastrarEventoViewModel.IdPalestrante,
                 Nome = cadastrarEventoViewModel.Nome,

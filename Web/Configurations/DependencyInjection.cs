@@ -1,3 +1,6 @@
+using Core.Interfaces.Services;
+using Core.Services;
+
 namespace Web.Configurations
 {
     public static class DependencyInjection
@@ -15,6 +18,7 @@ namespace Web.Configurations
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             services.AddScoped<IEventoRepository, EventoRepository>();
             services.AddScoped<IPalestranteRepository, PalestranteRepository>();
+            services.AddScoped<IEventoService, EventoService>();
         }
     }
 }
