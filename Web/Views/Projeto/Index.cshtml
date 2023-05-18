@@ -1,0 +1,22 @@
+<button type="button" class="btn btn-primary" onclick="projeto.mostrarViewCadastrar()">Cadastrar novo Projeto</button>
+<button type="button" class="btn btn-primary" onclick="projeto.mostrarViewBuscar()">Buscar Projetos</button>
+
+<div id="mostrarViewCadastrar"></div>
+<div id="mostrarViewBuscar"></div>
+<div id="mostrarViewExcluir"></div>
+<div id="mostrarViewEditar"></div>
+
+<script src="~/js/Pages/projeto.js" asp-append-version="true"></script>
+<script>
+    projeto.init({
+        urls: {
+            mostrarViewCadastrar: '@Url.Action("MostrarViewCadastrar", "Projeto")',
+            cadastrar: '@Url.Action("Cadastrar", "Projeto")',
+            mostrarViewBuscar: '@Url.Action("MostrarViewBuscar", "Projeto")',
+            mostrarViewExcluir: '@Url.Action("MostrarViewExcluir", "Projeto")',
+            excluir: '@Url.Action("Excluir", "Projeto")',
+            mostrarViewEditar: '@Url.Action("MostrarViewEditar", "Projeto")',
+            editar: '@Url.Action("Editar", "Projeto")'
+        }
+    });
+</script>

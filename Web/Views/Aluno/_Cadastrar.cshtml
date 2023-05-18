@@ -1,0 +1,21 @@
+@model Aluno
+@{
+    Layout = null;
+}
+
+
+<form id="formCadastrarAluno" onsubmit="aluno.fnCadastrar()">
+    <label asp-for="Nome"></label>
+    <input type="text" asp-for="Nome" placeholder="digite seu nome">
+
+    <label asp-for="Turma"></label>
+    <input type="text" asp-for="Turma">
+
+    <label asp-for="Email"></label>
+    <input type="text" asp-for="Email">
+
+    <label asp-for="Matricula"></label>
+    <input type="text" asp-for="Matricula">
+
+    <button type="submit" class="btn btn-success">Cadastrar</button>
+</form>

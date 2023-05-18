@@ -39,5 +39,7 @@ namespace Data.Repositories
             });
             await _dbContext.SaveChangesAsync();
         }
+
+        public async Task<bool> EmailUnique(string email) => await _dbContext.Usuarios.AnyAsync(x => x.Email == email);
     }
 }

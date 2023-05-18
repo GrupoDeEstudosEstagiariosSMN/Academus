@@ -8,12 +8,17 @@ namespace Web.Configurations
 
             services.AddControllersWithViews();
 
+            services.AddScoped<Notification>();
+
             services.AddScoped<ApplicationDbContext>();
 
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
             services.AddScoped<ITurmaRepository, TurmaRepository>();
             
+            services.AddScoped<IProjetoRepository, ProjetoRepository>();
+            
+            services.AddScoped<IAlunoRepository, AlunoRepository>();
         }
     }
 }

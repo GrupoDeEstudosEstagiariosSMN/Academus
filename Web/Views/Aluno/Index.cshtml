@@ -1,0 +1,22 @@
+<h1>Pagina do Aluno</h1>
+
+<button type="button" class="btn btn-primary" onclick="aluno.fnMostrarViewCadastrar()">Cadastrar Aluno</button>
+<button type="button" class="btn btn-secondary" onclick="aluno.fnMostrarViewBuscar()">Buscar Aluno</button>
+
+<section id="mostrarViewCadastrar"></section>
+<section id="mostrarViewBuscar"></section>
+<section id="mostrarViewExcluir"></section>
+
+<script src="~/js/Pages/aluno.js" asp-append-version="true"></script>
+<script>
+    aluno.init({
+        urls: {
+            index: '@Url.Action("Index", "Aluno")',
+            mostrarViewCadastrar: '@Url.Action("MostrarViewCadastrar", "Aluno")',
+            cadastrar: '@Url.Action("Cadastrar", "Aluno")',
+            mostrarViewBuscar: '@Url.Action("MostrarViewBuscar", "Aluno")',
+            mostrarViewExcluir: '@Url.Action("MostrarViewExcluir", "Aluno")',
+            excluir: '@Url.Action("Excluir", "Aluno")'
+        }
+    });
+</script>
