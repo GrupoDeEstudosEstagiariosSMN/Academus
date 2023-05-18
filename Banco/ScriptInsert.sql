@@ -1,12 +1,12 @@
 
 --palestrante
 INSERT INTO palestrante (nome, especialidade)
-                VALUES ('Thomaz Falbo', 'Inteligência Artificial'),
-                       ('Lucas Alves', 'Marketing Digital')
-                       ('Andreza Abrantes', 'Desenvolvimento Web'),
-                       ('Andressa Abrantes', 'Gestão de Projetos'),
-                       ('Gustavo Barbosa', 'Data Science'),
-                       ('Gabriel Gouveia','Macacos')
+                VALUES ('Thomaz Falbo', 'Inteligência Artificial',100.00),
+                       ('Lucas Alves', 'Marketing Digital',100.00)
+                       ('Andreza Abrantes', 'Desenvolvimento Web',100.00),
+                       ('Andressa Abrantes', 'Gestão de Projetos',100.00),
+                       ('Gustavo Barbosa', 'Data Science',200.00),
+                       ('Gabriel Gouveia','Macacos',200.00)
 
 -- evento
 INSERT INTO evento (id_palestrante, nome, descricao, localizacao, publico_alvo, valor_ingresso, custo)

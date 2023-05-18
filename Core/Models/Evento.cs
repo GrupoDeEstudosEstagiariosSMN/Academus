@@ -10,7 +10,15 @@ namespace Core.Models
         public string PublicoAlvo { get; set; }
         public decimal ValorIngresso { get; set; }
         public decimal Custo { get; set; }
-        //isso representa apenas o relacionamento de evento com palestrante, não é um atributo
         public Palestrante Palestrante { get; set; }
+
+        public bool isValid(Notification notification)
+        {
+            if (ValorIngresso < 100)
+            {
+                notification.Add("O valor do ingresso não corresponde ao valor mínimo do palestrante");
+            }
+            return !notification.Any();
+        }
     }
 }

@@ -31,8 +31,9 @@ var evento = (() => {
             $.post(configs.urls.cadastrar, model).done(function () {
                 $(".container-cadastra").hide();
                 buscarEvento();
-            }).fail(function () {
-                console.log("deu ruim");
+            }).fail(function (error) {
+                console.log(error);
+
             })
         }
     };

@@ -36,27 +36,28 @@ namespace Web.Controllers
         public async Task<IActionResult> Cadastrar()
         {
             var palestrantes = await _palestranteRepository.BuscarPalestrantes();
-            var cadastrarEventoViewModel = new CadastrarEventoViewModel
-            {
-                Palestrantes = palestrantes
-            };
-            return View("_cadastrar", cadastrarEventoViewModel);
+            ViewBag.Palestrantes = palestrantes;
+            return View("_cadastrar");
         }
 
         [HttpPost("cadastrar")]
-        public async Task<IActionResult> CadastrarEvento(CadastrarEventoViewModel cadastrarEventoViewModel)
+        public async Task<IActionResult> CadastrarEvento(Evento evento)
         {
             //a tabela de evento espera um evento e não um viewmodel de evento
-            await _eventoService.CadastrarEventoAsync(new Evento
+            var responseService = await _eventoService.CadastrarEventoAsync(new Evento
             {
-                IdPalestrante = cadastrarEventoViewModel.IdPalestrante,
-                Nome = cadastrarEventoViewModel.Nome,
-                Descricao = cadastrarEventoViewModel.Descricao,
-                Localizacao = cadastrarEventoViewModel.Localizacao,
-                PublicoAlvo = cadastrarEventoViewModel.PublicoAlvo,
-                ValorIngresso = cadastrarEventoViewModel.ValorIngresso,
-                Custo = cadastrarEventoViewModel.Custo,
+                IdPalestrante = evento.IdPalestrante,
+                Nome = evento.Nome,
+                Descricao = evento.Descricao,
+                Localizacao = evento.Localizacao,
+                PublicoAlvo = evento.PublicoAlvo,
+                ValorIngresso = evento.ValorIngresso,
+                Custo = evento.Custo,
             });
+
+            if (!string.IsNullOrEmpty(responseService))
+                return BadRequest(responseService);
+
             return RedirectToAction(nameof(Index));
         }
 

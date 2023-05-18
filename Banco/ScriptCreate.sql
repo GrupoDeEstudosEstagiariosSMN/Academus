@@ -15,7 +15,7 @@ CREATE TABLE evento (
 	descricao varchar(600) NOT NULL,
 	localizacao varchar(100) NOT NULL,
 	publico_alvo varchar(60) NOT NULL,
-	valor_ingresso DECIMAL(5,2) NOT NULL,
+	valor_ingresso DECIMAL(6,2) NOT NULL,
 	custo DECIMAL(7,2) NOT NULL,
 	CONSTRAINT pk_evento PRIMARY KEY (id),
 	CONSTRAINT fk_palestrante FOREIGN KEY(id_palestrante)
@@ -24,7 +24,8 @@ CREATE TABLE evento (
 -- tabela evento
 CREATE TABLE palestrante (
 	id int generated always as identity,
-	nome varchar(64) NOT NULL,
-	especialidade varchar(64) NOT NULL,
+	nomeCompleto varchar(120) NOT NULL,
+	especialidade varchar(100) NOT NULL,
+	valorMinimo DECIMAL(6,2) NOT NULL,
 	CONSTRAINT pk_palestrante PRIMARY KEY (id)
 )

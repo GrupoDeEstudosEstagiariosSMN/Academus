@@ -1,4 +1,4 @@
-@model CadastrarEventoViewModel;
+@model Evento;
 @{
     Layout = null;
 }
@@ -35,7 +35,7 @@
 
         <div class="mb-3">
             <select class="form-select" asp-for="IdPalestrante">
-                @foreach (var item in Model.Palestrantes)
+                @foreach (var item in ViewBag.Palestrantes)
                 {
                     <option value="@item.Id">@item.Nome</option>
                 }
