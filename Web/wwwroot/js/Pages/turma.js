@@ -16,8 +16,10 @@ var turma = (() => {
 
     var cadastrar = () => {
         var model = $('#cadastroTurma').serializeObject();
-        $.post(configs.urls.cadastrar, model).done((html) => {
-            location.href = '/turma';
+        $.post(configs.urls.cadastrar, model).done(() => {
+            site.toast.success('Turma cadastrada com sucesso!');
+        }).fail((msg) => {
+            site.toast.error(msg);
         });
     }
 

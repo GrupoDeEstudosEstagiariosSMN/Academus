@@ -6,9 +6,12 @@ namespace Web.Controllers
 
         private readonly ITurmaRepository _turmaRepository;
 
-        public TurmaController(ITurmaRepository turmaRepository)
+        private readonly Notification _notification;
+
+        public TurmaController(ITurmaRepository turmaRepository, Notification notification)
         {
             _turmaRepository = turmaRepository;
+            _notification = notification;
         }
 
 
@@ -20,6 +23,11 @@ namespace Web.Controllers
         [HttpPost("cadastrar")]
         public async Task<IActionResult> Cadastrar(Turma turma)
         {
+            if (string.IsNullOrEmpty(turma.Nome) )
+            {
+                _notification.Add("Turma não pode ser nula");
+                return BadRequest(string.Join(", ", _notification.Get()));
+            }
             await _turmaRepository.Cadastrar(turma);
             return RedirectToAction("Index", "turma");
         }
