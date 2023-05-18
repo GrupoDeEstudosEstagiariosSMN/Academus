@@ -17,14 +17,10 @@ var usuario = (() => {
     var cadastrar = () => {
         var model = $('#cadastroUsuario').serializeObject();
         $.post(configs.urls.cadastrar, model).done(() => {
-<<<<<<< HEAD
-            location.href = '/usuario';
-=======
             site.toast.success("cadastrado com sucesso.")
             setTimeout(function(){ location.reload(); }, 2000);
         }).fail((msg) => {
             site.toast.error(msg);
->>>>>>> aluno-novo
         });
     }
 
