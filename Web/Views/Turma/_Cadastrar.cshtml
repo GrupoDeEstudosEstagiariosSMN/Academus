@@ -1,24 +1,32 @@
 @model Turma;
 
+<head>
+  <link rel="stylesheet" href="~/css/Pages/turma.css">
+</head>
 
 <div class="cadastrar-container">
   <form id="cadastroTurma">
-      <h1>Cadastre a Turma</h1>
+    <h1>Cadastre a Turma</h1>
 
-      <label asp-for="Nome"><b>Nome</b></label>
-      <input type="text" placeholder="Noma da Turma Ex: 2A" asp-for="Nome" required>
-      
+    <div class="cadastrar-boxes">
+    <label asp-for="Nome"><b>Nome</b></label>
+    <input type="text" placeholder="Noma da Turma Ex: 2A" asp-for="Nome" required>
+    <br>
 
-      <label asp-for="QuantidadeAlunos"><b>Quantidade de Alunos</b></label>
-      <input type="text" placeholder="Quantidade de Alunos" asp-for="QuantidadeAlunos" required>
+    <label asp-for="QuantidadeAlunos"><b>Quantidade de Alunos</b></label>
+    <input type="text" placeholder="Quantidade de Alunos" asp-for="QuantidadeAlunos" required>
+    <br>
 
-      <label asp-for="Sala"><b>Sala</b></label>
-      <input type="text" placeholder="Número da Sala" asp-for="Sala" required>
+    <label asp-for="Sala"><b>Sala</b></label>
+    <input type="text" placeholder="Número da Sala" asp-for="Sala" required>
+    <br>
 
-      <label asp-for="Turno"><b>Turno</b></label>
-      <input type="text" placeholder="Turno da Turma" asp-for="Turno" required>
+    <label asp-for="Turno"><b>Turno</b></label>
+    <input type="text" placeholder="Turno da Turma" asp-for="Turno" required>
 
-      <button type="submit" class="registerbtn" onclick="turma.cadastrar()">Cadastrar</button>
+    <br>
+    <button type="submit" class="registerbtn" onclick="turma.cadastrar()">Cadastrar</button>
+    </div>
   </form>
 </div>
 
