@@ -21,8 +21,8 @@ namespace Core.Services
 
         public async Task<string> CadastrarEventoAsync(Evento evento)
         {
-            if (!evento.isValid(_notification))
-                return string.Join(",", _notification.Get());
+            // if (!evento.isValid(_notification))
+            //     return string.Join(",", _notification.Get());
 
             await _eventoRepository.CadastrarEvento(evento);
             return string.Empty;
