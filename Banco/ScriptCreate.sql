@@ -8,55 +8,7 @@ CREATE TABLE usuario (
 	CONSTRAINT uq_usuario_email UNIQUE (email)
 );
 
---tabela evento
-CREATE TABLE evento (
-	id INT GENERATED ALWAYS AS IDENTITY,
-	id_organizador INT NOT NULL,
-	nome VARCHAR(64) NOT NULL,
-	descricao VARCHAR(600) NOT NULL,
-	localizacao VARCHAR(100) NOT NULL,
-	publico_alvo VARCHAR(60) NOT NULL,
-	valor_ingresso DECIMAL(6,2) NOT NULL,
-	custo DECIMAL(7,2) NOT NULL,
-	CONSTRAINT pk_evento PRIMARY KEY (id),
-	CONSTRAINT fk_organizador FOREIGN KEY(id_organizador)
-			REFERENCES organizador(id)		 
-)			
-
-CREATE TABLE evento_palestra (
-	id_evento INT NOT NULL,
-	id_palestra INT NOT NULL,
-	CONSTRAINT fk_palestra FOREIGN KEY(id_palestra),
-			REFERENCES palestrante(id)
-	CONSTRAINT fk_evento FOREIGN KEY(id_evento),
-			REFERENCES evento(id)
-)
-
-CREATE TABLE palestra (
-	id INT GENERATED ALWAYS AS IDENTITY,
-	id_palestrante INT NOT NULL,
-	id_area_atuacao INT NOT NULL,
-	nome VARCHAR(100) NOT NULL,
-	horas VARCHAR(100) NOT NULL,
-	CONSTRAINT pk_palestra PRIMARY KEY (id),
-	CONSTRAINT fk_palestrante FOREIGN KEY(id_palestrante)
-			REFERENCES palestrante(id),
-	CONSTRAINT fk_area_atuacao FOREIGN KEY(id_area_atuacao)
-			REFERENCES area_atuacao(id) 		
-)
-
-CREATE TABLE palestrante (
-	id INT GENERATED ALWAYS AS IDENTITY,
-	nome VARCHAR(64) NOT NULL,
-	valor_hora DECIMAL(5,2) NOT NULL,
-	CONSTRAINT pk_palestrante PRIMARY KEY (id)
-)
-
-CREATE TABLE area_atuacao (
-	id INT GENERATED ALWAYS AS IDENTITY,
-	titulo VARCHAR(64) NOT NULL,
-	CONSTRAINT area_atuacao PRIMARY KEY (id)
-)
+		
 
 CREATE TABLE organizador (
 	id INT GENERATED ALWAYS AS IDENTITY,
@@ -64,4 +16,66 @@ CREATE TABLE organizador (
 	cpf INT NOT NULL,
 	telefone INT NOT NULL,
 	CONSTRAINT organizador PRIMARY KEY (id)
+)
+
+CREATE TABLE evento_organizador (
+	id_evento INT NOT NULL,
+	id_organizador INT NOT NULL,
+	CONSTRAINT fk_evento_organizador_evento FOREIGN KEY(id_evento)
+			REFERENCES evento(id),
+	CONSTRAINT fk_evento_organizador_organizador FOREIGN KEY(id_organizador)
+			REFERENCES organizador(id)
+)
+
+CREATE TABLE evento (
+	id INT GENERATED ALWAYS AS IDENTITY,
+	nome VARCHAR(64) NOT NULL,
+	descricao VARCHAR(600) NOT NULL,
+	localizacao VARCHAR(100) NOT NULL,
+	publico_alvo VARCHAR(60) NOT NULL,
+	valor_ingresso DECIMAL(6,2) NOT NULL,
+	custo DECIMAL(7,2) NOT NULL,
+	CONSTRAINT pk_evento PRIMARY KEY (id)	 
+)	
+
+CREATE TABLE evento_palestra(
+	id_evento INT GENERATED ALWAYS AS IDENTITY,
+	id_palestra INT GENERATED ALWAYS AS IDENTITY
+	CONSTRAINT fk_evento_palestra_evento FOREIGN KEY(id_evento)
+				REFERENCES evento(id),
+	CONSTRAINT fk_evento_palestra_palestra FOREIGN KEY(id_palestra)
+				REFERENCES palestra(id)
+	
+)
+
+CREATE TABLE palestra (
+	id INT GENERATED ALWAYS AS IDENTITY,
+	id_categoria INT NOT NULL,
+	nome VARCHAR(100) NOT NULL,
+	horas VARCHAR(100) NOT NULL,
+	CONSTRAINT pk_palestra PRIMARY KEY (id),
+	CONSTRAINT fk_palestra_evento_palestra FOREIGN KEY(id_categoria)
+			REFERENCES categoria(id)
+)
+
+CREATE TABLE categoria(
+	id INT GENERATED ALWAYS AS IDENTITY,
+	nome VARCHAR(100) NOT NULL,
+	CONSTRAINT pk_categoria PRIMARY KEY(id)
+)
+
+CREATE TABLE palestra_palestrante(
+	id_palestra INT GENERATED ALWAYS AS IDENTITY,
+	id_palestrante INT GENERATED ALWAYS AS IDENTITY,
+	CONSTRAINT fk_palestra_palestrante_palestra FOREIGN KEY(id_palestra)
+			REFERENCES palestra(id),
+	CONSTRAINT fk_palestra_palestrante_palestrante FOREIGN KEY(id_palestrante)
+			REFERENCES palestrante(id)		
+)
+
+CREATE TABLE palestrante (
+	id INT GENERATED ALWAYS AS IDENTITY,
+	nome VARCHAR(64) NOT NULL,
+	valor_hora DECIMAL(5,2) NOT NULL,
+	CONSTRAINT pk_palestrante PRIMARY KEY (id)
 )
