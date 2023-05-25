@@ -4,7 +4,7 @@ namespace Core.Models
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public int Cpf { get; set; }
-        public int Telefone { get; set; }
+        public long Cpnj { get; set; }
+        public long Telefone { get; set; }
     }
 }
