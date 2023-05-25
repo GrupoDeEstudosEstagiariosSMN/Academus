@@ -10,9 +10,9 @@ namespace Data.Configurations.Application
 
             builder.Property(x => x.Id).ValueGeneratedOnAdd().HasColumnName("id");
             builder.Property(x => x.Nome).ValueGeneratedOnAdd().HasColumnName("nome");
-            builder.Property(x => x.Especialidade).ValueGeneratedOnAdd().HasColumnName("especialidade");
+            // builder.Property(x => x.Especialidade).ValueGeneratedOnAdd().HasColumnName("especialidade");
 
-            builder.HasMany(x => x.Eventos).WithOne(x => x.Palestrante).HasForeignKey(x => x.IdPalestrante);
+            // builder.HasMany(x => x.Eventos).WithOne(x => x.Palestrante).HasForeignKey(x => x.IdPalestrante);
         }
     }
 }
