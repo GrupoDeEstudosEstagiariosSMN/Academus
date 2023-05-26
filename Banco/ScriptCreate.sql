@@ -11,7 +11,7 @@ CREATE TABLE usuario (
 CREATE TABLE organizador (
 	id INT GENERATED ALWAYS AS IDENTITY,
 	nome VARCHAR(60) NOT NULL,
-	cpf INT NOT NULL,
+	cnpj boolean,
 	telefone INT NOT NULL,
 	CONSTRAINT organizador PRIMARY KEY (id)
 )
@@ -19,6 +19,8 @@ CREATE TABLE organizador (
 CREATE TABLE evento_organizador (
 	id_evento INT NOT NULL,
 	id_organizador INT NOT NULL,
+	responsavel boolean,
+	CONSTRAINT pk_trilha_curso PRIMARY KEY(id_evento,id_organizador),
 	CONSTRAINT fk_evento_organizador_evento FOREIGN KEY(id_evento)
 			REFERENCES evento(id),
 	CONSTRAINT fk_evento_organizador_organizador FOREIGN KEY(id_organizador)
@@ -34,11 +36,22 @@ CREATE TABLE evento (
 	valor_ingresso DECIMAL(6,2) NOT NULL,
 	custo DECIMAL(7,2) NOT NULL,
 	CONSTRAINT pk_evento PRIMARY KEY (id)	 
+)
+
+CREATE TABLE endereco (
+	id INT GENERATED ALWAYS AS IDENTITY,
+	cep INT NOT NULL,
+	bairro VARCHAR(60) NOT NULL,
+	logradouro VARCHAR(60) NOT NULL,
+	numero INT NOT NULL,
+	complemento VARCHAR(300) NOT NULL,
+	CONSTRAINT pk_endereco PRIMARY KEY (id)	 
 )	
 
 CREATE TABLE evento_palestra(
 	id_evento INT,
 	id_palestra INT, 
+	CONSTRAINT pk_evento_palestra PRIMARY KEY(id_evento,id_palestra),
 	CONSTRAINT fk_evento_palestra_evento FOREIGN KEY(id_evento)
 				REFERENCES evento(id),
 	CONSTRAINT fk_evento_palestra_palestra FOREIGN KEY(id_palestra)
@@ -64,6 +77,7 @@ CREATE TABLE categoria(
 CREATE TABLE palestra_palestrante(
 	id_palestra INT ,
 	id_palestrante INT ,
+	CONSTRAINT pk_palestra_palestrante PRIMARY KEY(id_palestra,id_palestrante),
 	CONSTRAINT fk_palestra_palestrante_palestra FOREIGN KEY(id_palestra)
 			REFERENCES palestra(id),
 	CONSTRAINT fk_palestra_palestrante_palestrante FOREIGN KEY(id_palestrante)
