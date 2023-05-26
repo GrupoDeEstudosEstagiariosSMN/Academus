@@ -17,6 +17,7 @@ namespace Data.Configurations.Application
             builder.Property(x => x.Custo).HasColumnName("custo");
 
             builder.HasMany(x => x.EventosOrganizadores).WithOne(x => x.Evento).HasForeignKey(x => x.IdEvento);
+            builder.HasMany(x => x.EventosPalestras).WithOne(x => x.Evento).HasForeignKey(x => x.IdPalestra);
         }
     }
 }

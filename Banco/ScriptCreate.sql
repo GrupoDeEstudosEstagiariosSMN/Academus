@@ -11,7 +11,6 @@ CREATE TABLE usuario (
 CREATE TABLE organizador (
 	id INT GENERATED ALWAYS AS IDENTITY,
 	nome VARCHAR(60) NOT NULL,
-	cnpj boolean,
 	telefone INT NOT NULL,
 	CONSTRAINT organizador PRIMARY KEY (id)
 )
@@ -19,8 +18,7 @@ CREATE TABLE organizador (
 CREATE TABLE evento_organizador (
 	id_evento INT NOT NULL,
 	id_organizador INT NOT NULL,
-	responsavel boolean,
-	CONSTRAINT pk_trilha_curso PRIMARY KEY(id_evento,id_organizador),
+	CONSTRAINT pk_evento_organizador PRIMARY KEY(id_evento,id_organizador),
 	CONSTRAINT fk_evento_organizador_evento FOREIGN KEY(id_evento)
 			REFERENCES evento(id),
 	CONSTRAINT fk_evento_organizador_organizador FOREIGN KEY(id_organizador)
@@ -45,7 +43,9 @@ CREATE TABLE endereco (
 	logradouro VARCHAR(60) NOT NULL,
 	numero INT NOT NULL,
 	complemento VARCHAR(300) NOT NULL,
-	CONSTRAINT pk_endereco PRIMARY KEY (id)	 
+	CONSTRAINT pk_endereco PRIMARY KEY (id),
+	CONSTRAINT fk_endereco_evento FOREIGN KEY(id)
+			REFERENCES evento(id)
 )	
 
 CREATE TABLE evento_palestra(
@@ -62,7 +62,7 @@ CREATE TABLE palestra (
 	id INT GENERATED ALWAYS AS IDENTITY,
 	id_categoria INT NOT NULL,
 	nome VARCHAR(100) NOT NULL,
-	horas VARCHAR(100) NOT NULL,
+	minutos VARCHAR(100) NOT NULL,
 	CONSTRAINT pk_palestra PRIMARY KEY (id),
 	CONSTRAINT fk_palestra_evento_palestra FOREIGN KEY(id_categoria)
 			REFERENCES categoria(id)
