@@ -8,8 +8,6 @@ CREATE TABLE usuario (
 	CONSTRAINT uq_usuario_email UNIQUE (email)
 );
 
-		
-
 CREATE TABLE organizador (
 	id INT GENERATED ALWAYS AS IDENTITY,
 	nome VARCHAR(60) NOT NULL,
@@ -39,13 +37,12 @@ CREATE TABLE evento (
 )	
 
 CREATE TABLE evento_palestra(
-	id_evento INT GENERATED ALWAYS AS IDENTITY,
-	id_palestra INT GENERATED ALWAYS AS IDENTITY
+	id_evento INT,
+	id_palestra INT, 
 	CONSTRAINT fk_evento_palestra_evento FOREIGN KEY(id_evento)
 				REFERENCES evento(id),
 	CONSTRAINT fk_evento_palestra_palestra FOREIGN KEY(id_palestra)
 				REFERENCES palestra(id)
-	
 )
 
 CREATE TABLE palestra (
@@ -65,8 +62,8 @@ CREATE TABLE categoria(
 )
 
 CREATE TABLE palestra_palestrante(
-	id_palestra INT GENERATED ALWAYS AS IDENTITY,
-	id_palestrante INT GENERATED ALWAYS AS IDENTITY,
+	id_palestra INT ,
+	id_palestrante INT ,
 	CONSTRAINT fk_palestra_palestrante_palestra FOREIGN KEY(id_palestra)
 			REFERENCES palestra(id),
 	CONSTRAINT fk_palestra_palestrante_palestrante FOREIGN KEY(id_palestrante)

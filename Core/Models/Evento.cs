@@ -10,5 +10,6 @@ namespace Core.Models
         public decimal ValorIngresso { get; set; }
         public decimal Custo { get; set; }
 
+        public IEnumerable<EventoOrganizador> EventosOrganizadores { get; set; }
     }
 }
