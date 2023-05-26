@@ -11,8 +11,11 @@ namespace Data.Configurations.Application
             builder.Property(x => x.Id).ValueGeneratedOnAdd().HasColumnName("id");
             builder.Property(x => x.Nome).HasColumnName("nome");
             builder.Property(x => x.CargaHoraria).HasColumnName("carga_horaria");
-            builder.Property(x => x.Professor).HasColumnName("professor");
-            builder.Property(x => x.Trilha).HasColumnName("trilha");
+            builder.Property(x => x.Descricao).HasColumnName("descricao");
+            builder.Property(x => x.IdCategoriaCurso).HasColumnName("id_categoria_curso");
+
+            builder.HasOne(x => x.CategoriaCurso).WithMany(x => x.Cursos).HasForeignKey(x => x.IdCategoriaCurso);
+
         }
     }
 }
