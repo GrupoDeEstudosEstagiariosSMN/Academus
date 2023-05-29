@@ -14,6 +14,11 @@ namespace Data.Repositories
                 .Where(x => x.Id == id).FirstOrDefaultAsync();
         }
 
+        public Task<IEnumerable<Evento>> BuscarEventos(string nome)
+        {
+            throw new NotImplementedException();
+        }
+
         // public async Task<IEnumerable<Evento>> BuscarEventos(string nome)
         // {
         //     var query = _dbContext.Eventos
@@ -59,7 +64,6 @@ namespace Data.Repositories
             {
                 Nome = evento.Nome,
                 Descricao = evento.Descricao,
-                Localizacao = evento.Localizacao,
                 PublicoAlvo = evento.PublicoAlvo,
                 ValorIngresso = evento.ValorIngresso,
                 Custo = evento.Custo

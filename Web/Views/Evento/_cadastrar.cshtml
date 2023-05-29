@@ -3,15 +3,13 @@
     Layout = null;
 }
 <form id="eventoForm">
+    <h1>Cadastre um evento</h1>
     <div class="cadastra-form">
         <div class="mb-3">
             <input asp-for="Nome" placeholder="Nome" type="text" class="form-control">
         </div>
         <div class="mb-3">
             <input asp-for="Descricao" placeholder="Descrição" type="text" class="form-control">
-        </div>
-        <div class="mb-3">
-            <input asp-for="Localizacao" placeholder="Localização" type="text" class="form-control">
         </div>
         <div class="mb-3">
             <input asp-for="PublicoAlvo" placeholder="Público alvo" type="text" class="form-control">
@@ -34,24 +32,14 @@
         </div>
 
         <div class="mb-3">
-            <select class="form-select" asp-for="IdPalestrante">
-                @foreach (var item in ViewBag.Palestrantes)
-                {
-                    <option value="@item.Id">@item.Nome</option>
-                }
-            </select>
+            @* <select class="form-select" asp-for="IdPalestrante">
+            @foreach (var item in ViewBag.Palestrantes)
+            {
+            <option value="@item.Id">@item.Nome</option>
+            }
+            </select> *@
         </div>
         <button type=" button" class="btn btn-primary" onclick="evento.cadastrar()">Enviar</button>
     </div>
 </form>
 
-@* <div class="form-group">
-<label asp-for="ValorMeta" class="form-label mt-4">Valor Meta</label>
-<div class="form-group">
-<div class="input-group mb-3">
-<span class="input-group-text">R$</span>
-<input type="text" asp-for="ValorMeta" class="form-control" aria-label="Amount (to the nearest dollar)"
-placeholder="Qual valor você quer juntar no total?">
-<span class="input-group-text">.00</span>
-</div>
-</div> *@

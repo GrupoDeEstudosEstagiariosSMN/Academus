@@ -46,10 +46,9 @@ namespace Web.Controllers
             //a tabela de evento espera um evento e não um viewmodel de evento
             var responseService = await _eventoService.CadastrarEventoAsync(new Evento
             {
-                IdPalestrante = evento.IdPalestrante,
+                IdEndereco = evento.IdEndereco,
                 Nome = evento.Nome,
                 Descricao = evento.Descricao,
-                Localizacao = evento.Localizacao,
                 PublicoAlvo = evento.PublicoAlvo,
                 ValorIngresso = evento.ValorIngresso,
                 Custo = evento.Custo,
