@@ -11,6 +11,7 @@ namespace Data.Configurations.Application
             builder.Property(x => x.Nome).HasColumnName("nome");
             builder.Property(x => x.Minutos).HasColumnName("minutos");
 
+            builder.HasOne(x => x.Categoria).WithMany(x => x.Palestras).HasForeignKey(x => x.IdCategoria);
         }
     }
 }

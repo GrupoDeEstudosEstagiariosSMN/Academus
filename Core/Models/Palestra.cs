@@ -7,6 +7,8 @@ namespace Core.Models
         public string Nome { get; set; }
         public string Minutos { get; set; }
 
+        public Categoria Categoria { get; set; }
         public IEnumerable<EventoPalestra> EventosPalestras { get; set; }
+        public IEnumerable<PalestraPalestrante> PalestrasPalestrantes { get; set; }
     }
 }
