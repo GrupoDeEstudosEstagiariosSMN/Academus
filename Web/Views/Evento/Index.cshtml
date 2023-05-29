@@ -1,0 +1,26 @@
+@model BuscarUsuarioViewModel
+
+<form id="buscarUsuario">
+    <input type="text" placeholder="Buscar um evento" asp-for="Nome">
+
+    <button type="submit" class="btn btn-primary" onclick="usuario.buscarUsuario()">Buscar</button>
+    <a type="button" class="btn btn-primary" asp-controller="evento" asp-action="cadastrar">Cadastrar Um Evento</a>
+    <a type="button" class="btn btn-primary" asp-controller="palestra" asp-action="cadastrar">Cadastrar Uma Palestra</a>
+    <a type="button" class="btn btn-primary" asp-controller="palestrante" asp-action="cadastrar">Cadastrar Um
+        Palestrante</a>
+</form>
+
+<div id="mostrarUsuarios">
+</div>
+
+<script src="~/js/Pages/usuario.js" asp-append-version="true"></script>
+<script>
+    usuario.init({
+        urls: {
+            buscar: '@Url.Action("buscar", "usuario")',
+            cadastrar: '@Url.Action("cadastrar", "usuario")',
+            deletar: '@Url.Action("deletar", "usuario")',
+            editar: '@Url.Action("editar", "usuario")'
+        }
+    });
+</script>
