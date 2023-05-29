@@ -1,4 +1,3 @@
-
 namespace Core.Models
 {
     public class TrilhaCurso

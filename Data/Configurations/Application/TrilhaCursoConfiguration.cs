@@ -11,7 +11,8 @@ namespace Data.Configurations.Application
             builder.Property(x => x.IdCurso).HasColumnName("id_curso");
             builder.Property(x => x.IdTrilha).HasColumnName("id_trilha");
 
-
+            builder.HasOne(x => x.Curso).WithMany(x => x.TrilhaCursos).HasForeignKey(x => x.IdCurso);
+            builder.HasOne(x => x.Trilha).WithMany(x => x.TrilhaCursos).HasForeignKey(x => x.IdTrilha);
         }
     }
 }

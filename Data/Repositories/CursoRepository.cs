@@ -11,6 +11,8 @@ namespace Data.Repositories
         public async Task Cadastrar(Curso curso)
         {
             await _dbContext.Cursos.AddAsync(curso);
+            // await _dbContext.Instrutores.AddAsync(curso);
+            // await _dbContext.CursoInstrutores.AddAsync(curso); Exemplo de inserção em outras tabelas com um único método cadastrar
             await _dbContext.SaveChangesAsync();
         }
 

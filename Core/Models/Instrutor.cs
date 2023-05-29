@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace Core.Models
 {
     public class Instrutor
@@ -11,6 +6,6 @@ namespace Core.Models
         public string Nome { get; set; }
         public string Especialidade { get; set; }
         public string Area { get; set; }
-
+        public IEnumerable<CursoInstrutor> CursoInstrutores { get; set; }
     }
 }
